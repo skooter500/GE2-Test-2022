@@ -27,10 +27,11 @@ public class Nematode : MonoBehaviour
         }
 
         head.AddComponent<Boid>();
-        head.AddComponent<Constrain>().weight = 3;
+        Constrain c = head.AddComponent<Constrain>();
+        c.weight = 3;
+        c.radius = 20;
 
-        head.AddComponent<NoiseWander>().weight = 3;
-        head.AddComponent<Constrain>().radius = 20;
+        head.AddComponent<NoiseWander>().weight = 3;;
     }
 
 

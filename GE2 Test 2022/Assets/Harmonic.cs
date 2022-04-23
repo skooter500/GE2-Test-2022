@@ -13,7 +13,7 @@ public class Harmonic : SteeringBehaviour
 
     public enum Axis { Horizontal, Vertical};
 
-    public Axis axis = Axis.Horizontal;
+    public Axis axis = Axis.Vertical;
 
     Vector3 target;
     Vector3 worldTarget;
