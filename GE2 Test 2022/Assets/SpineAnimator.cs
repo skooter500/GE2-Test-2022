@@ -48,7 +48,7 @@ public class SpineAnimator : MonoBehaviour {
             current.position = prev.position + clampedOffset;
 
 
-            //current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, Time.deltaTime * damping);
+            current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, Time.deltaTime * damping);
         }
     }
 }
