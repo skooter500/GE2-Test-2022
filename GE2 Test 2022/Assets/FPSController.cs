@@ -15,7 +15,7 @@ public class FPSController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
         if (mainCamera == null)
         {
             mainCamera = Camera.main.gameObject;
@@ -72,7 +72,7 @@ public class FPSController : MonoBehaviour
     void Update()
     {
 
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
   
         float mouseX, mouseY;
         float speed = this.speed;

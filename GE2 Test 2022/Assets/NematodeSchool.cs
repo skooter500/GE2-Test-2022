@@ -9,11 +9,6 @@ public class NematodeSchool : MonoBehaviour
     [Range (1, 5000)]
     public int radius = 50;
     
-    [Range (1, 100)]
-    public int startLength = 5;
-    
-    [Range (1, 1000)]
-    public int endLength = 5;
     public int count = 10;
 
     // Start is called before the first frame update

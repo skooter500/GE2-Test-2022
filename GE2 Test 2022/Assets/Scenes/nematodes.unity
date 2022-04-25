@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12610914af1cc74489a954434ea9e038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3325337860246170541, guid: 66b3a88d09d40184cb0a3df2600755be, type: 3}
+  prefab: {fileID: 5372656057005222850}
   radius: 50
   startLength: 5
   endLength: 5
@@ -447,3 +447,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &5372656057005222716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372656057005222850}
+  m_LocalRotation: {x: 1.9043963e-17, y: 0.5088477, z: 0.00000006065937, w: 0.86085653}
+  m_LocalPosition: {x: -6.69, y: 0, z: -3.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 61.174, z: 0}
+--- !u!114 &5372656057005222717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372656057005222850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027b60df30e489941a1246b78858d5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 20
+  material: {fileID: 2100000, guid: 6e4fc4decf74e1c45909682693921aee, type: 2}
+--- !u!114 &5372656057005222719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372656057005222850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38949df51c91eba4e8703003a0946346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offsets: []
+  children: []
+  damping: 10
+--- !u!1 &5372656057005222850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5372656057005222716}
+  - component: {fileID: 5372656057005222717}
+  - component: {fileID: 5372656057005222719}
+  m_Layer: 7
+  m_Name: nematode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
