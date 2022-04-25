@@ -37,7 +37,7 @@ public class Nematode : MonoBehaviour
 
         head.AddComponent<Boid>();
         ObstacleAvoidance oo = head.AddComponent<ObstacleAvoidance>();
-        oo.mask = gameObject.layer;
+        oo.weight = 3;
         Constrain c = head.AddComponent<Constrain>();
         c.weight = 3;
         c.radius = 20;
