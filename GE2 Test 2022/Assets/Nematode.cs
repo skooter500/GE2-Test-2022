@@ -40,12 +40,15 @@ public class Nematode : MonoBehaviour
         oo.weight = 3;
         Constrain c = head.AddComponent<Constrain>();
         c.weight = 3;
-        c.radius = 20;
+        c.radius = 50;
 
-        head.AddComponent<NoiseWander>().weight = 6;
         NoiseWander nw2 = head.AddComponent<NoiseWander>();
         nw2.axis = NoiseWander.Axis.Vertical;
         nw2.weight = 6;
+
+        NoiseWander nw3 = head.AddComponent<NoiseWander>();
+        nw3.axis = NoiseWander.Axis.Horizontal;
+        nw3.weight = 6;
     }
 
 

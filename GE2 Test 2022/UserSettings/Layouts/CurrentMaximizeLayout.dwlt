@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 253
     height: 315
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -224,9 +224,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1c7a0000
-      m_LastClickedID: 31260
-      m_ExpandedIDs: 1402eaff6402eaff4403eaff784aecff4cceecff246cedff2876edffaa83edff4ebaedffee33eeff34eaeefffa0aeffff60eefffce3eefff2cc9feff84c9feff60cafeff7424ffffcc24ffffa825ffffc47cffff207dfffffc7dffff30f7ffff86f7ffff88f7ffff96f8fffff6f8ffffd0f9ffff2afbffff0c550000
+      m_SelectedIDs: 4c7c0000
+      m_LastClickedID: 31820
+      m_ExpandedIDs: 3e33e9ff8e33e9ff6e34e9ff3a93e9ff8a93e9ff6a94e9ff1402eaff6402eaff4403eaff784aecff4cceecff246cedff2876edffaa83edff4ebaedffee33eeff34eaeefffa0aeffff60eefffce3eefff2cc9feff84c9feff60cafeff7424ffffcc24ffffa825ffffc47cffff207dfffffc7dffff30f7ffff86f7ffff88f7ffff96f8fffff6f8ffffd0f9ffff2afbffff0c550000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -796,8 +796,8 @@ MonoBehaviour:
     y: 0
     width: 259
     height: 588
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
