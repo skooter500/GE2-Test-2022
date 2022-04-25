@@ -7,12 +7,12 @@ using UnityEngine;
 public class ObstacleAvoidance : SteeringBehaviour
 {
     public float scale = 4.0f;
-    public float forwardFeelerDepth = 5;
-    public float sideFeelerDepth = 3;
+    public float forwardFeelerDepth = 7;
+    public float sideFeelerDepth = 7;
     FeelerInfo[] feelers = new FeelerInfo[5];
 
-    public float frontFeelerUpdatesPerSecond = 10.0f;
-    public float sideFeelerUpdatesPerSecond = 5.0f;
+    public float frontFeelerUpdatesPerSecond = 20.0f;
+    public float sideFeelerUpdatesPerSecond = 20.0f;
 
     public float feelerRadius = 2.0f;
 
@@ -26,7 +26,7 @@ public class ObstacleAvoidance : SteeringBehaviour
 
     public ForceType forceType = ForceType.normal;
 
-    public LayerMask mask = -1;
+    public LayerMask mask;
 
     public void OnEnable()
     {

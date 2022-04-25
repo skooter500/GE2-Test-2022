@@ -10,6 +10,7 @@ public class Nematode : MonoBehaviour
 
     void Awake()
     {
+        length = Random.Range(5,100);
         GameObject head = null;
         for(int i = 0 ; i < length ; i ++)
         {            
@@ -29,16 +30,22 @@ public class Nematode : MonoBehaviour
             seg.transform.rotation = this.transform.rotation;
             seg.transform.parent = this.transform;
             seg.GetComponent<Renderer>().material = material;
+            seg.layer = this.gameObject.layer;
             seg.GetComponent<Renderer>().material.color = Color.HSVToRGB(i / (float) length, 1.0f, 1.0f); 
+            //seg.GetComponent<Renderer>().material.color = Color.HSVToRGB(col, 1.0f, 1.0f); 
         }
 
         head.AddComponent<Boid>();
-        head.AddComponent<ObstacleAvoidance>().mask = gameObject.layer;
+        ObstacleAvoidance oo = head.AddComponent<ObstacleAvoidance>();
+        oo.mask = gameObject.layer;
         Constrain c = head.AddComponent<Constrain>();
         c.weight = 3;
         c.radius = 20;
 
         head.AddComponent<NoiseWander>().weight = 6;
+        NoiseWander nw2 = head.AddComponent<NoiseWander>();
+        nw2.axis = NoiseWander.Axis.Vertical;
+        nw2.weight = 6;
     }
 
 

@@ -18,6 +18,8 @@ public class Harmonic : SteeringBehaviour
     Vector3 target;
     Vector3 worldTarget;
 
+    
+
     // Start is called before the first frame update
     private void OnDrawGizmos()
     {
