@@ -23,8 +23,9 @@ public class Nematode : MonoBehaviour
             Vector3 pos = new Vector3(0, 0, -i);
             pos = transform.TransformPoint(pos);
             seg.transform.position = pos;
-            float s = 1 + (i * 3 / (float) length);
-            seg.transform.localScale = new Vector3(s, 1, 1);
+            float range = 0.2f; 
+            float s = Mathf.Sin(Utilities.Map(i, 0, length - 1, range, Mathf.PI - range)) * 2;
+            seg.transform.localScale = new Vector3(s, s, 1);
             seg.transform.rotation = this.transform.rotation;
             seg.transform.parent = this.transform;
             seg.GetComponent<Renderer>().material = material;
@@ -32,11 +33,12 @@ public class Nematode : MonoBehaviour
         }
 
         head.AddComponent<Boid>();
+        head.AddComponent<ObstacleAvoidance>().mask = gameObject.layer;
         Constrain c = head.AddComponent<Constrain>();
         c.weight = 3;
         c.radius = 20;
 
-        head.AddComponent<NoiseWander>().weight = 6;;
+        head.AddComponent<NoiseWander>().weight = 6;
     }
 
 

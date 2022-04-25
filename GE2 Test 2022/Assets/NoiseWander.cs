@@ -18,6 +18,11 @@ public class NoiseWander : SteeringBehaviour
     Vector3 target;
     Vector3 worldTarget;
 
+    public void Start()
+    {
+        theta = Random.Range(0.0f, 10.0f);
+    }
+
     private void OnDrawGizmos()
     {
         if (Application.isPlaying && isActiveAndEnabled)
