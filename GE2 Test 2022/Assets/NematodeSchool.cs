@@ -29,7 +29,7 @@ public class NematodeSchool : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            radius = (radius == 5) ? 75 : 5;
+            radius = (radius == 5) ? 60 : 5;
         }
         if (Input.GetKey(KeyCode.Joystick1Button2))
         {
@@ -47,6 +47,10 @@ public class NematodeSchool : MonoBehaviour
             {
                 Time.timeScale = 5;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+        {
+            Time.timeScale = 1.0f;
         }
     }
 }

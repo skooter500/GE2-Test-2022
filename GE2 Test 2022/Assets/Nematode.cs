@@ -18,7 +18,7 @@ public class Nematode : MonoBehaviour
 
         school = FindObjectOfType<NematodeSchool>();
         
-        length = Random.Range(7,80);
+        length = Random.Range(10,80);
         GameObject head = null;
         float r = Random.Range(2.0f,2.50f);
         for(int i = 0 ; i < length ; i ++)
@@ -45,7 +45,7 @@ public class Nematode : MonoBehaviour
         }
 
         Boid b = head.AddComponent<Boid>();
-        b.maxSpeed = Random.Range(3.0f, 3.5f);
+        b.maxSpeed = 3;
         ObstacleAvoidance oo = head.AddComponent<ObstacleAvoidance>();
         oo.weight = 3;
         Constrain c = head.AddComponent<Constrain>();
