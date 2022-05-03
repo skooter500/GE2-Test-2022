@@ -61,8 +61,8 @@ Shader "Custom/Boid" {
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			float d = length(IN.worldPos);
-			float hue = abs((d + _Time * 100.0f) / _PositionScale) % 1.0;
+			float d = length(IN.worldPos) + _Time;
+			float hue = abs((d - _Time * 50.0f) / _PositionScale) % 1.0;
 			fixed3 c = hsv_to_rgb(float3(hue, 1, 1));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables

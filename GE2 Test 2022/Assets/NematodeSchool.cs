@@ -27,9 +27,26 @@ public class NematodeSchool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            radius = (radius == 10) ? 75 : 10;
+            radius = (radius == 5) ? 75 : 5;
+        }
+        if (Input.GetKey(KeyCode.Joystick1Button2))
+        {
+            Time.timeScale -= (Time.deltaTime);
+            if (Time.timeScale < 0 )
+            {
+                Time.timeScale = 0;
+            }
+
+        }
+        if (Input.GetKey(KeyCode.Joystick1Button1))
+        {
+            Time.timeScale += (Time.deltaTime);
+            if (Time.timeScale > 5)
+            {
+                Time.timeScale = 5;
+            }
         }
     }
 }
