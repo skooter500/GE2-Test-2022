@@ -8,9 +8,11 @@ public class Nematode : MonoBehaviour
 
     public Material material;
 
+
     void Awake()
     {
-        length = Random.Range(5,100);
+        
+        //length = Random.Range(5,100);
         GameObject head = null;
         for(int i = 0 ; i < length ; i ++)
         {            
@@ -31,11 +33,12 @@ public class Nematode : MonoBehaviour
             seg.transform.parent = this.transform;
             seg.GetComponent<Renderer>().material = material;
             seg.layer = this.gameObject.layer;
-            seg.GetComponent<Renderer>().material.color = Color.HSVToRGB(i / (float) length, 1.0f, 1.0f); 
+            //seg.GetComponent<Renderer>().material.color = Color.HSVToRGB(i / (float) length, 1.0f, 1.0f); 
             //seg.GetComponent<Renderer>().material.color = Color.HSVToRGB(col, 1.0f, 1.0f); 
         }
 
-        head.AddComponent<Boid>();
+        Boid b = head.AddComponent<Boid>();
+        //b.maxSpeed = Random.Range(3.0f, 7.0f);
         ObstacleAvoidance oo = head.AddComponent<ObstacleAvoidance>();
         oo.weight = 3;
         Constrain c = head.AddComponent<Constrain>();
@@ -50,17 +53,18 @@ public class Nematode : MonoBehaviour
         nw3.axis = NoiseWander.Axis.Horizontal;
         nw3.weight = 6;
     }
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

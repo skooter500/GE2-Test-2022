@@ -429,7 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5372656057005222850}
   radius: 50
-  count: 5
+  count: 30
 --- !u!4 &1024887883
 Transform:
   m_ObjectHideFlags: 0
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027b60df30e489941a1246b78858d5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 20
-  material: {fileID: 2100000, guid: 6e4fc4decf74e1c45909682693921aee, type: 2}
+  length: 10
+  material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
 --- !u!114 &5372656057005222719
 MonoBehaviour:
   m_ObjectHideFlags: 0
