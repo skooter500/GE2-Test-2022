@@ -27,6 +27,9 @@ public class NematodeSchool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            radius = (radius == 10) ? 75 : 10;
+        }
     }
 }

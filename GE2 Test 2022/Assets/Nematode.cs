@@ -8,12 +8,19 @@ public class Nematode : MonoBehaviour
 
     public Material material;
 
+    NematodeSchool school;
+
+    Constrain constrain;
+
 
     void Awake()
     {
+
+        school = FindObjectOfType<NematodeSchool>();
         
-        //length = Random.Range(5,100);
+        length = Random.Range(7,120);
         GameObject head = null;
+        float r = Random.Range(2.0f,2.50f);
         for(int i = 0 ; i < length ; i ++)
         {            
             GameObject seg = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -27,7 +34,7 @@ public class Nematode : MonoBehaviour
             pos = transform.TransformPoint(pos);
             seg.transform.position = pos;
             float range = 0.2f; 
-            float s = Mathf.Sin(Utilities.Map(i, 0, length - 1, range, Mathf.PI - range)) * 2;
+            float s = Mathf.Sin(Utilities.Map(i, 0, length - 1, range, Mathf.PI - range)) * r;
             seg.transform.localScale = new Vector3(s, s, 1);
             seg.transform.rotation = this.transform.rotation;
             seg.transform.parent = this.transform;
@@ -38,12 +45,13 @@ public class Nematode : MonoBehaviour
         }
 
         Boid b = head.AddComponent<Boid>();
-        //b.maxSpeed = Random.Range(3.0f, 7.0f);
+        b.maxSpeed = Random.Range(3.0f, 4.0f);
         ObstacleAvoidance oo = head.AddComponent<ObstacleAvoidance>();
         oo.weight = 3;
         Constrain c = head.AddComponent<Constrain>();
-        c.weight = 3;
-        c.radius = 50;
+        c.weight = 0.1f;
+        c.radius = 20;
+        constrain = c;
 
         NoiseWander nw2 = head.AddComponent<NoiseWander>();
         nw2.axis = NoiseWander.Axis.Vertical;
@@ -65,6 +73,6 @@ public class Nematode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        constrain.radius = school.radius;
     }
 }
