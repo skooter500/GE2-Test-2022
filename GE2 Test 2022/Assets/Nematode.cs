@@ -18,7 +18,7 @@ public class Nematode : MonoBehaviour
 
         school = FindObjectOfType<NematodeSchool>();
         
-        length = Random.Range(10,80);
+        length = Random.Range(10,70);
         GameObject head = null;
         float r = Random.Range(2.0f,2.50f);
         for(int i = 0 ; i < length ; i ++)

@@ -7,8 +7,8 @@ using UnityEngine;
 public class ObstacleAvoidance : SteeringBehaviour
 {
     public float scale = 4.0f;
-    public float forwardFeelerDepth = 8;
-    public float sideFeelerDepth = 8;
+    public float forwardFeelerDepth = 6;
+    public float sideFeelerDepth = 6;
     FeelerInfo[] feelers = new FeelerInfo[5];
 
     public float frontFeelerUpdatesPerSecond = 15.0f;

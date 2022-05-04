@@ -11,6 +11,8 @@ public class NematodeSchool : MonoBehaviour
     
     public int count = 10;
 
+    public float speed = 2.0f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,21 +33,21 @@ public class NematodeSchool : MonoBehaviour
         {
             radius = (radius == 5) ? 60 : 5;
         }
-        if (Input.GetKey(KeyCode.Joystick1Button2))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            Time.timeScale -= (Time.deltaTime);
+            Time.timeScale -= Time.deltaTime * speed;
             if (Time.timeScale < 0 )
             {
                 Time.timeScale = 0;
             }
 
-        }
-        if (Input.GetKey(KeyCode.Joystick1Button1))
+        } 
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            Time.timeScale += (Time.deltaTime);
-            if (Time.timeScale > 5)
+            Time.timeScale += (Time.deltaTime * speed);
+            if (Time.timeScale > 3f)
             {
-                Time.timeScale = 5;
+                Time.timeScale = 3f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
