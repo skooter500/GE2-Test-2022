@@ -491,10 +491,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
-  baseHeight: 0
+  baseHeight: 20
   target: {x: 0, y: 0, z: 0}
   height: 0
-  corner: 55
+  corner: 0
 --- !u!1 &1024887881
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
-  radius: 55
+  radius: 45
   count: 100
   speed: 10
   feelerDepth: 8

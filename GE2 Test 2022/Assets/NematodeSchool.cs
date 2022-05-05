@@ -17,6 +17,15 @@ public class NematodeSchool : MonoBehaviour
 
     public Material material;
     // Start is called before the first frame update
+
+    string ps = "_PositionScale";
+        
+
+    void Start()
+    {
+        posScale = material.GetFloat(ps);
+        targetPosScale = posScale;
+    }
     void Awake()
     {
         for(int i = 0 ; i < count ; i ++)
@@ -58,27 +67,38 @@ public class NematodeSchool : MonoBehaviour
             Time.timeScale = 1.0f;
         }
 
-        string ps = "_PositionScale";
         float scaleFactor = 10;
+        float minRange = 10;
+        float maxRange = 200;
+
+        float posScale = material.GetFloat(ps); 
+    
+        posScale = Mathf.Lerp(posScale, targetPosScale, Time.deltaTime);
+        material.SetFloat(ps, posScale);
+
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
-            float posScale = material.GetFloat(ps); 
-            if (posScale > 10)
+            if (posScale > minRange)
             {
-                posScale -= Time.deltaTime * 1;
+                targetPosScale -= Time.deltaTime * scaleFactor;
+                if (targetPosScale > minRange)
+                {
+                    targetPosScale = minRange;
+                }
             }
-            material.SetFloat(ps, posScale);
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
-            float posScale = material.GetFloat(ps); 
-            if (posScale < 200)
+            targetPosScale += Time.deltaTime * scaleFactor;
+                
+            if (targetPosScale > maxRange)
             {
-                posScale += Time.deltaTime;
+                targetPosScale = maxRange;
             }
-            material.SetFloat(ps, posScale);
         }
-
+    	        
     }
+    float posScale = 0;
+    float targetPosScale;
 }
