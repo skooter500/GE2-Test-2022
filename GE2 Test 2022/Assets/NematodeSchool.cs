@@ -76,24 +76,27 @@ public class NematodeSchool : MonoBehaviour
         }
 
         float scaleFactor = 10;
-        
-        float posScale = material.GetFloat(ps); 
-
+        float startPosScale = 0;
+                
         if (t < transitionTime)
         {
-            posScale 
+            float posScale = material.GetFloat(ps); 
+
             t += Time.deltaTime;
             if (t > transitionTime)
             {
                 t = transitionTime;
             }
-            posScale = Utilities.ma
+            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, targetPosScale, Utilities.EASE.LINEAR, Utilities.EASE.EASE_IN_OUT);
+            material.SetFloat(ps, posScale);
         }
     
-        material.SetFloat(ps, posScale);
+
+        
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
+            startPosScale = targetPosScale;
             if (targetPosScale > minRange)
             {
                 t = 0;            
@@ -107,6 +110,7 @@ public class NematodeSchool : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {            
+            startPosScale = targetPosScale;
             targetPosScale += scaleFactor;
                 
             if (targetPosScale > maxRange)
