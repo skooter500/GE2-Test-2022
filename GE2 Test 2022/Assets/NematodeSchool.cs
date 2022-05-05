@@ -15,6 +15,7 @@ public class NematodeSchool : MonoBehaviour
 
     public float feelerDepth = 8;
 
+    public Material material;
     // Start is called before the first frame update
     void Awake()
     {
@@ -56,5 +57,26 @@ public class NematodeSchool : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        {
+            float posScale = material.GetFloat("PositionScale"); 
+            if (posScale > 10)
+            {
+                posScale -= Time.deltaTime;
+            }
+            material.SetFloat("PositionScale", posScale);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+        {
+            float posScale = material.GetFloat("PositionScale"); 
+            if (posScale < 200)
+            {
+                posScale += Time.deltaTime;
+            }
+            material.SetFloat("PositionScale", posScale);
+        }
+
     }
 }
