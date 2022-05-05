@@ -15,6 +15,10 @@ public class NematodeSchool : MonoBehaviour
 
     public float feelerDepth = 8;
 
+    public float minRange = 38;
+    public float maxRange = 200;
+
+
     public Material material;
     // Start is called before the first frame update
 
@@ -25,6 +29,7 @@ public class NematodeSchool : MonoBehaviour
     {
         posScale = material.GetFloat(ps);
         targetPosScale = posScale;
+        t = 1;
     }
     void Awake()
     {
@@ -37,6 +42,9 @@ public class NematodeSchool : MonoBehaviour
             nematode.transform.parent = this.transform;
         }
     }
+
+    public float transitionTime = 1.0f;
+    float t;
 
     // Update is called once per frame
     void Update()
@@ -68,20 +76,26 @@ public class NematodeSchool : MonoBehaviour
         }
 
         float scaleFactor = 10;
-        float minRange = 10;
-        float maxRange = 200;
-
+        
         float posScale = material.GetFloat(ps); 
+
+        if (t < transitionTime)
+        {
+            posScale += Mathf.Sin(
+                Utilities.Map(t, 0, transitionTime, 0, Mathf.PI * 2.0f))
+                ;
+            t += Time.deltaTime;
+        }
     
-        posScale = Mathf.Lerp(posScale, targetPosScale, Time.deltaTime);
         material.SetFloat(ps, posScale);
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
-            if (posScale > minRange)
+            if (targetPosScale > minRange)
             {
-                targetPosScale -= Time.deltaTime * scaleFactor;
-                if (targetPosScale > minRange)
+                t = 0;            
+                targetPosScale -= scaleFactor;
+                if (targetPosScale < minRange)
                 {
                     targetPosScale = minRange;
                 }
@@ -89,16 +103,17 @@ public class NematodeSchool : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        {
-            targetPosScale += Time.deltaTime * scaleFactor;
+        {            
+            targetPosScale += scaleFactor;
                 
             if (targetPosScale > maxRange)
             {
+                t = 0;
                 targetPosScale = maxRange;
             }
         }
     	        
     }
     float posScale = 0;
-    float targetPosScale;
+    public float targetPosScale;
 }
