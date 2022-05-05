@@ -28,7 +28,7 @@ public class NematodeSchool : MonoBehaviour
     void Start()
     {
         posScale = material.GetFloat(ps);
-        targetPosScale = posScale;
+        endPosScale = posScale;
         t = 1;
     }
     void Awake()
@@ -45,6 +45,9 @@ public class NematodeSchool : MonoBehaviour
 
     public float transitionTime = 1.0f;
     float t;
+
+    public float scaleFactor = 10;
+        
 
     // Update is called once per frame
     void Update()
@@ -75,52 +78,52 @@ public class NematodeSchool : MonoBehaviour
             Time.timeScale = 1.0f;
         }
 
-        float scaleFactor = 10;
         float startPosScale = 0;
                 
         if (t < transitionTime)
-        {
-            float posScale = material.GetFloat(ps); 
-
+        {            
             t += Time.deltaTime;
             if (t > transitionTime)
             {
                 t = transitionTime;
             }
-            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, targetPosScale, Utilities.EASE.LINEAR, Utilities.EASE.EASE_IN_OUT);
+            posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
+            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.LINEAR, Utilities.EASE.EASE_IN_OUT);
             material.SetFloat(ps, posScale);
-        }
-    
-
-        
+        }        
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
-            startPosScale = targetPosScale;
-            if (targetPosScale > minRange)
+            
+            if (endPosScale > minRange)
             {
+                startPosScale = material.GetFloat("_PositionScale");
                 t = 0;            
-                targetPosScale -= scaleFactor;
-                if (targetPosScale < minRange)
+                endPosScale = startPosScale - scaleFactor;
+                if (endPosScale < minRange)
                 {
-                    targetPosScale = minRange;
+                    endPosScale = minRange;
                 }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {            
-            startPosScale = targetPosScale;
-            targetPosScale += scaleFactor;
                 
-            if (targetPosScale > maxRange)
+            if (endPosScale < maxRange)
             {
+                startPosScale = material.GetFloat("_PositionScale");
+            endPosScale = startPosScale + scaleFactor;
+            
                 t = 0;
-                targetPosScale = maxRange;
+                if (endPosScale > maxRange)
+                {
+                endPosScale = maxRange;
+                }
             }
         }
     	        
     }
     float posScale = 0;
-    public float targetPosScale;
+    public float endPosScale;
 }
