@@ -6,9 +6,9 @@ public class NematodeSchool : MonoBehaviour
 {
     public GameObject prefab;
 
-    [Range (1, 5000)]
+    [Range(1, 5000)]
     public int radius = 50;
-    
+
     public int count = 10;
 
     public float speed = 2.0f;
@@ -23,17 +23,18 @@ public class NematodeSchool : MonoBehaviour
     // Start is called before the first frame update
 
     string ps = "_PositionScale";
-        
+
 
     void Start()
     {
-        posScale = material.GetFloat(ps);
+        material.SetFloat(ps, minRange);
+        posScale = minRange;
         endPosScale = posScale;
         t = 1;
     }
     void Awake()
     {
-        for(int i = 0 ; i < count ; i ++)
+        for (int i = 0; i < count; i++)
         {
             Vector3 pos = Random.insideUnitSphere * 5;
             pos = transform.TransformPoint(pos);
@@ -43,11 +44,13 @@ public class NematodeSchool : MonoBehaviour
         }
     }
 
-    public float transitionTime = 1.0f;
+    public float transitionTime = 2.0f;
     float t;
 
-    public float scaleFactor = 10;
-        
+    public float maxJump = 10;
+
+    float startPosScale;
+
 
     // Update is called once per frame
     void Update()
@@ -59,12 +62,12 @@ public class NematodeSchool : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             Time.timeScale -= Time.deltaTime * speed;
-            if (Time.timeScale < 0 )
+            if (Time.timeScale < 0)
             {
                 Time.timeScale = 0;
             }
 
-        } 
+        }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             Time.timeScale += (Time.deltaTime * speed);
@@ -78,28 +81,35 @@ public class NematodeSchool : MonoBehaviour
             Time.timeScale = 1.0f;
         }
 
-        float startPosScale = 0;
-                
         if (t < transitionTime)
-        {            
+        {
             t += Time.deltaTime;
             if (t > transitionTime)
             {
                 t = transitionTime;
             }
-            posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
-            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.LINEAR, Utilities.EASE.EASE_IN_OUT);
+            //posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
+            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.QUADRATIC, Utilities.EASE.EASE_IN_OUT);
             material.SetFloat(ps, posScale);
-        }        
+        }
+
+        float p = 0.02f;
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
-            
+
+
             if (endPosScale > minRange)
             {
-                startPosScale = material.GetFloat("_PositionScale");
-                t = 0;            
-                endPosScale = startPosScale - scaleFactor;
+                float posScale = material.GetFloat("_PositionScale");
+                startPosScale = posScale;
+                float jump = maxJump * ((posScale - minRange) * p);
+                if (jump < 1)
+                {
+                jump = 1;
+                }
+                t = 0;
+                endPosScale = endPosScale - jump;
                 if (endPosScale < minRange)
                 {
                     endPosScale = minRange;
@@ -108,21 +118,27 @@ public class NematodeSchool : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        {            
-                
+        {
+
             if (endPosScale < maxRange)
             {
-                startPosScale = material.GetFloat("_PositionScale");
-            endPosScale = startPosScale + scaleFactor;
-            
+                float posScale = material.GetFloat("_PositionScale");
+                startPosScale = posScale;
+                float jump = maxJump * ((posScale - minRange) * p);
+                if (jump < 1)
+                {
+                jump = 1;
+                }
                 t = 0;
+                endPosScale = endPosScale + jump;
+                
                 if (endPosScale > maxRange)
                 {
-                endPosScale = maxRange;
+                    endPosScale = maxRange;
                 }
             }
         }
-    	        
+
     }
     float posScale = 0;
     public float endPosScale;
