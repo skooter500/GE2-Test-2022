@@ -103,17 +103,17 @@ public class Boid : MonoBehaviour
     {
         force = Calculate();
         acceleration = force / mass;
-        velocity += acceleration * Time.deltaTime;
+        velocity += acceleration * Time.deltaTime * NematodeSchool.timeScale;
 
         velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
         
         if (velocity.magnitude > 0)
         {
-            Vector3 tempUp = Vector3.Lerp(transform.up, Vector3.up + (acceleration * banking), Time.deltaTime * 3.0f);
+            Vector3 tempUp = Vector3.Lerp(transform.up, Vector3.up + (acceleration * banking), Time.deltaTime * 3.0f * NematodeSchool.timeScale);
             transform.LookAt(transform.position + velocity, tempUp);
 
-            transform.position += velocity * Time.deltaTime;
-            velocity *= (1.0f - (damping * Time.deltaTime));
+            transform.position += velocity * Time.deltaTime * NematodeSchool.timeScale;
+            velocity *= (1.0f - (damping * Time.deltaTime * NematodeSchool.timeScale));
         }
     }
 }

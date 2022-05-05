@@ -5,7 +5,8 @@ using UnityEngine;
 public class NematodeSchool : MonoBehaviour
 {
 
-    public float timeScale = 1.0f;  
+
+    public static float timeScale = 1.0f;  
     public GameObject prefab;
 
     [Range(1, 5000)]
@@ -63,19 +64,20 @@ public class NematodeSchool : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            Time.timeScale -= Time.deltaTime * speed;
-            if (Time.timeScale < 0)
+            timeScale -= Time.deltaTime * speed;
+            if (timeScale < 0)
             {
-                Time.timeScale = 0;
+                timeScale = 0;
             }
 
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            Time.timeScale += (Time.deltaTime * speed);
-            if (Time.timeScale > 10f)
+            
+            timeScale += (Time.deltaTime * speed);
+            if (timeScale > 10f)
             {
-                Time.timeScale = 10f;
+                timeScale = 10f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))

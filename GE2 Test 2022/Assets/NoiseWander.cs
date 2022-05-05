@@ -61,7 +61,7 @@ public class NoiseWander : SteeringBehaviour
         Vector3 localtarget = target + Vector3.forward * distance;
         worldTarget = transform.position + Quaternion.Euler(rot) * localtarget;
 
-        theta += frequency * Time.deltaTime * Mathf.PI * 2.0f;
+        theta += frequency * Time.deltaTime * Mathf.PI * 2.0f * NematodeSchool.timeScale;
 
         return boid.SeekForce(worldTarget);
     }
