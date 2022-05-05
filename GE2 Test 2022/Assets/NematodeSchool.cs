@@ -81,10 +81,13 @@ public class NematodeSchool : MonoBehaviour
 
         if (t < transitionTime)
         {
-            posScale += Mathf.Sin(
-                Utilities.Map(t, 0, transitionTime, 0, Mathf.PI * 2.0f))
-                ;
+            posScale 
             t += Time.deltaTime;
+            if (t > transitionTime)
+            {
+                t = transitionTime;
+            }
+            posScale = Utilities.ma
         }
     
         material.SetFloat(ps, posScale);
