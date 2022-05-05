@@ -325,7 +325,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 822832b4f95ae69488dfe163aa01c357, type: 3}
   m_Name: 
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35d5ff24accd40541bf41b01a9c55077, type: 3}
   m_Name: 
@@ -494,7 +494,7 @@ MonoBehaviour:
   baseHeight: 0
   target: {x: 0, y: 0, z: 0}
   height: 0
-  corner: 55
+  corner: 50
 --- !u!1 &1024887881
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,10 +525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
-  radius: 55
-  count: 100
+  radius: 10
+  count: 4
   speed: 10
-  feelerDepth: 8
 --- !u!4 &1024887883
 Transform:
   m_ObjectHideFlags: 0

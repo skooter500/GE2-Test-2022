@@ -13,14 +13,16 @@ public class NematodeSchool : MonoBehaviour
 
     public float speed = 2.0f;
 
+    public float feelerDepth = 8;
+
     // Start is called before the first frame update
     void Awake()
     {
         for(int i = 0 ; i < count ; i ++)
         {
-            Vector3 pos = Random.insideUnitSphere * radius;
+            Vector3 pos = Random.insideUnitSphere * 5;
             pos = transform.TransformPoint(pos);
-            Quaternion q = Quaternion.AngleAxis(Random.Range(0.0f, 360), Vector3.up);
+            Quaternion q = Quaternion.Euler(Random.Range(0.0f, 360), Random.Range(0.0f, 360), Random.Range(0.0f, 360));
             GameObject nematode = GameObject.Instantiate<GameObject>(prefab, pos, q);
             nematode.transform.parent = this.transform;
         }
@@ -45,9 +47,9 @@ public class NematodeSchool : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             Time.timeScale += (Time.deltaTime * speed);
-            if (Time.timeScale > 3f)
+            if (Time.timeScale > 10f)
             {
-                Time.timeScale = 3f;
+                Time.timeScale = 10f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))

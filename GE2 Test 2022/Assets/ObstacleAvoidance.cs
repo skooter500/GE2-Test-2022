@@ -7,8 +7,8 @@ using UnityEngine;
 public class ObstacleAvoidance : SteeringBehaviour
 {
     public float scale = 4.0f;
-    public float forwardFeelerDepth = 6;
-    public float sideFeelerDepth = 6;
+    public float forwardFeelerDepth = 2;
+    public float sideFeelerDepth = 2;
     FeelerInfo[] feelers = new FeelerInfo[5];
 
     public float frontFeelerUpdatesPerSecond = 15.0f;
@@ -27,6 +27,19 @@ public class ObstacleAvoidance : SteeringBehaviour
     public ForceType forceType = ForceType.normal;
 
     public LayerMask mask = -1;
+
+    NematodeSchool school;
+
+    public void Start()
+    {
+        school = FindObjectOfType<NematodeSchool>();
+    }
+
+    public void Update()
+    {
+        sideFeelerDepth = school.feelerDepth;
+        forwardFeelerDepth = school.feelerDepth;
+    }
 
     public void OnEnable()
     {
