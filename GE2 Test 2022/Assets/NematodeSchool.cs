@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NematodeSchool : MonoBehaviour
 {
+
+    public float timeScale = 1.0f;  
     public GameObject prefab;
 
     [Range(1, 5000)]
@@ -97,18 +99,12 @@ public class NematodeSchool : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
-
-
             if (endPosScale > minRange)
             {
                 float posScale = material.GetFloat("_PositionScale");
                 startPosScale = posScale;
-                float jump = maxJump * ((posScale - minRange) * p);
-                if (jump < 1)
-                {
-                jump = 1;
-                }
-                t = 0;
+                float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
+t = 0;
                 endPosScale = endPosScale - jump;
                 if (endPosScale < minRange)
                 {
@@ -124,11 +120,7 @@ public class NematodeSchool : MonoBehaviour
             {
                 float posScale = material.GetFloat("_PositionScale");
                 startPosScale = posScale;
-                float jump = maxJump * ((posScale - minRange) * p);
-                if (jump < 1)
-                {
-                jump = 1;
-                }
+                float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
                 t = 0;
                 endPosScale = endPosScale + jump;
                 

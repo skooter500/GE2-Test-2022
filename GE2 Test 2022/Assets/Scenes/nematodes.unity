@@ -532,8 +532,9 @@ MonoBehaviour:
   minRange: 38
   maxRange: 200
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
-  transitionTime: 1
-  targetPosScale: 5
+  transitionTime: 0.5
+  maxJump: 10
+  endPosScale: 0
 --- !u!4 &1024887883
 Transform:
   m_ObjectHideFlags: 0
