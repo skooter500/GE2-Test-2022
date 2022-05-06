@@ -29,10 +29,11 @@ public class CornerCamera : MonoBehaviour
    public float transitionTime = 1.0f;
    Vector3 original;
 
-   public float angle = 0;
+   public float toAngle = 0;
 
 public float t = 0;
 int dir = 0;
+Vector3 up;
 
     // Update is called once per frame
     void Update()
@@ -45,13 +46,14 @@ int dir = 0;
             {
                 t = transitionTime;
             }
-            float a = Utilities.Map2(t, 0, transitionTime, oldAngle, angle, Utilities.EASE.QUADRATIC, Utilities.EASE.EASE_IN_OUT);
+
+            float a = Utilities.Map2(t, 0, transitionTime, fromAngle, toAngle, Utilities.EASE.QUADRATIC, Utilities.EASE.EASE_IN_OUT);
             Quaternion q = (dir == 0) ? Quaternion.AngleAxis(a, transform.up) : Quaternion.AngleAxis(a, transform.right);
-        cam.transform.position = q * original;    
-        cam.transform.LookAt(Vector3.zero);    
+        cam.transform.position = q * original; 
+
+        cam.transform.LookAt(Vector3.zero, up);
         }
         Vector3 toC = - transform.position;
-        Vector3 axis = Quaternion.AngleAxis(10, transform.right) * transform.up;
         
 
         //noiseCube.noiseScale = Mathf.Lerp(noiseCube.noiseScale, targetNoiseScale, Time.deltaTime * 0.1f);
@@ -63,32 +65,39 @@ float d = 20;
         {
             t = 0;
             dir = 0;
-            oldAngle = angle;
-            angle += d;
+            fromAngle = toAngle;
+            toAngle += d;
         }
         if (Input.GetAxis("Horizontal") < -threshold && t == transitionTime)
         {
             t = 0;
             dir = 0;
-            oldAngle = angle;
-            angle -= d;
+            fromAngle = toAngle;
+            toAngle -= d;
         }
 
         if (Input.GetAxis("Vertical") > threshold && t == transitionTime)
         {
             t = 0;
             dir = 1;
-            oldAngle = angle;
-            angle += d;
+            up = Vector3.up;
+            fromAngle = angleVert;
+            angleVert += d;
+            toAngle = angleVert;
         }
         if (Input.GetAxis("Vertical") < -threshold && t == transitionTime)
         {
             t = 0;
             dir = 1;
-            oldAngle = angle;
-            angle -= d;
+            up = Vector3.up;
+            fromAngle = angleHorizontal;
+            angleHorizontal += d;
+            toAngle = angleHorizontal;
         }
         
     }
-    float oldAngle = 0;
+    float fromAngle = 0;
+    float angleVert = 0;
+    float angleHorizontal = 0;
+    
 }
