@@ -27,7 +27,6 @@ public class CornerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (elapsed < transitionTime)
         {
             elapsed += Time.deltaTime;
@@ -45,21 +44,29 @@ public class CornerCamera : MonoBehaviour
         
         float threshold = 0.5f;
 
+        
         if (Input.GetAxis("Horizontal") > threshold && elapsed == transitionTime)
         {
+            Debug.Log("right");
             from = transform.rotation;
-            to = transform.rotation * Quaternion.AngleAxis(-angle, transform.up);
-            elapsed = 0;
-        }
-        if (Input.GetAxis("Horizontal") < -threshold && elapsed == transitionTime)
-        {
-            from = transform.rotation;
-            to = transform.rotation * Quaternion.AngleAxis(angle, transform.up);
+            to = Quaternion.AngleAxis(-angle, transform.up) * transform.rotation;
+            Debug.Log(transform.up);
+            Debug.Log(to.eulerAngles);
             elapsed = 0;
         }
 
+        if (Input.GetAxis("Horizontal") < - threshold && elapsed == transitionTime)
+        {
+            Debug.Log("left");
+            from = transform.rotation;
+            to = Quaternion.AngleAxis(angle, transform.up) * transform.rotation;
+            elapsed = 0;
+        }
+        
         if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime)
         {
+            Debug.Log("Up");
+            
             from = transform.rotation;
             to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
             elapsed = 0;
@@ -67,9 +74,13 @@ public class CornerCamera : MonoBehaviour
 
         if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime)
         {
+            Debug.Log("down");
+            
             from = transform.rotation;
             to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
             elapsed = 0;
         }        
+
+        //this.transform.rotation = to;
     }
 }

@@ -571,7 +571,7 @@ MonoBehaviour:
   distance: 20
   from: {x: 0, y: 0, z: 0, w: 0}
   to: {x: 0, y: 0, z: 0, w: 0}
-  angle: 45
+  angle: 90
   transitionTime: 1
   elapsed: 0
 --- !u!114 &1049925075
