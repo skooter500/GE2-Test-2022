@@ -33,6 +33,7 @@ public class SpineAnimator : MonoBehaviour {
     void Update () {
 
         
+        float dt = Time.deltaTime * NematodeSchool.timeScale;
         for (int i = 1; i < children.Count; i++)
         {
             Transform prev = children[i - 1];
@@ -40,7 +41,7 @@ public class SpineAnimator : MonoBehaviour {
             Vector3 wantedPosition = prev.position + ((prev.rotation * offsets[i-1]));
             Quaternion wantedRotation = Quaternion.LookRotation(prev.transform.position - current.position, prev.transform.up);
 
-            Vector3 lerpedPosition = Vector3.Lerp(current.position, wantedPosition, Time.deltaTime * damping);
+            Vector3 lerpedPosition = Vector3.Lerp(current.position, wantedPosition, dt * damping);
             
             // Dont move the segments too far apart
             Vector3 clampedOffset = lerpedPosition - prev.position;
@@ -48,7 +49,7 @@ public class SpineAnimator : MonoBehaviour {
             current.position = prev.position + clampedOffset;
 
 
-            current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, Time.deltaTime * damping);
+            current.rotation = Quaternion.Slerp(current.rotation, wantedRotation, dt * damping);
         }
     }
 }

@@ -5,6 +5,7 @@ Shader "Custom/Boid" {
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_PositionScale("PositionScale", Range(0, 100000)) = 250
+		_TimeMultiplier("T", Range(0, 10)) = 1
 		_Fade("Fade", Range(0, 1)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 	}
@@ -32,6 +33,7 @@ Shader "Custom/Boid" {
 		half _Offset;
 
 		float _PositionScale;
+		float _TimeMultiplier;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -39,6 +41,15 @@ Shader "Custom/Boid" {
 		UNITY_INSTANCING_BUFFER_START(Props)
 			// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
+
+		float map(float value, float r1, float r2, float m1, float m2)
+    {
+        float dist = value - r1;
+        float range1 = r2 - r1;
+        float range2 = m2 - m1;
+        return m1 + ((dist / range1) * range2);
+    }
+
 
 		float3 hsv_to_rgb(float3 HSV)
 		{
@@ -61,8 +72,9 @@ Shader "Custom/Boid" {
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-			float d = length(IN.worldPos) + _Time;
-			float hue = abs((d - _Time * 80.0f) / _PositionScale) % 1.0;
+			float d = length(IN.worldPos);
+			float f = _Time * _TimeMultiplier * 10;;
+			float hue = abs((d - f) / _PositionScale) % 1.0;
 			fixed3 c = hsv_to_rgb(float3(hue, 1, 1));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables

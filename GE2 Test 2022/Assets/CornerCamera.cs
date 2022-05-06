@@ -19,25 +19,76 @@ public class CornerCamera : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        height = baseHeight;
-        target = new Vector3(corner, height, corner);
+        target = new Vector3(0, 0, - corner);
+        transform.position = target;
         baseLength = target.magnitude;
+        t = transitionTime;
+        original = target;
    }
+
+   public float transitionTime = 1.0f;
+   Vector3 original;
+
+   public float angle = 0;
+
+public float t = 0;
+int dir = 0;
 
     // Update is called once per frame
     void Update()
     {
-        target.y = height;
-        cam.transform.position = Vector3.Lerp(cam.transform.position, target, Time.deltaTime);
-        cam.transform.rotation = Quaternion.LookRotation(- cam.transform.position);
+        
+        if (t < transitionTime)
+        {
+            t += Time.deltaTime;
+            if (t > transitionTime)
+            {
+                t = transitionTime;
+            }
+            float a = Utilities.Map2(t, 0, transitionTime, oldAngle, angle, Utilities.EASE.QUADRATIC, Utilities.EASE.EASE_IN_OUT);
+            Quaternion q = (dir == 0) ? Quaternion.AngleAxis(a, transform.up) : Quaternion.AngleAxis(a, transform.right);
+        cam.transform.position = q * original;    
+        cam.transform.LookAt(Vector3.zero);    
+        }
+        Vector3 toC = - transform.position;
+        Vector3 axis = Quaternion.AngleAxis(10, transform.right) * transform.up;
+        
 
         //noiseCube.noiseScale = Mathf.Lerp(noiseCube.noiseScale, targetNoiseScale, Time.deltaTime * 0.1f);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+float threshold = 0.5f;
+float d = 20;
+        if (Input.GetAxis("Horizontal") > threshold && t == transitionTime)
         {
-            target = Quaternion.AngleAxis(90, Vector3.up) * target;
-            //height = baseHeight + (Random.Range(-.5f, .5f) * baseHeight);
-            //targetNoiseScale = Random.Range(0.02f, 0.07f);
+            t = 0;
+            dir = 0;
+            oldAngle = angle;
+            angle += d;
         }
+        if (Input.GetAxis("Horizontal") < -threshold && t == transitionTime)
+        {
+            t = 0;
+            dir = 0;
+            oldAngle = angle;
+            angle -= d;
+        }
+
+        if (Input.GetAxis("Vertical") > threshold && t == transitionTime)
+        {
+            t = 0;
+            dir = 1;
+            oldAngle = angle;
+            angle += d;
+        }
+        if (Input.GetAxis("Vertical") < -threshold && t == transitionTime)
+        {
+            t = 0;
+            dir = 1;
+            oldAngle = angle;
+            angle -= d;
+        }
+        
     }
+    float oldAngle = 0;
 }

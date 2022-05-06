@@ -6,6 +6,7 @@ public class NematodeSchool : MonoBehaviour
 {
 
 
+public float ts = 1.0f;
     public static float timeScale = 1.0f;  
     public GameObject prefab;
 
@@ -31,9 +32,11 @@ public class NematodeSchool : MonoBehaviour
     void Start()
     {
         material.SetFloat(ps, minRange);
+        material.SetFloat("_TimeMultiplier", timeScale);
         posScale = minRange;
         endPosScale = posScale;
-        t = 1;
+        transitionTime = t;
+        timeScale = ts;
     }
     void Awake()
     {
@@ -58,6 +61,8 @@ public class NematodeSchool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ts = timeScale;
+        material.SetFloat("_TimeMultiplier", timeScale);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             radius = (radius == 5) ? 60 : 5;
@@ -93,7 +98,7 @@ public class NematodeSchool : MonoBehaviour
                 t = transitionTime;
             }
             //posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
-            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.QUADRATIC, Utilities.EASE.EASE_IN_OUT);
+            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);
             material.SetFloat(ps, posScale);
         }
 
