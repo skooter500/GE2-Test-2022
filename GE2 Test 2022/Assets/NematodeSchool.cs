@@ -33,9 +33,8 @@ public float ts = 1.0f;
 
     void Start()
     {
-        material.SetFloat(ps, minRange);
         material.SetFloat("_TimeMultiplier", timeScale);
-        posScale = minRange;
+        posScale = material.GetFloat(ps);
         endPosScale = posScale;
         timeScale = ts;
         t = transitionTime;
@@ -105,7 +104,7 @@ public float ts = 1.0f;
 
         float p = 0.02f;
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
             if (endPosScale > minRange)
             {
@@ -115,10 +114,14 @@ public float ts = 1.0f;
                 float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
 t = 0;
                 endPosScale = endPosScale - jump;
+                if (endPosScale < minRange)
+                {
+                    endPosScale = minRange;
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
+        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
 
             if (endPosScale < maxRange)

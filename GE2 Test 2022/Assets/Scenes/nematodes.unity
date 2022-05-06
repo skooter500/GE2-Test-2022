@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -55}
+  m_LocalPosition: {x: 0, y: 0, z: -80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -500,10 +500,10 @@ MonoBehaviour:
   count: 100
   speed: 10
   feelerDepth: 8
-  minRange: 5
+  minRange: 20
   maxRange: 200
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
-  transitionTime: 1
+  transitionTime: 2
   maxJump: 10
 --- !u!4 &1024887883
 Transform:
@@ -573,7 +573,7 @@ MonoBehaviour:
   toDistance: 0
   to: {x: 0, y: 0, z: 0, w: 0}
   angle: 90
-  transitionTime: 3
+  transitionTime: 2
   elapsed: 0
   step: 40
   min: 0
