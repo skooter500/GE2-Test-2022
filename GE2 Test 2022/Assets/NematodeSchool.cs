@@ -5,9 +5,11 @@ using UnityEngine;
 public class NematodeSchool : MonoBehaviour
 {
 
+    public float sv1, ev1;
 float posScale = 0;
-    public float endPosScale;
+    public float endValue;
 public float ts = 1.0f;
+public float shaderTs = 1.0f;
     public static float timeScale = 1.0f;  
     public GameObject prefab;
 
@@ -33,9 +35,9 @@ public float ts = 1.0f;
 
     void Start()
     {
-        material.SetFloat("_TimeMultiplier", timeScale);
+        material.SetFloat("_TimeMultiplier", shaderTs);
         posScale = material.GetFloat(ps);
-        endPosScale = posScale;
+        endValue = posScale;
         timeScale = ts;
         t = transitionTime;
     }
@@ -55,16 +57,21 @@ public float ts = 1.0f;
 
     public float maxJump = 10;
 
-    float startPosScale;
+    float startValue;
 
     int[] rads = {1, 30, 60};
     int iR = 0;
 
+    bool lastClicked = false;
+
+    public enum Transition {scale, speed};
+
+    public Transition transition = Transition.scale; 
+
     // Update is called once per frame
     void Update()
     {
-        timeScale = ts;
-        material.SetFloat("_TimeMultiplier", timeScale);        
+        timeScale = ts;        
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
             radius = rads[iR];
@@ -83,9 +90,9 @@ public float ts = 1.0f;
         {
             
             ts += (Time.deltaTime * speed);
-            if (ts > 3f)
+            if (ts > 4f)
             {
-                ts = 3f;
+                ts = 4f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
@@ -100,44 +107,93 @@ public float ts = 1.0f;
             {
                 t = transitionTime;
             }
-            posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
-            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);
-            material.SetFloat(ps, posScale);
+            switch(transition)
+            {
+                case Transition.scale:
+                {
+                    float y = Utilities.Map2(t, 0, transitionTime, startValue, endValue, Utilities.EASE.QUARTIC, Utilities.EASE.EASE_IN_OUT);
+                    break;
+                }
+                case Transition.speed:
+                {
+                    float y = Utilities.Map2(t, 0, transitionTime, sv1, ev1, Utilities.EASE.QUARTIC, Utilities.EASE.EASE_IN_OUT);
+                    shaderTs = y;
+                    material.SetFloat("_TimeMultiplier", y);
+                    break;
+                }
+            }
+            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);            
         }
 
         float p = 0.02f;
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
-            if (endPosScale > minRange)
+            if (endValue > minRange)
             {
-                
+                transition = Transition.scale;
                 float posScale = material.GetFloat("_PositionScale");
-                startPosScale = posScale;
+                startValue = posScale;
                 float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
 t = 0;
-                endPosScale = endPosScale - jump;
-                if (endPosScale < minRange)
+                endValue = endValue - jump;
+                if (endValue < minRange)
                 {
-                    endPosScale = minRange;
+                    endValue = minRange;
                 }
             }
+        }
+
+        float threshold = 0.5f;
+
+        Debug.Log(Input.GetAxis("DPadX"));
+
+        float x = Input.GetAxis("DPadX");
+
+        if (Mathf.Abs(x) < threshold)
+        {
+            lastClicked = false;
+        }
+
+        if (x < (-1.0f + threshold) && ! lastClicked)
+        {
+            sv1 = shaderTs;
+            ev1 = shaderTs - (Time.deltaTime * speed);
+            if (ev1 < 0)
+            {
+                ev1 = 0;
+            }
+            lastClicked = true;
+            transition = Transition.speed;
+            t = 0.0f;
+        }
+
+        if (x > (1.0f - threshold) && ! lastClicked)
+        {
+            sv1 = shaderTs;
+            ev1 = shaderTs + (Time.deltaTime * speed);
+            if (ev1 > 10)
+            {
+                ev1 = 10;
+            }
+            transition = Transition.speed;
+            t = 0.0f;
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
         {
 
-            if (endPosScale < maxRange)
+            if (endValue < maxRange)
             {                
                 float posScale = material.GetFloat("_PositionScale");
-                startPosScale = posScale;
+                startValue = posScale;
                 float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
                 t = 0;
-                endPosScale = endPosScale + jump;
+                endValue = endValue + jump;
                 
-                if (endPosScale > maxRange)
+                if (endValue > maxRange)
                 {
-                    endPosScale = maxRange;
+                    endValue = maxRange;
                 }
             }
         }
