@@ -568,12 +568,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194228}
   target: {x: 0, y: 0, z: 0}
-  distance: 20
   from: {x: 0, y: 0, z: 0, w: 0}
+  fromDistance: 0
+  toDistance: 0
   to: {x: 0, y: 0, z: 0, w: 0}
   angle: 90
-  transitionTime: 1
+  transitionTime: 3
   elapsed: 0
+  step: 40
+  min: 0
+  max: 150
+  transition: 0
+  ease: 4
 --- !u!114 &1049925075
 MonoBehaviour:
   m_ObjectHideFlags: 0

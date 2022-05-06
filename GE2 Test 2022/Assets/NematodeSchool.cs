@@ -80,14 +80,14 @@ public float ts = 1.0f;
         {
             
             timeScale += (Time.deltaTime * speed);
-            if (timeScale > 10f)
+            if (timeScale > 6f)
             {
-                timeScale = 10f;
+                timeScale = 6f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
         {
-            Time.timeScale = 1.0f;
+            timeScale = 1.0f;
         }
 
         if (t < transitionTime)
@@ -97,8 +97,8 @@ public float ts = 1.0f;
             {
                 t = transitionTime;
             }
-            //posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
-            posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);
+            posScale = Utilities.Map(t, 0, transitionTime, startPosScale, endPosScale);
+            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);
             material.SetFloat(ps, posScale);
         }
 

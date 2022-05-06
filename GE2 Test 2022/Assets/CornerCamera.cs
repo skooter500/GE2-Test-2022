@@ -7,11 +7,9 @@ public class CornerCamera : MonoBehaviour
     public Transform cam;
     public Vector3 target;
 
-    public float distance  = 20;
-
     public Quaternion from;
-    private float fromDistance;
-    private float toDistance;
+    public float fromDistance;
+    public float toDistance;
     public Quaternion to;
 
     public float angle = 45.0f;
@@ -20,16 +18,21 @@ public class CornerCamera : MonoBehaviour
 
     public float elapsed; 
 
-    public float moveDistance;
-    public float maxDistance;
+    public float step = 25;
+    public float min = 0;
+    public float max = 200;
     public enum Transition {rotation, movement};
 
     public Transition transition = Transition.rotation; 
+
+    public Utilities.EASE ease;
         
     // Start is called before the first frame update
     void Start()
     {
         elapsed = transitionTime;
+        fromDistance = -cam.transform.localPosition.z;
+        toDistance = fromDistance;
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class CornerCamera : MonoBehaviour
             }
 
             float t = Utilities.Map2(elapsed, 0, transitionTime, 0, 1
-                    , Utilities.EASE.QUADRATIC, 
+                    , ease, 
                     Utilities.EASE.EASE_IN_OUT
                     );
             switch (transition)
@@ -53,7 +56,7 @@ public class CornerCamera : MonoBehaviour
                 {
                     float z = Mathf.Lerp(fromDistance, toDistance, t);
                     Vector3 camLocal = cam.transform.localPosition;
-                    camLocal.z = z;
+                    camLocal.z = -z;
                     cam.transform.localPosition = camLocal;
                     break;
                 }
@@ -79,7 +82,7 @@ public class CornerCamera : MonoBehaviour
             transition = Transition.rotation;
         }
 
-        if (Input.GetAxis("RHorizontal") < - threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RHorizontal") < - threshold && elapsed >= transitionTime)
         {
             Debug.Log("left");
             from = transform.rotation;
@@ -88,7 +91,7 @@ public class CornerCamera : MonoBehaviour
             transition = Transition.rotation;
         }
         
-        if (Input.GetAxis("RVertical") > threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RVertical") > threshold && elapsed >= transitionTime)
         {
             Debug.Log("Up");
             
@@ -98,7 +101,7 @@ public class CornerCamera : MonoBehaviour
             transition = Transition.rotation;
         }
 
-        if (Input.GetAxis("RVertical") < -threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RVertical") < -threshold && elapsed >= transitionTime)
         {
             Debug.Log("down");
             
@@ -108,7 +111,7 @@ public class CornerCamera : MonoBehaviour
             transition = Transition.rotation;
         }        
 
-        if (Input.GetAxis("Horizontal") > threshold && elapsed == transitionTime)
+        if (Input.GetAxis("Horizontal") > threshold && elapsed >= transitionTime)
         {
             Debug.Log("Rright");
             from = transform.rotation;
@@ -129,28 +132,26 @@ public class CornerCamera : MonoBehaviour
         }
         
         
-        if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime)
+        if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime && toDistance > min)
         {
             Debug.Log("Up");
             
-            fromDistance = cam.transform.localPosition.z;
-            toDistance = fromDistance + moveDistance;
+            fromDistance = -cam.transform.localPosition.z;
+            toDistance = Mathf.Clamp(fromDistance - step, min, max);            
             elapsed = 0;
             transition = Transition.movement;
         }
 
-        if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime)
+        if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime && toDistance < max)
         {
             Debug.Log("down");
             
-            fromDistance = cam.transform.localPosition.z;
-            toDistance = fromDistance - moveDistance;
+            fromDistance = -cam.transform.localPosition.z;
+            toDistance = Mathf.Clamp(fromDistance + step, min, max);
             elapsed = 0;
             transition = Transition.movement;
         }
-        */
-        
-
+    
         //this.transform.rotation = to;
     }
 }
