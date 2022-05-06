@@ -73,7 +73,7 @@ Shader "Custom/Boid" {
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			float d = length(IN.worldPos);
-			float f = _Time * _TimeMultiplier * 10;;
+			float f = _Time * 10;
 			float hue = abs((d / _PositionScale) - f) % 1.0;
 			fixed3 c = hsv_to_rgb(float3(hue, 1, 1));
 			o.Albedo = c.rgb;
