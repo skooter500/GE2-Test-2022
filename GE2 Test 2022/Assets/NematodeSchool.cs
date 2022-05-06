@@ -5,7 +5,8 @@ using UnityEngine;
 public class NematodeSchool : MonoBehaviour
 {
 
-
+float posScale = 0;
+    public float endPosScale;
 public float ts = 1.0f;
     public static float timeScale = 1.0f;  
     public GameObject prefab;
@@ -22,6 +23,7 @@ public float ts = 1.0f;
     public float minRange = 38;
     public float maxRange = 200;
 
+    float t = 0;
 
     public Material material;
     // Start is called before the first frame update
@@ -35,8 +37,8 @@ public float ts = 1.0f;
         material.SetFloat("_TimeMultiplier", timeScale);
         posScale = minRange;
         endPosScale = posScale;
-        transitionTime = t;
         timeScale = ts;
+        t = transitionTime;
     }
     void Awake()
     {
@@ -51,7 +53,6 @@ public float ts = 1.0f;
     }
 
     public float transitionTime = 2.0f;
-    float t;
 
     public float maxJump = 10;
 
@@ -61,28 +62,28 @@ public float ts = 1.0f;
     // Update is called once per frame
     void Update()
     {
-        ts = timeScale;
-        material.SetFloat("_TimeMultiplier", timeScale);
+        timeScale = ts;
+        material.SetFloat("_TimeMultiplier", timeScale);        
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            radius = (radius == 5) ? 60 : 5;
+            radius = (radius == 5) ? 30 : 5;
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            timeScale -= Time.deltaTime * speed;
-            if (timeScale < 0)
+            ts -= Time.deltaTime * speed;
+            if (ts < 0)
             {
-                timeScale = 0;
+                ts = 0;
             }
 
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
             
-            timeScale += (Time.deltaTime * speed);
-            if (timeScale > 6f)
+            ts += (Time.deltaTime * speed);
+            if (ts > 6f)
             {
-                timeScale = 6f;
+                ts = 6f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))
@@ -108,15 +109,12 @@ public float ts = 1.0f;
         {
             if (endPosScale > minRange)
             {
+                
                 float posScale = material.GetFloat("_PositionScale");
                 startPosScale = posScale;
                 float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
 t = 0;
                 endPosScale = endPosScale - jump;
-                if (endPosScale < minRange)
-                {
-                    endPosScale = minRange;
-                }
             }
         }
 
@@ -124,7 +122,7 @@ t = 0;
         {
 
             if (endPosScale < maxRange)
-            {
+            {                
                 float posScale = material.GetFloat("_PositionScale");
                 startPosScale = posScale;
                 float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
@@ -137,8 +135,5 @@ t = 0;
                 }
             }
         }
-
-    }
-    float posScale = 0;
-    public float endPosScale;
+    }    
 }

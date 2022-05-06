@@ -493,18 +493,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12610914af1cc74489a954434ea9e038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  endPosScale: 0
   ts: 2
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
-  radius: 45
+  radius: 20
   count: 100
   speed: 10
   feelerDepth: 8
-  minRange: 38
+  minRange: 5
   maxRange: 200
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
   transitionTime: 1
   maxJump: 10
-  endPosScale: 0
 --- !u!4 &1024887883
 Transform:
   m_ObjectHideFlags: 0
