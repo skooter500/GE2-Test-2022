@@ -45,7 +45,7 @@ public class CornerCamera : MonoBehaviour
         float threshold = 0.5f;
 
         
-        if (Input.GetAxis("Horizontal") > threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RHorizontal") > threshold && elapsed == transitionTime)
         {
             Debug.Log("right");
             from = transform.rotation;
@@ -55,7 +55,7 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
         }
 
-        if (Input.GetAxis("Horizontal") < - threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RHorizontal") < - threshold && elapsed == transitionTime)
         {
             Debug.Log("left");
             from = transform.rotation;
@@ -63,7 +63,7 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
         }
         
-        if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RVertical") > threshold && elapsed == transitionTime)
         {
             Debug.Log("Up");
             
@@ -72,7 +72,7 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
         }
 
-        if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime)
+        if (Input.GetAxis("RVertical") < -threshold && elapsed == transitionTime)
         {
             Debug.Log("down");
             
@@ -80,6 +80,45 @@ public class CornerCamera : MonoBehaviour
             to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
             elapsed = 0;
         }        
+
+        if (Input.GetAxis("Horizontal") > threshold && elapsed == transitionTime)
+        {
+            Debug.Log("Rright");
+            from = transform.rotation;
+            to = Quaternion.AngleAxis(-angle, transform.forward) * transform.rotation;
+            Debug.Log(transform.up);
+            Debug.Log(to.eulerAngles);
+            elapsed = 0;
+        }
+
+        if (Input.GetAxis("Horizontal") < - threshold && elapsed == transitionTime)
+        {
+            Debug.Log("Rleft");
+            from = transform.rotation;
+            to = Quaternion.AngleAxis(angle, transform.forward) * transform.rotation;
+            elapsed = 0;
+        }
+        
+        /*
+        if (Input.GetAxis("RVertical") > threshold && elapsed == transitionTime)
+        {
+            Debug.Log("Up");
+            
+            from = transform.rotation;
+            to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
+            elapsed = 0;
+        }
+
+        if (Input.GetAxis("RVertical") < -threshold && elapsed == transitionTime)
+        {
+            Debug.Log("down");
+            
+            from = transform.rotation;
+            to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
+            elapsed = 0;
+        }
+        */
+        
 
         //this.transform.rotation = to;
     }
