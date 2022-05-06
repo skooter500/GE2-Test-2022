@@ -51,7 +51,7 @@ Vector3 up;
             Quaternion q = (dir == 0) ? Quaternion.AngleAxis(a, transform.up) : Quaternion.AngleAxis(a, transform.right);
         cam.transform.position = q * original; 
 
-        cam.transform.LookAt(Vector3.zero, transform.up);
+        //cam.transform.LookAt(Vector3.zero, transform.up);
         }
         Vector3 toC = - transform.position;
         
