@@ -64,16 +64,20 @@ float d = 20;
         if (Input.GetAxis("Horizontal") > threshold && t == transitionTime)
         {
             t = 0;
-            dir = 0;
-            fromAngle = toAngle;
-            toAngle += d;
+            dir = 1;
+            up = Vector3.up;
+            fromAngle = angleHorizontal;
+            angleHorizontal += d;
+            toAngle = angleHorizontal;
         }
         if (Input.GetAxis("Horizontal") < -threshold && t == transitionTime)
         {
             t = 0;
-            dir = 0;
-            fromAngle = toAngle;
-            toAngle -= d;
+            dir = 1;
+            up = Vector3.up;
+            fromAngle = angleHorizontal;
+            angleVert -= d;
+            toAngle = angleHorizontal;
         }
 
         if (Input.GetAxis("Vertical") > threshold && t == transitionTime)
@@ -90,9 +94,9 @@ float d = 20;
             t = 0;
             dir = 1;
             up = Vector3.up;
-            fromAngle = angleHorizontal;
-            angleHorizontal += d;
-            toAngle = angleHorizontal;
+            fromAngle = angleVert;
+            angleVert -= d;
+            toAngle = angleVert;
         }
         
     }
