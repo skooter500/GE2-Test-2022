@@ -57,6 +57,8 @@ public float ts = 1.0f;
 
     float startPosScale;
 
+    int[] rads = {1, 30, 60};
+    int iR = 0;
 
     // Update is called once per frame
     void Update()
@@ -65,7 +67,8 @@ public float ts = 1.0f;
         material.SetFloat("_TimeMultiplier", timeScale);        
         if (Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            radius = (radius == 5) ? 30 : 5;
+            radius = rads[iR];
+            iR = (iR + 1) % rads.Length;
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
@@ -80,9 +83,9 @@ public float ts = 1.0f;
         {
             
             ts += (Time.deltaTime * speed);
-            if (ts > 6f)
+            if (ts > 3f)
             {
-                ts = 6f;
+                ts = 3f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))

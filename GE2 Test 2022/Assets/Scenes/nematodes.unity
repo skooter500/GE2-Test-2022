@@ -152,7 +152,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 20
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -573,13 +573,13 @@ MonoBehaviour:
   toDistance: 0
   to: {x: 0, y: 0, z: 0, w: 0}
   angle: 90
-  transitionTime: 2
+  transitionTime: 1
   elapsed: 0
   step: 40
   min: 0
   max: 150
   transition: 0
-  ease: 4
+  ease: 2
 --- !u!114 &1049925075
 MonoBehaviour:
   m_ObjectHideFlags: 0
