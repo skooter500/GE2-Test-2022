@@ -61,14 +61,14 @@ public class CornerCamera : MonoBehaviour
         if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime)
         {
             from = transform.rotation;
-            to = transform.rotation * Quaternion.AngleAxis(angle, transform.right);
+            to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
             elapsed = 0;
         }
 
         if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime)
         {
             from = transform.rotation;
-            to = transform.rotation * Quaternion.AngleAxis(angle, transform.right);
+            to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
             elapsed = 0;
         }        
     }
