@@ -51,7 +51,7 @@ Vector3 up;
             Quaternion q = (dir == 0) ? Quaternion.AngleAxis(a, transform.up) : Quaternion.AngleAxis(a, transform.right);
         cam.transform.position = q * original; 
 
-        cam.transform.LookAt(Vector3.zero, up);
+        cam.transform.LookAt(Vector3.zero, transform.up);
         }
         Vector3 toC = - transform.position;
         
@@ -64,8 +64,8 @@ float d = 20;
         if (Input.GetAxis("Horizontal") > threshold && t == transitionTime)
         {
             t = 0;
-            dir = 1;
-            up = Vector3.up;
+            dir = 0;
+            up = transform.up;
             fromAngle = angleHorizontal;
             angleHorizontal += d;
             toAngle = angleHorizontal;
@@ -73,10 +73,10 @@ float d = 20;
         if (Input.GetAxis("Horizontal") < -threshold && t == transitionTime)
         {
             t = 0;
-            dir = 1;
-            up = Vector3.up;
+            dir = 0;
+            up = transform.up;
             fromAngle = angleHorizontal;
-            angleVert -= d;
+            angleHorizontal -= d;
             toAngle = angleHorizontal;
         }
 
@@ -84,7 +84,7 @@ float d = 20;
         {
             t = 0;
             dir = 1;
-            up = Vector3.up;
+            up = transform.up;
             fromAngle = angleVert;
             angleVert += d;
             toAngle = angleVert;
@@ -93,7 +93,7 @@ float d = 20;
         {
             t = 0;
             dir = 1;
-            up = Vector3.up;
+            up = transform.up;
             fromAngle = angleVert;
             angleVert -= d;
             toAngle = angleVert;
