@@ -113,6 +113,7 @@ public float shaderTs = 1.0f;
                 {
                     float y = Utilities.Map2(t, 0, transitionTime, startValue, endValue, Utilities.EASE.CUBIC, Utilities.EASE.EASE_IN_OUT);
                     posScale = y;
+                    material.SetFloat(ps, y);
                     break;
                 }
                 case Transition.speed:
@@ -129,6 +130,7 @@ public float shaderTs = 1.0f;
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
+            Debug.Log("here");
             if (endValue > minRange)
             {
                 transition = Transition.scale;
