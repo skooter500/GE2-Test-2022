@@ -75,7 +75,8 @@ Shader "Custom/Boid" {
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
 			float hue = abs((d / _PositionScale) - f) % 1.0;
-			fixed3 c = hsv_to_rgb(float3(hue, 1, 1));
+			float b = map(d, 0, 20, 1.5, 1);
+			fixed3 c = hsv_to_rgb(float3(hue, 1, b));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;

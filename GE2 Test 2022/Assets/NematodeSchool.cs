@@ -112,6 +112,7 @@ public float shaderTs = 1.0f;
                 case Transition.scale:
                 {
                     float y = Utilities.Map2(t, 0, transitionTime, startValue, endValue, Utilities.EASE.CUBIC, Utilities.EASE.EASE_IN_OUT);
+                    posScale = y;
                     break;
                 }
                 case Transition.speed:
@@ -121,8 +122,7 @@ public float shaderTs = 1.0f;
                     material.SetFloat("_TimeMultiplier", y);
                     break;
                 }
-            }
-            //posScale = Utilities.Map2(t, 0, transitionTime, startPosScale, endPosScale, Utilities.EASE.EXPONENTIAL, Utilities.EASE.EASE_IN_OUT);            
+            }            
         }
 
         float p = 0.02f;
@@ -195,6 +195,7 @@ t = 0;
                 {
                     endValue = maxRange;
                 }
+                transition = Transition.scale;
             }
         }
     }    
