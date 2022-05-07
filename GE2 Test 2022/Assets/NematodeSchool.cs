@@ -160,7 +160,7 @@ t = 0;
         if (x < (-1.0f + threshold) && ! lastClicked)
         {
             sv1 = shaderTs;
-            ev1 = shaderTs - (Time.deltaTime * speed * 10);
+            ev1 = shaderTs - (Time.deltaTime * speed * 5);
             if (ev1 < 0)
             {
                 ev1 = 0;
@@ -173,7 +173,7 @@ t = 0;
         if (x > (1.0f - threshold) && ! lastClicked)
         {
             sv1 = shaderTs;
-            ev1 = shaderTs + (Time.deltaTime * speed * 10);
+            ev1 = shaderTs + (Time.deltaTime * speed * 5);
             if (ev1 > 100)
             {
                 ev1 = 100;
