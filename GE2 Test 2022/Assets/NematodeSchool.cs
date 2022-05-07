@@ -59,7 +59,7 @@ public float shaderTs = 1.0f;
 
     float startValue;
 
-    int[] rads = {1, 30, 60};
+    int[] rads = {1, 30, 60, 90, 120};
     int iR = 0;
 
     bool lastClicked = false;
@@ -90,9 +90,9 @@ public float shaderTs = 1.0f;
         {
             
             ts += (Time.deltaTime * speed);
-            if (ts > 4f)
+            if (ts > 5f)
             {
-                ts = 4f;
+                ts = 5f;
             }
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button3))

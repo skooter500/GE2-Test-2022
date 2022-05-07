@@ -69,14 +69,21 @@ Shader "Custom/Boid" {
 
 			return (RGB);
 		}
-
+		
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
 			float hue = abs((d / _PositionScale) - f) % 1.0;
-			float b = map(d, 0, 20, 1.5, 1);
-			fixed3 c = hsv_to_rgb(float3(hue, 1, b));
+			float b = map(d, 0, 20, 2, 1.2);
+			
+			float camD = length(_WorldSpaceCameraPos);
+			float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
+			float i = camD / 40.0;
+			float range = marr[i + 1]  - marr[i];  			
+			float m = (marr[i]) + ((i - (int) i) * range);
+
+			fixed3 c = hsv_to_rgb(float3(hue, 1, b * m));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;

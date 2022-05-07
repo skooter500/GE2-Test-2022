@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.02
@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -80}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -504,7 +504,7 @@ MonoBehaviour:
   speed: 10
   feelerDepth: 8
   minRange: 20
-  maxRange: 100
+  maxRange: 200
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
   transitionTime: 2
   maxJump: 10
@@ -581,7 +581,7 @@ MonoBehaviour:
   elapsed: 0
   step: 40
   min: 0
-  max: 150
+  max: 240
   transition: 0
   ease: 2
 --- !u!114 &1049925075

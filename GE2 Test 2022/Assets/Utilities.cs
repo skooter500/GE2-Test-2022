@@ -59,7 +59,8 @@ public class Utilities
 
 
     public enum EASE { LINEAR = 0, QUADRATIC = 1, CUBIC = 2, QUARTIC = 3, QUINTIC = 4, SINUSOIDAL = 5, EXPONENTIAL = 6, CIRCULAR = 7, SQRT = 8 , EASE_IN = 0, EASE_OUT = 1, EASE_IN_OUT = 2};
-    
+
+
     
     /* The map2() function supports the following easing types */
 
