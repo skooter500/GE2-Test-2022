@@ -75,7 +75,7 @@ Shader "Custom/Boid" {
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
 			float hue = abs((d / _PositionScale) - f) % 1.0;
-			float b = map(d, 0, 20, 2, 1.2);
+			float b = map(d, 0, 200, 1.1, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
@@ -83,7 +83,7 @@ Shader "Custom/Boid" {
 			float range = marr[i + 1]  - marr[i];  			
 			float m = (marr[i]) + ((i - (int) i) * range);
 
-			fixed3 c = hsv_to_rgb(float3(hue, 1, b * m));
+			fixed3 c = hsv_to_rgb(float3(hue, 1, b));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;

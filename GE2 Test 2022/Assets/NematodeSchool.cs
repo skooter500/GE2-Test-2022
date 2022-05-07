@@ -166,8 +166,11 @@ t = 0;
                 ev1 = 0;
             }
             lastClicked = true;
-            transition = Transition.speed;
-            t = 0.0f;
+            //transition = Transition.speed;
+            //t = 0.0f;
+            shaderTs = ev1;
+            material.SetFloat("_TimeMultiplier", shaderTs);
+        
         }
 
         if (x > (1.0f - threshold) && ! lastClicked)
@@ -178,8 +181,11 @@ t = 0;
             {
                 ev1 = 100;
             }
-            transition = Transition.speed;
-            t = 0.0f;
+            shaderTs = ev1;
+            material.SetFloat("_TimeMultiplier", shaderTs);
+            lastClicked = true;
+
+        
         }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button4))
