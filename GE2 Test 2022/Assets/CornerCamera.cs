@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CornerCamera : MonoBehaviour
 {
@@ -26,6 +27,11 @@ public class CornerCamera : MonoBehaviour
     public Transition transition = Transition.rotation; 
 
     public Utilities.EASE ease;
+
+    public void TimeChanged(InputAction.CallbackContext context)
+    {
+        Debug.Log("Got this: " + context);
+    }
         
     // Start is called before the first frame update
     void Start()
@@ -70,7 +76,7 @@ public class CornerCamera : MonoBehaviour
         
         float threshold = 0.5f;
 
-        
+        /*
         if (Input.GetAxis("RHorizontal") > threshold && elapsed == transitionTime)
         {
             Debug.Log("right");
@@ -151,6 +157,7 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
             transition = Transition.movement;
         }
+        */
     
         //this.transform.rotation = to;
     }

@@ -71,35 +71,7 @@ public float shaderTs = 1.0f;
     // Update is called once per frame
     void Update()
     {
-        timeScale = ts;        
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            radius = rads[iR];
-            iR = (iR + 1) % rads.Length;
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-        {
-            ts -= Time.deltaTime * speed;
-            if (ts < 0)
-            {
-                ts = 0;
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-        {
-            
-            ts += (Time.deltaTime * speed);
-            if (ts > 5f)
-            {
-                ts = 5f;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-        {
-            timeScale = 1.0f;
-        }
-
+        
         if (t < transitionTime)
         {
             t += Time.deltaTime;
@@ -127,6 +99,36 @@ public float shaderTs = 1.0f;
         }
 
         float p = 0.02f;
+
+        timeScale = ts;      
+        /*  
+        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
+        {
+            radius = rads[iR];
+            iR = (iR + 1) % rads.Length;
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+        {
+            ts -= Time.deltaTime * speed;
+            if (ts < 0)
+            {
+                ts = 0;
+            }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
+        {
+            
+            ts += (Time.deltaTime * speed);
+            if (ts > 5f)
+            {
+                ts = 5f;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
+        {
+            timeScale = 1.0f;
+        }
 
         if (Input.GetKeyDown(KeyCode.Joystick1Button5))
         {
@@ -206,5 +208,6 @@ t = 0;
                 transition = Transition.scale;
             }
         }
+        */
     }    
 }
