@@ -504,7 +504,7 @@ MonoBehaviour:
   speed: 10
   feelerDepth: 8
   minRange: 20
-  maxRange: 200
+  maxRange: 100
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
   transitionTime: 2
   maxJump: 10
