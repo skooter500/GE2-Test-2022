@@ -75,7 +75,7 @@ Shader "Custom/Boid" {
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
 			float hue = abs((d / _PositionScale) - f) % 1.0;
-			float b = map(d, 0, 200, 1.1, 1);
+			float b = map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
