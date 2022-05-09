@@ -71,7 +71,7 @@ Material:
     - _OcclusionStrength: 1
     - _Offset: 42440
     - _Parallax: 0.02
-    - _PositionScale: 44.608383
+    - _PositionScale: 11
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

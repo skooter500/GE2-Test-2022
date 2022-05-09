@@ -6,6 +6,7 @@ Shader "Custom/Boid" {
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_PositionScale("PositionScale", Range(0, 100000)) = 250
 		_TimeMultiplier("Time Scale", Range(0, 100)) = 1
+		_Palette("Palette", Range(0, 1)) = 1
 		_Fade("Fade", Range(0, 1)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 		_CI("CI", Range(0, 10000000)) = 0
@@ -36,6 +37,7 @@ Shader "Custom/Boid" {
 
 		float _PositionScale;
 		float _TimeMultiplier;
+		float _Palette;
 		
 		float _CI;
 
@@ -82,11 +84,12 @@ Shader "Custom/Boid" {
 			float b = map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
-			float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
+			
+			/*float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
 			float i = camD / 40.0;
 			float range = marr[i + 1]  - marr[i];  			
 			float m = (marr[i]) + ((i - (int) i) * range);
-
+			*/
 			float ci = 1 + pow(_CI, 1.0 / d);
 			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
 			o.Albedo = c.rgb;

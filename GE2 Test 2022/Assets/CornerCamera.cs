@@ -155,6 +155,20 @@ public class CornerCamera : MonoBehaviour
         Debug.Log("Radius: " + f);
         ns.radius = f;
     }
+
+    public void ColorRange(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>() + 11;
+        Debug.Log("Color Range: " + f);
+        ns.material.SetFloat("_PositionScale", f);
+    }
+
+    public void ShaderTime(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>() + 11;
+        Debug.Log("Shader Time: " + f);
+        ns.material.SetFloat("_TimeMultiplier", f);
+    }
     
     /*
     {

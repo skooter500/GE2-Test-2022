@@ -135,7 +135,16 @@
                     "name": "ColorRange",
                     "type": "Value",
                     "id": "819d0f7a-7247-4c06-accc-35c3bbaede6d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ShaderTime",
+                    "type": "Value",
+                    "id": "c52abaf4-2bfc-4d94-bff3-81e83b2212b6",
+                    "expectedControlType": "MidiValue",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -299,11 +308,22 @@
                 {
                     "name": "",
                     "id": "0cb5d775-6de8-4ed2-becc-17502944efcd",
-                    "path": "",
+                    "path": "<MidiDevice>/control071",
+                    "interactions": "",
+                    "processors": "Scale(factor=100),Invert",
+                    "groups": "",
+                    "action": "ColorRange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9cb68f3e-43b4-413b-98a3-e47e614230e6",
+                    "path": "<MidiDevice>/control019",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ColorRange",
+                    "action": "ShaderTime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
