@@ -90,6 +90,7 @@ Shader "Custom/Boid" {
 			float range = marr[i + 1]  - marr[i];  			
 			float m = (marr[i]) + ((i - (int) i) * range);
 			*/
+			
 			float ci = 1 + pow(_CI, 1.0 / d);
 			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
 			o.Albedo = c.rgb;

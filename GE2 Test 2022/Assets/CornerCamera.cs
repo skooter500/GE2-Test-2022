@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class CornerCamera : MonoBehaviour
 {
@@ -50,6 +51,18 @@ public class CornerCamera : MonoBehaviour
         float f = context.ReadValue<float>();        
         Debug.Log("AI: " + f);
         RenderSettings.ambientLight = new Color(f,f,f,1);
+    }
+
+    public void RestartScene(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void FeelerLength(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>();        
+        Debug.Log("Feeler Length: " + f);
+        ns.feelerDepth = f;
     }
 
 
@@ -165,9 +178,12 @@ public class CornerCamera : MonoBehaviour
 
     public void ShaderTime(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>() + 11;
-        Debug.Log("Shader Time: " + f);
-        ns.material.SetFloat("_TimeMultiplier", f);
+        float f = context.ReadValue<float>();
+        if (context.phase == InputActionPhase.Performed)
+        {
+            Debug.Log("Shader Time: " + f);
+            ns.material.SetFloat("_TimeMultiplier", f);
+        }
     }
     
     /*

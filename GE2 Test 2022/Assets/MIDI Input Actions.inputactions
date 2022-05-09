@@ -145,9 +145,27 @@
                     "type": "Value",
                     "id": "c52abaf4-2bfc-4d94-bff3-81e83b2212b6",
                     "expectedControlType": "MidiValue",
+                    "processors": "ShiftScale(shift=-0.5,scale=50)",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Feeler Depth",
+                    "type": "Value",
+                    "id": "15211e8b-2867-40cd-a7b3-df82a8025477",
+                    "expectedControlType": "MidiValue",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Restart Scene",
+                    "type": "Button",
+                    "id": "a92d57c5-05fb-4281-bae8-1c06207149c7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -266,7 +284,7 @@
                     "id": "1e0542d0-3295-4224-a89d-a300df71f6a9",
                     "path": "<MidiDevice>/control074",
                     "interactions": "",
-                    "processors": "Scale(factor=10000)",
+                    "processors": "Scale(factor=20)",
                     "groups": "",
                     "action": "CI",
                     "isComposite": false,
@@ -324,6 +342,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ShaderTime",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c31c722-f536-46b8-9786-cec026747206",
+                    "path": "<MidiDevice>/control114",
+                    "interactions": "",
+                    "processors": "Scale(factor=20)",
+                    "groups": "",
+                    "action": "Feeler Depth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39c3077e-4b80-45da-9549-efd3f8ef5fd0",
+                    "path": "<MidiDevice>/note043",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart Scene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
