@@ -23,7 +23,7 @@ public class CornerCamera : MonoBehaviour
     public float step = 25;
     public float min = 0;
     public float max = 200;
-    public enum Transition {rotation, movement, time};
+    public enum Transition {rotation, movement, time, shaderTime};
 
     public Transition transition = Transition.rotation; 
 
@@ -38,6 +38,15 @@ public class CornerCamera : MonoBehaviour
     float oldShaderTime = 0; 
     float newShaderTime = 0; 
 
+    float oldTransitionTime = 0;
+    public void ShaderTimeTransition()
+    {
+        elapsed = 0.0f;
+        oldTransitionTime = transitionTime;
+        transitionTime *= 3;
+        transition = Transition.shaderTime;
+    }
+
     public void StopStart(InputAction.CallbackContext context)
     {
         if (context.phase != InputActionPhase.Performed)
@@ -50,10 +59,12 @@ public class CornerCamera : MonoBehaviour
             Debug.Log("Starting");
             newTime = oldTime;
             oldTime = 0;
+            
             newShaderTime = oldShaderTime;            
             oldShaderTime = 0;
             elapsed = 0.0f;
             transition = Transition.time;
+            Invoke("ShaderTimeTransition", transitionTime);
         }
         else
         {
@@ -64,6 +75,7 @@ public class CornerCamera : MonoBehaviour
             oldShaderTime = ns.material.GetFloat("_TimeMultiplier");            
             elapsed = 0.0f;
             transition = Transition.time;
+            Invoke("ShaderTimeTransition", transitionTime);
         }
     }
 
@@ -272,10 +284,18 @@ public class CornerCamera : MonoBehaviour
                 }
                 case Transition.time:
                 {
-                    ns.ts = Mathf.Lerp(oldTime, newTime, t);
-                    if (elapsed == transitionTime)
+                    ns.ts = Mathf.Lerp(oldTime, newTime, t);                    
+                    break;
+                }
+                case Transition.shaderTime:
+                {
+                    float timeM = Mathf.Lerp(oldShaderTime, newShaderTime, t);                     
                     {   
-                        ns.material.SetFloat("_TimeMultiplier", newShaderTime);
+                        ns.material.SetFloat("_TimeMultiplier", timeM);
+                    }
+                    if (elapsed == transitionTime)
+                    {
+                        transitionTime = oldTransitionTime;
                     }
                     break;
                 }
