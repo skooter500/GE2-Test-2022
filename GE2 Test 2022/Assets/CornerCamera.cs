@@ -70,9 +70,33 @@ public class CornerCamera : MonoBehaviour
         transition = Transition.rotation;
     }
     public void YawClock(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(-angle, transform.up) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
     public void YawCount(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(angle, transform.up) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
     public void RollClock(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(-angle, transform.forward) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
     public void RollCount(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(angle, transform.forward) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
     
     /*
     {
@@ -147,8 +171,8 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
             transition = Transition.movement;
         }
-        */
     }
+    */
         
     // Start is called before the first frame update
     void Start()

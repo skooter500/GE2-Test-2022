@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Forwards Camera",
+                    "name": "Forward",
                     "type": "Button",
                     "id": "74aff319-5d7c-49cf-b986-407bb0366034",
                     "expectedControlType": "Button",
@@ -24,9 +24,63 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Backwards Camera",
+                    "name": "Backward",
                     "type": "Button",
                     "id": "a8ebe27e-9825-473f-9ed2-41def4761c75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Yaw Clock",
+                    "type": "Button",
+                    "id": "dc27f454-333f-4a80-8fc5-c8fec77612ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Yaw Counter",
+                    "type": "Button",
+                    "id": "e26990d5-845e-4d9b-8c95-978f963cc5bc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pitch Clock",
+                    "type": "Button",
+                    "id": "4e1c1724-02a5-4429-8be7-78dadf636e5d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pitch Counter",
+                    "type": "Button",
+                    "id": "24cf8cdd-33fc-4b75-a4c0-129e422262d8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Roll Clock",
+                    "type": "Button",
+                    "id": "4ce96bec-4ecd-40c0-a161-96ddf5a431d5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Roll Count",
+                    "type": "Button",
+                    "id": "639f586e-e01a-440a-8581-4d1dd3187f46",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -52,7 +106,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Forwards Camera",
+                    "action": "Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +117,73 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Backwards Camera",
+                    "action": "Backward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95af8808-906f-4a20-9fe3-02ba51359bfe",
+                    "path": "<MidiDevice>/note045",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw Clock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "058e99f9-8e42-4964-8b61-1dca4b65afbf",
+                    "path": "<MidiDevice>/note037",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Yaw Counter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "612ff8d3-b8bd-49df-9c81-72645cfad99b",
+                    "path": "<MidiDevice>/note046",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch Clock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b91d4672-3dff-412c-a8a1-33311459c73e",
+                    "path": "<MidiDevice>/note038",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pitch Counter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91a4fb99-d420-412f-a84f-b22c14bedc47",
+                    "path": "<MidiDevice>/note047",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll Clock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1ff4456c-0c82-4b2c-8fc6-54d0fffb3c12",
+                    "path": "<MidiDevice>/note039",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Roll Count",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
