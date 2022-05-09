@@ -87,7 +87,7 @@ Shader "Custom/Boid" {
 			float range = marr[i + 1]  - marr[i];  			
 			float m = (marr[i]) + ((i - (int) i) * range);
 
-			float ci = pow(_CI, 1.0 / d);
+			float ci = 0.1 + pow(10, 1.0 / d);
 			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables

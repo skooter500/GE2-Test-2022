@@ -221,7 +221,7 @@
                     "id": "1e0542d0-3295-4224-a89d-a300df71f6a9",
                     "path": "<MidiDevice>/control074",
                     "interactions": "",
-                    "processors": "Scale(factor=1000)",
+                    "processors": "Scale(factor=10000)",
                     "groups": "",
                     "action": "CI",
                     "isComposite": false,
