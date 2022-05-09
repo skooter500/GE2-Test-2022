@@ -31,16 +31,24 @@ public class CornerCamera : MonoBehaviour
     public Utilities.EASE ease;
 
     float lastf = 0.5f;
+
+    public void CI(InputAction.CallbackContext context)
+    {
+        Debug.Log("CI:" + context.ReadValue<float>());
+        ns.material.SetFloat("_CI", context.ReadValue<float>());
+
+    }
     public void TimeChanged(InputAction.CallbackContext context)
     {
-        Debug.Log(context); 
-        Debug.Log(context.ReadValue<float>()); 
         ns.ts = context.ReadValue<float>();
-
     }
 
     public void Forwards(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         fromDistance = -cam.transform.localPosition.z;
         toDistance = Mathf.Clamp(fromDistance - step, min, max);            
         elapsed = 0;
@@ -49,6 +57,10 @@ public class CornerCamera : MonoBehaviour
 
     public void Backwards(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         fromDistance = -cam.transform.localPosition.z;
         toDistance = Mathf.Clamp(fromDistance + step, min, max);            
         elapsed = 0;
@@ -57,6 +69,10 @@ public class CornerCamera : MonoBehaviour
 
     public void PitchClock(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         from = transform.rotation;
         to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
         elapsed = 0;
@@ -64,6 +80,10 @@ public class CornerCamera : MonoBehaviour
     }
     public void PitchCount(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         from = transform.rotation;
         to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
         elapsed = 0;
@@ -71,31 +91,52 @@ public class CornerCamera : MonoBehaviour
     }
     public void YawClock(InputAction.CallbackContext context)
     {
-        from = transform.rotation;
-        to = Quaternion.AngleAxis(-angle, transform.up) * transform.rotation;
-        elapsed = 0;
-        transition = Transition.rotation;
-    }
-    public void YawCount(InputAction.CallbackContext context)
-    {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         from = transform.rotation;
         to = Quaternion.AngleAxis(angle, transform.up) * transform.rotation;
         elapsed = 0;
         transition = Transition.rotation;
     }
+    public void YawCount(InputAction.CallbackContext context)
+    {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(-angle, transform.up) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
     public void RollClock(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         from = transform.rotation;
-        to = Quaternion.AngleAxis(-angle, transform.forward) * transform.rotation;
+        to = Quaternion.AngleAxis(angle, transform.forward) * transform.rotation;
         elapsed = 0;
         transition = Transition.rotation;
     }
     public void RollCount(InputAction.CallbackContext context)
     {
+        if (elapsed < transitionTime)
+        {
+            return;
+        }
         from = transform.rotation;
-        to = Quaternion.AngleAxis(angle, transform.forward) * transform.rotation;
+        to = Quaternion.AngleAxis(-angle, transform.forward) * transform.rotation;
         elapsed = 0;
         transition = Transition.rotation;
+    }
+
+    public void Radius(InputAction.CallbackContext context)
+    {
+        ns.radius = context.ReadValue<float>();
     }
     
     /*

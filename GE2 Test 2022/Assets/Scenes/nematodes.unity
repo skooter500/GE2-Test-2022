@@ -499,7 +499,7 @@ MonoBehaviour:
   ts: 0.5
   shaderTs: 1
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
-  radius: 20
+  radius: 25
   count: 100
   speed: 10
   feelerDepth: 8
@@ -674,7 +674,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: YawCount
+        m_MethodName: YawClock
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -766,6 +766,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 639f586e-e01a-440a-8581-4d1dd3187f46
     m_ActionName: MIDI Controls/Roll Count
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: Radius
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c10ae3b6-f2fe-47b3-bcec-4e56f1e8f889
+    m_ActionName: MIDI Controls/Radius
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: CI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 27aceeb4-7f39-4c10-8edd-f427963acd69
+    m_ActionName: MIDI Controls/CI
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls

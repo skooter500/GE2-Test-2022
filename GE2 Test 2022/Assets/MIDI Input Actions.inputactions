@@ -85,13 +85,31 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Radius",
+                    "type": "Value",
+                    "id": "c10ae3b6-f2fe-47b3-bcec-4e56f1e8f889",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "CI",
+                    "type": "Value",
+                    "id": "27aceeb4-7f39-4c10-8edd-f427963acd69",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "fc2cdc72-1015-4eab-a990-f92b24b5cf9e",
-                    "path": "<MidiDevice>/control010",
+                    "path": "<MidiDevice>/control007",
                     "interactions": "",
                     "processors": "Scale(factor=5)",
                     "groups": "",
@@ -184,6 +202,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Roll Count",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc3ee1b8-8106-4fe2-a3eb-2b70797a7d89",
+                    "path": "<MidiDevice>/control010",
+                    "interactions": "",
+                    "processors": "Scale(factor=60)",
+                    "groups": "",
+                    "action": "Radius",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e0542d0-3295-4224-a89d-a300df71f6a9",
+                    "path": "<MidiDevice>/control074",
+                    "interactions": "",
+                    "processors": "Scale(factor=1000)",
+                    "groups": "",
+                    "action": "CI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

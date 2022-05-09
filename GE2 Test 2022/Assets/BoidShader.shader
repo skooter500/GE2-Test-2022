@@ -8,6 +8,8 @@ Shader "Custom/Boid" {
 		_TimeMultiplier("Time Scale", Range(0, 100)) = 1
 		_Fade("Fade", Range(0, 1)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
+		_CI("CI", Range(0, 10000000)) = 0
+		
 	}
 	SubShader {
 		Tags {"Queue" = "Transparent" "RenderType"="Transparent" }
@@ -34,6 +36,8 @@ Shader "Custom/Boid" {
 
 		float _PositionScale;
 		float _TimeMultiplier;
+		
+		float _CI;
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -83,7 +87,8 @@ Shader "Custom/Boid" {
 			float range = marr[i + 1]  - marr[i];  			
 			float m = (marr[i]) + ((i - (int) i) * range);
 
-			fixed3 c = hsv_to_rgb(float3(hue, 1, b));
+			float ci = pow(_CI, 1.0 / d);
+			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;

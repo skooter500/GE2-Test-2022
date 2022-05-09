@@ -14,7 +14,7 @@ public float shaderTs = 1.0f;
     public GameObject prefab;
 
     [Range(1, 5000)]
-    public int radius = 50;
+    public float radius = 50;
 
     public int count = 10;
 
