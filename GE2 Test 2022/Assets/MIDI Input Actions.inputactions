@@ -103,6 +103,42 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Light",
+                    "type": "Value",
+                    "id": "b8ffc3fc-d8b4-45bc-aa80-97bb64e56b25",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AmbientLight",
+                    "type": "Value",
+                    "id": "13c264c7-40db-437c-8380-ae3f87227105",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "7d65c2c0-0d25-4f4d-ad55-39349371b35b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ColorRange",
+                    "type": "Value",
+                    "id": "819d0f7a-7247-4c06-accc-35c3bbaede6d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -224,6 +260,50 @@
                     "processors": "Scale(factor=10000)",
                     "groups": "",
                     "action": "CI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "452843b7-3a5f-421c-8711-09d591bccb0f",
+                    "path": "<MidiDevice>/control018",
+                    "interactions": "",
+                    "processors": "Scale(factor=1000)",
+                    "groups": "",
+                    "action": "Light",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b80681d0-f58c-4e38-97a9-1f49fa828f2f",
+                    "path": "<MidiDevice>/control074",
+                    "interactions": "",
+                    "processors": "Scale(factor=200)",
+                    "groups": "",
+                    "action": "AmbientLight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90a6eb1c-414c-4d04-ba40-c979d1d643cd",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cb5d775-6de8-4ed2-becc-17502944efcd",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorRange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

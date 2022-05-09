@@ -32,12 +32,27 @@ public class CornerCamera : MonoBehaviour
 
     float lastf = 0.5f;
 
-    public void CI(InputAction.CallbackContext context)
-    {
-        Debug.Log("CI:" + context.ReadValue<float>());
-        ns.material.SetFloat("_CI", context.ReadValue<float>());
+    public Light light;
 
+    public void Quit(InputAction.CallbackContext context)
+    {
+        Application.Quit();
+    } 
+    public void Light(InputAction.CallbackContext context)
+    {
+        
+        float f = context.ReadValue<float>();    
+        Debug.Log("CI: " + f);    
+        ns.material.SetFloat("_CI", f);
     }
+    public void AmbientLight(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>();        
+        Debug.Log("AI: " + f);
+        RenderSettings.ambientLight = new Color(f,f,f,1);
+    }
+
+
     public void TimeChanged(InputAction.CallbackContext context)
     {
         ns.ts = context.ReadValue<float>();
@@ -136,7 +151,9 @@ public class CornerCamera : MonoBehaviour
 
     public void Radius(InputAction.CallbackContext context)
     {
-        ns.radius = context.ReadValue<float>();
+        float f = context.ReadValue<float>();
+        Debug.Log("Radius: " + f);
+        ns.radius = f;
     }
     
     /*
