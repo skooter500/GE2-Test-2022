@@ -284,7 +284,7 @@
                     "id": "452843b7-3a5f-421c-8711-09d591bccb0f",
                     "path": "<MidiDevice>/control018",
                     "interactions": "",
-                    "processors": "Scale",
+                    "processors": "Scale(factor=10)",
                     "groups": "",
                     "action": "Light",
                     "isComposite": false,
@@ -359,7 +359,7 @@
                 {
                     "name": "",
                     "id": "0551cd9e-9ff3-4937-8e82-bb401885abac",
-                    "path": "",
+                    "path": "<MidiDevice>/note051",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

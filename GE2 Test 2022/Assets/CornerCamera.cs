@@ -33,28 +33,35 @@ public class CornerCamera : MonoBehaviour
 
     float lastf = 0.5f;
 
-    float oldTime = 0;
-    float newTime = 2.5f;
+    float oldTime = 2.5f;
+    float newTime = 0;
     float oldShaderTime = 0; 
     float newShaderTime = 0; 
 
     public void StopStart(InputAction.CallbackContext context)
     {
-        if (ns.ts != 0)
+        if (context.phase != InputActionPhase.Performed)
         {
-            oldTime = ns.ts;
-            newTime = 0;
-            oldShaderTime = ns.material.GetFloat("_TimeMultiplier");
-            newShaderTime = 0;
+            return;
+        }
+        
+        if (oldTime != 0)
+        {
+            Debug.Log("Starting");
+            newTime = oldTime;
+            oldTime = 0;
+            newShaderTime = oldShaderTime;            
+            oldShaderTime = 0;
             elapsed = 0.0f;
             transition = Transition.time;
         }
         else
         {
-            newTime = oldTime;
-            oldTime = 0;            
-            newShaderTime = oldShaderTime;
-            oldShaderTime = 0;            
+            Debug.Log("Stopping");            
+            newTime = 0;
+            oldTime = ns.ts;            
+            newShaderTime = 0;
+            oldShaderTime = ns.material.GetFloat("_TimeMultiplier");            
             elapsed = 0.0f;
             transition = Transition.time;
         }
@@ -99,7 +106,7 @@ public class CornerCamera : MonoBehaviour
 
     public void Forwards(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -111,7 +118,7 @@ public class CornerCamera : MonoBehaviour
 
     public void Backwards(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -123,7 +130,7 @@ public class CornerCamera : MonoBehaviour
 
     public void PitchClock(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -134,7 +141,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void PitchCount(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -145,7 +152,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void YawClock(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -156,7 +163,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void YawCount(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -167,7 +174,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void RollClock(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -178,7 +185,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void RollCount(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
+        if (elapsed < transitionTime || context.phase != InputActionPhase.Performed)
         {
             return;
         }
@@ -190,6 +197,10 @@ public class CornerCamera : MonoBehaviour
 
     public void Radius(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
         float f = context.ReadValue<float>();
         Debug.Log("Radius: " + f);
         ns.radius = f;
@@ -197,6 +208,10 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorRange(InputAction.CallbackContext context)
     {
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
         float f = context.ReadValue<float>() + 11;
         Debug.Log("Color Range: " + f);
         ns.material.SetFloat("_PositionScale", f);
@@ -211,83 +226,7 @@ public class CornerCamera : MonoBehaviour
             ns.material.SetFloat("_TimeMultiplier", f);
         }
     }
-    
-    /*
-    {
-        if (Input.GetAxis("RHorizontal") > threshold && elapsed == transitionTime)
-        {
-            Debug.Log("right");
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(-angle, transform.up) * transform.rotation;
-            Debug.Log(transform.up);
-            Debug.Log(to.eulerAngles);
-            elapsed = 0;
-            transition = Transition.rotation;
-        }
-
-        if (Input.GetAxis("RHorizontal") < - threshold && elapsed >= transitionTime)
-        {
-            Debug.Log("left");
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(angle, transform.up) * transform.rotation;
-            elapsed = 0;
-            transition = Transition.rotation;
-        }
-    
-
-        if (Input.GetAxis("RVertical") < -threshold && elapsed >= transitionTime)
-        {
-            Debug.Log("down");
             
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
-            elapsed = 0;
-            transition = Transition.rotation;
-        }        
-
-        if (Input.GetAxis("Horizontal") > threshold && elapsed >= transitionTime)
-        {
-            Debug.Log("Rright");
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(-angle, transform.forward) * transform.rotation;
-            Debug.Log(transform.up);
-            Debug.Log(to.eulerAngles);
-            elapsed = 0;
-            transition = Transition.rotation;
-        }
-
-        if (Input.GetAxis("Horizontal") < - threshold && elapsed == transitionTime)
-        {
-            Debug.Log("Rleft");
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(angle, transform.forward) * transform.rotation;
-            elapsed = 0;
-            transition = Transition.rotation;
-        }
-        
-        
-        if (Input.GetAxis("Vertical") > threshold && elapsed == transitionTime && toDistance > min)
-        {
-            Debug.Log("Up");
-            
-            fromDistance = -cam.transform.localPosition.z;
-            toDistance = Mathf.Clamp(fromDistance - step, min, max);            
-            elapsed = 0;
-            transition = Transition.movement;
-        }
-
-        if (Input.GetAxis("Vertical") < -threshold && elapsed == transitionTime && toDistance < max)
-        {
-            Debug.Log("down");
-            
-            fromDistance = -cam.transform.localPosition.z;
-            toDistance = Mathf.Clamp(fromDistance + step, min, max);
-            elapsed = 0;
-            transition = Transition.movement;
-        }
-    }
-    */
-        
     // Start is called before the first frame update
     void Start()
     {
@@ -296,7 +235,7 @@ public class CornerCamera : MonoBehaviour
         toDistance = fromDistance;
 
         ns = FindObjectOfType<NematodeSchool>();
-        newShaderTime = ns.material.GetFloat("_TimeMultiplier");
+        oldShaderTime = ns.material.GetFloat("_TimeMultiplier");
     }
 
     // Update is called once per frame
