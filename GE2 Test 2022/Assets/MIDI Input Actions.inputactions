@@ -193,6 +193,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a1ab168d-2206-43d1-b381-227153829f3a",
+                    "path": "<MidiDevice>/note048",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f53ec072-549c-4331-a6af-402ae972f6ca",
                     "path": "<MidiDevice>/note036",
                     "interactions": "",
