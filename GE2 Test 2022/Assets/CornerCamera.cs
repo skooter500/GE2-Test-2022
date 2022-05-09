@@ -235,7 +235,9 @@ public class CornerCamera : MonoBehaviour
         toDistance = fromDistance;
 
         ns = FindObjectOfType<NematodeSchool>();
-        oldShaderTime = ns.material.GetFloat("_TimeMultiplier");
+        ns.ts = 0;
+        oldShaderTime = 1;
+        ns.material.SetFloat("_TimeMultiplier", 0);
     }
 
     // Update is called once per frame
