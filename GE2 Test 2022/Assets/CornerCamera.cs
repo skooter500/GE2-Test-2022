@@ -273,8 +273,10 @@ public class CornerCamera : MonoBehaviour
                 case Transition.time:
                 {
                     ns.ts = Mathf.Lerp(oldTime, newTime, t);
-                    ns.material.SetFloat("_TimeMultiplier",
-                        Mathf.Lerp(oldShaderTime, newShaderTime, t) );
+                    if (elapsed == transitionTime)
+                    {   
+                        ns.material.SetFloat("_TimeMultiplier", newShaderTime);
+                    }
                     break;
                 }
             }            
