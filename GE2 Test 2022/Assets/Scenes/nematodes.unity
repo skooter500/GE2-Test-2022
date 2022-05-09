@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 19.698313, g: 19.698313, b: 19.698313, a: 1}
+  m_AmbientSkyColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -496,7 +496,7 @@ MonoBehaviour:
   sv1: 0
   ev1: 0
   endValue: 0
-  ts: 0.5
+  ts: 0
   shaderTs: 1
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
   radius: 25
@@ -580,12 +580,11 @@ MonoBehaviour:
   angle: 90
   transitionTime: 1
   elapsed: 0
-  step: 40
+  step: 25
   min: 0
-  max: 240
+  max: 200
   transition: 0
   ease: 2
-  light: {fileID: 0}
 --- !u!114 &1049925075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -787,22 +786,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: CI
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 27aceeb4-7f39-4c10-8edd-f427963acd69
-    m_ActionName: MIDI Controls/CI
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1049925074}
-        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
         m_MethodName: Light
         m_Mode: 0
         m_Arguments:
@@ -910,6 +893,22 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: a92d57c5-05fb-4281-bae8-1c06207149c7
+    m_ActionName: MIDI Controls/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: StopStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 07873dce-11ef-4153-ad57-a6bad1811e5a
     m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 

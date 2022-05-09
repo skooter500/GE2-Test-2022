@@ -96,15 +96,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "CI",
-                    "type": "Value",
-                    "id": "27aceeb4-7f39-4c10-8edd-f427963acd69",
-                    "expectedControlType": "MidiValue",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Light",
                     "type": "Value",
                     "id": "b8ffc3fc-d8b4-45bc-aa80-97bb64e56b25",
@@ -162,6 +153,15 @@
                     "name": "Restart Scene",
                     "type": "Button",
                     "id": "a92d57c5-05fb-4281-bae8-1c06207149c7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StopStart",
+                    "type": "Button",
+                    "id": "07873dce-11ef-4153-ad57-a6bad1811e5a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -273,20 +273,9 @@
                     "id": "dc3ee1b8-8106-4fe2-a3eb-2b70797a7d89",
                     "path": "<MidiDevice>/control010",
                     "interactions": "",
-                    "processors": "Scale(factor=60)",
+                    "processors": "Scale(factor=200)",
                     "groups": "",
                     "action": "Radius",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1e0542d0-3295-4224-a89d-a300df71f6a9",
-                    "path": "<MidiDevice>/control074",
-                    "interactions": "",
-                    "processors": "Scale(factor=20)",
-                    "groups": "",
-                    "action": "CI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -295,7 +284,7 @@
                     "id": "452843b7-3a5f-421c-8711-09d591bccb0f",
                     "path": "<MidiDevice>/control018",
                     "interactions": "",
-                    "processors": "Scale(factor=1000)",
+                    "processors": "Scale",
                     "groups": "",
                     "action": "Light",
                     "isComposite": false,
@@ -328,7 +317,7 @@
                     "id": "0cb5d775-6de8-4ed2-becc-17502944efcd",
                     "path": "<MidiDevice>/control071",
                     "interactions": "",
-                    "processors": "Scale(factor=100),Invert",
+                    "processors": "Scale(factor=100)",
                     "groups": "",
                     "action": "ColorRange",
                     "isComposite": false,
@@ -364,6 +353,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Restart Scene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0551cd9e-9ff3-4937-8e82-bb401885abac",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

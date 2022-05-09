@@ -23,7 +23,7 @@ public class CornerCamera : MonoBehaviour
     public float step = 25;
     public float min = 0;
     public float max = 200;
-    public enum Transition {rotation, movement};
+    public enum Transition {rotation, movement, time};
 
     public Transition transition = Transition.rotation; 
 
@@ -33,7 +33,32 @@ public class CornerCamera : MonoBehaviour
 
     float lastf = 0.5f;
 
-    public Light light;
+    float oldTime = 0;
+    float newTime = 2.5f;
+    float oldShaderTime = 0; 
+    float newShaderTime = 0; 
+
+    public void StopStart(InputAction.CallbackContext context)
+    {
+        if (ns.ts != 0)
+        {
+            oldTime = ns.ts;
+            newTime = 0;
+            oldShaderTime = ns.material.GetFloat("_TimeMultiplier");
+            newShaderTime = 0;
+            elapsed = 0.0f;
+            transition = Transition.time;
+        }
+        else
+        {
+            newTime = oldTime;
+            oldTime = 0;            
+            newShaderTime = oldShaderTime;
+            oldShaderTime = 0;            
+            elapsed = 0.0f;
+            transition = Transition.time;
+        }
+    }
 
     public void Quit(InputAction.CallbackContext context)
     {
@@ -68,6 +93,7 @@ public class CornerCamera : MonoBehaviour
 
     public void TimeChanged(InputAction.CallbackContext context)
     {
+        Debug.Log(context.ReadValue<float>());
         ns.ts = context.ReadValue<float>();
     }
 
@@ -270,6 +296,7 @@ public class CornerCamera : MonoBehaviour
         toDistance = fromDistance;
 
         ns = FindObjectOfType<NematodeSchool>();
+        newShaderTime = ns.material.GetFloat("_TimeMultiplier");
     }
 
     // Update is called once per frame
@@ -300,6 +327,13 @@ public class CornerCamera : MonoBehaviour
                 case Transition.rotation:
                 {
                     transform.rotation = Quaternion.Slerp(from, to, t);
+                    break;
+                }
+                case Transition.time:
+                {
+                    ns.ts = Mathf.Lerp(oldTime, newTime, t);
+                    ns.material.SetFloat("_TimeMultiplier",
+                        Mathf.Lerp(oldShaderTime, newShaderTime, t) );
                     break;
                 }
             }            
