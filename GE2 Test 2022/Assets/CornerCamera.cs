@@ -26,57 +26,56 @@ public class CornerCamera : MonoBehaviour
 
     public Transition transition = Transition.rotation; 
 
+    NematodeSchool ns;
+
     public Utilities.EASE ease;
 
+    float lastf = 0.5f;
     public void TimeChanged(InputAction.CallbackContext context)
     {
-        Debug.Log("Got this: " + context);
+        Debug.Log(context); 
+        Debug.Log(context.ReadValue<float>()); 
+        ns.ts = context.ReadValue<float>();
+
     }
-        
-    // Start is called before the first frame update
-    void Start()
+
+    public void Forwards(InputAction.CallbackContext context)
     {
-        elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
-        toDistance = fromDistance;
+        toDistance = Mathf.Clamp(fromDistance - step, min, max);            
+        elapsed = 0;
+        transition = Transition.movement;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Backwards(InputAction.CallbackContext context)
     {
-        if (elapsed < transitionTime)
-        {
-            elapsed += Time.deltaTime;
-            if (elapsed > transitionTime)
-            {
-                elapsed = transitionTime;
-            }
+        fromDistance = -cam.transform.localPosition.z;
+        toDistance = Mathf.Clamp(fromDistance + step, min, max);            
+        elapsed = 0;
+        transition = Transition.movement;
+    }
 
-            float t = Utilities.Map2(elapsed, 0, transitionTime, 0, 1
-                    , ease, 
-                    Utilities.EASE.EASE_IN_OUT
-                    );
-            switch (transition)
-            {
-                case Transition.movement:
-                {
-                    float z = Mathf.Lerp(fromDistance, toDistance, t);
-                    Vector3 camLocal = cam.transform.localPosition;
-                    camLocal.z = -z;
-                    cam.transform.localPosition = camLocal;
-                    break;
-                }
-                case Transition.rotation:
-                {
-                    transform.rotation = Quaternion.Slerp(from, to, t);
-                    break;
-                }
-            }            
-        }
-        
-        float threshold = 0.5f;
-
-        /*
+    public void PitchClock(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
+    public void PitchCount(InputAction.CallbackContext context)
+    {
+        from = transform.rotation;
+        to = Quaternion.AngleAxis(-angle, transform.right) * transform.rotation;
+        elapsed = 0;
+        transition = Transition.rotation;
+    }
+    public void YawClock(InputAction.CallbackContext context)
+    public void YawCount(InputAction.CallbackContext context)
+    public void RollClock(InputAction.CallbackContext context)
+    public void RollCount(InputAction.CallbackContext context)
+    
+    /*
+    {
         if (Input.GetAxis("RHorizontal") > threshold && elapsed == transitionTime)
         {
             Debug.Log("right");
@@ -96,16 +95,7 @@ public class CornerCamera : MonoBehaviour
             elapsed = 0;
             transition = Transition.rotation;
         }
-        
-        if (Input.GetAxis("RVertical") > threshold && elapsed >= transitionTime)
-        {
-            Debug.Log("Up");
-            
-            from = transform.rotation;
-            to = Quaternion.AngleAxis(angle, transform.right) * transform.rotation;
-            elapsed = 0;
-            transition = Transition.rotation;
-        }
+    
 
         if (Input.GetAxis("RVertical") < -threshold && elapsed >= transitionTime)
         {
@@ -158,7 +148,49 @@ public class CornerCamera : MonoBehaviour
             transition = Transition.movement;
         }
         */
-    
-        //this.transform.rotation = to;
+    }
+        
+    // Start is called before the first frame update
+    void Start()
+    {
+        elapsed = transitionTime;
+        fromDistance = -cam.transform.localPosition.z;
+        toDistance = fromDistance;
+
+        ns = FindObjectOfType<NematodeSchool>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {        
+        if (elapsed < transitionTime)
+        {
+            elapsed += Time.deltaTime;
+            if (elapsed > transitionTime)
+            {
+                elapsed = transitionTime;
+            }
+
+            float t = Utilities.Map2(elapsed, 0, transitionTime, 0, 1
+                    , ease, 
+                    Utilities.EASE.EASE_IN_OUT
+                    );
+            switch (transition)
+            {
+                case Transition.movement:
+                {
+                    float z = Mathf.Lerp(fromDistance, toDistance, t);
+                    Vector3 camLocal = cam.transform.localPosition;
+                    camLocal.z = -z;
+                    cam.transform.localPosition = camLocal;
+                    break;
+                }
+                case Transition.rotation:
+                {
+                    transform.rotation = Quaternion.Slerp(from, to, t);
+                    break;
+                }
+            }            
+        }        
     }
 }

@@ -16,8 +16,8 @@ RenderSettings:
   serializedVersion: 9
   m_Fog: 1
   m_FogColor: {r: 0, g: 0, b: 0, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogMode: 2
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -496,7 +496,7 @@ MonoBehaviour:
   sv1: 0
   ev1: 0
   endValue: 0
-  ts: 0
+  ts: 0.5
   shaderTs: 1
   prefab: {fileID: 462149941442983107, guid: 11735f11036c8f547821971c4b7ccdad, type: 3}
   radius: 20
@@ -609,24 +609,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f243e1ce956d42b46b893d7abf5af94d, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 56d4369837500644d886b514493036b5, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1049925072}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -636,18 +624,6 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1049925076}
-        m_TargetAssemblyTypeName: UnityEngine.InputSystem.PlayerInput, Unity.InputSystem
-        m_MethodName: DebugLogAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
         m_MethodName: TimeChanged
@@ -659,62 +635,14 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: edfe781b-0bfe-4703-ad69-bc847520eb69
-    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: de2c33c6-67af-4c2d-84d4-46121f034ce4
-    m_ActionName: Player/Look[/Mouse/delta,/Touchscreen/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4c7be16c-c6fa-4fc7-b8c3-15d170fbb6c1
-    m_ActionName: Player/Fire[/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 53a4d061-ba4c-4ad1-80fa-77cef2b8fcd1
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 57e8accd-6efe-402b-baec-36180e00c07c
-    m_ActionName: UI/Submit[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f0c5a130-f0df-4d92-a020-0c0a295660e3
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eeb533b0-2d57-47f4-9d47-a09e1398b4ee
-    m_ActionName: UI/Point[/Mouse/position,/Touchscreen/touch0/position,/Touchscreen/touch1/position,/Touchscreen/touch2/position,/Touchscreen/touch3/position,/Touchscreen/touch4/position,/Touchscreen/touch5/position,/Touchscreen/touch6/position,/Touchscreen/touch7/position,/Touchscreen/touch8/position,/Touchscreen/touch9/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 1ae57984-3f09-413a-98f9-61b44512b60c
-    m_ActionName: UI/Click[/Mouse/leftButton,/Touchscreen/touch0/press,/Touchscreen/touch1/press,/Touchscreen/touch2/press,/Touchscreen/touch3/press,/Touchscreen/touch4/press,/Touchscreen/touch5/press,/Touchscreen/touch6/press,/Touchscreen/touch7/press,/Touchscreen/touch8/press,/Touchscreen/touch9/press]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 37f20c8e-203a-4f45-a5b1-83f6ed10ff6b
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 10b0ec19-58fe-4fdd-add4-0709d970b7c8
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5d7d4f24-3094-4a6b-a295-2c66c4d66775
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0e07558b-7d1e-4f87-8c17-ffa14a5f58c6
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cda52495-0676-4e0e-b883-7395cbdde43c
-    m_ActionName: UI/TrackedDeviceOrientation
+        m_CallState: 1
+    m_ActionId: 44cf3524-2496-400d-ada4-8f2635abc4c2
+    m_ActionName: MIDI Controls/Change Speed
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: TimeChanged
+        m_MethodName: Forwards
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -724,13 +652,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-    m_ActionId: 6cf77c11-bc0f-487f-bea4-680398260244
-    m_ActionName: IFControls/SpeedChange[/MidiDevice/control000]
+    m_ActionId: 74aff319-5d7c-49cf-b986-407bb0366034
+    m_ActionName: MIDI Controls/New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: TimeChanged
+        m_MethodName: Backwards
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -740,10 +668,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-    m_ActionId: 1ae2f369-a7da-441f-9539-f052ca381839
-    m_ActionName: IFControls/testButton
+    m_ActionId: a8ebe27e-9825-473f-9ed2-41def4761c75
+    m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: IFControls
+  m_DefaultActionMap: MIDI Controls
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}

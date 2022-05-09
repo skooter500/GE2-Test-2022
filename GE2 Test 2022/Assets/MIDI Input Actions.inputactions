@@ -1,0 +1,74 @@
+{
+    "name": "MIDI Input Actions",
+    "maps": [
+        {
+            "name": "MIDI Controls",
+            "id": "d4ca99a7-29c8-4adc-bdcc-aa057baf5600",
+            "actions": [
+                {
+                    "name": "Speed",
+                    "type": "Value",
+                    "id": "44cf3524-2496-400d-ada4-8f2635abc4c2",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Forwards Camera",
+                    "type": "Button",
+                    "id": "74aff319-5d7c-49cf-b986-407bb0366034",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Backwards Camera",
+                    "type": "Button",
+                    "id": "a8ebe27e-9825-473f-9ed2-41def4761c75",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fc2cdc72-1015-4eab-a990-f92b24b5cf9e",
+                    "path": "<MidiDevice>/control010",
+                    "interactions": "",
+                    "processors": "Scale(factor=5)",
+                    "groups": "",
+                    "action": "Speed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5fd74e05-315d-4b64-93a3-5f959c885477",
+                    "path": "<MidiDevice>/note044",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forwards Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f53ec072-549c-4331-a6af-402ae972f6ca",
+                    "path": "<MidiDevice>/note036",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Backwards Camera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

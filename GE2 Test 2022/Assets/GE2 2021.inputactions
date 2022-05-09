@@ -257,6 +257,65 @@
             ]
         },
         {
+            "name": "IFControls",
+            "id": "c3aa03b1-5e70-4341-8bad-ed7af7ae9a58",
+            "actions": [
+                {
+                    "name": "SpeedChange",
+                    "type": "Value",
+                    "id": "6cf77c11-bc0f-487f-bea4-680398260244",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "testButton",
+                    "type": "Button",
+                    "id": "1ae2f369-a7da-441f-9539-f052ca381839",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3212fb9b-06e2-418f-8806-9aa8eb155a92",
+                    "path": "<MidiDevice>/control010",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Gamepad;XR;Touch;Joystick",
+                    "action": "SpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1e1b6cd5-fa7c-47e0-b550-d513ebc3e0b9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpeedChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02b70f3f-4426-4d93-8f7d-97da42304d74",
+                    "path": "<MidiDevice>/note044",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Gamepad;Joystick;XR",
+                    "action": "testButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "UI",
             "id": "1b7a8c6f-6069-4d13-8c79-469541b6b7c5",
             "actions": [
@@ -771,65 +830,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "IFControls",
-            "id": "c3aa03b1-5e70-4341-8bad-ed7af7ae9a58",
-            "actions": [
-                {
-                    "name": "SpeedChange",
-                    "type": "Value",
-                    "id": "6cf77c11-bc0f-487f-bea4-680398260244",
-                    "expectedControlType": "MidiValue",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "testButton",
-                    "type": "Button",
-                    "id": "1ae2f369-a7da-441f-9539-f052ca381839",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "3212fb9b-06e2-418f-8806-9aa8eb155a92",
-                    "path": "<MidiDevice>/control010",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;XR;Touch;Joystick",
-                    "action": "SpeedChange",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1e1b6cd5-fa7c-47e0-b550-d513ebc3e0b9",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SpeedChange",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "02b70f3f-4426-4d93-8f7d-97da42304d74",
-                    "path": "<MidiDevice>/note044",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Joystick;XR",
-                    "action": "testButton",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
         }
     ],
     "controlSchemes": [
@@ -844,6 +844,16 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<MidiDevice>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<XInputController>",
                     "isOptional": false,
                     "isOR": false
                 }
