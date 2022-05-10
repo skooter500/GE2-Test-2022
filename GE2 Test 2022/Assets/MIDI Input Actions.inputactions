@@ -184,6 +184,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ColorStart",
+                    "type": "Value",
+                    "id": "85f33456-3232-464e-93c2-aa213e87f817",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ColorEnd",
+                    "type": "Value",
+                    "id": "3dcb85b9-5991-4cf3-9489-f8aaf8a6d488",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -613,6 +631,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "StopStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0c0c5fe-0e47-489c-92b8-183d5b015882",
+                    "path": "<MidiDevice>/control077",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1cf607e0-8765-41d4-9bd0-b632a613fbda",
+                    "path": "<MidiDevice>/control017",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -10,6 +10,8 @@ Shader "Custom/Boid" {
 		_Alpha("Alpha", Range(-100, 100)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 		_CI("CI", Range(0, 10000000)) = 0
+		_ColorStart("ColorStart", Range(0, 1)) = 0
+		_ColorEnd("ColorEnd", Range(0, 1)) = 1
 		
 	}
 	SubShader {
@@ -37,7 +39,8 @@ Shader "Custom/Boid" {
 
 		float _PositionScale;
 		float _TimeMultiplier;
-		float _Palette;
+		float _ColorStart;
+		float _ColorEnd;
 		
 		float _CI;
 
