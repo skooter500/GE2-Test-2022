@@ -20,9 +20,9 @@ public float shaderTs = 1.0f;
 
     public float speed = 2.0f;
 
-    public float feelerDepth = 8;
+    public float feelerDepth = 5;
 
-    public float sideFeelerDepth = 8;
+    public float sideFeelerDepth = 5;
 
     public float minRange = 38;
     public float maxRange = 200;
