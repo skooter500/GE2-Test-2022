@@ -98,7 +98,11 @@ Shader "Custom/Boid" {
 			// Albedo comes from a texture tinted by color
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
-			float hue = abs((d / _PositionScale) - f);
+			float hue = (d / _PositionScale) - f;
+			if(hue < 0)
+			{
+				hue = 1.0 + hue;
+			}
 			float cs, ce;
 			
 			cs = (_ColorStart);
