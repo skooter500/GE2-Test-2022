@@ -118,6 +118,8 @@ public class CornerCamera : MonoBehaviour
         Debug.Log("ColorRange : " + f);
         float cs = 0.5f - f;
         float ce = 0.5f + f;
+        oldTime = 2.5f;
+        newTime = 0;
         ns.material.SetFloat("_ColorStart", cs);
         ns.material.SetFloat("_ColorEnd", ce);
     }
@@ -265,7 +267,7 @@ public class CornerCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
+        Debug.Log("In Start");
         elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
         toDistance = fromDistance;
