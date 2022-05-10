@@ -72,11 +72,11 @@ Material:
     - _Offset: 42440
     - _Palette: 1
     - _Parallax: 0.02
-    - _PositionScale: 28.322836
+    - _PositionScale: 70.055115
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeMultiplier: 0
+    - _TimeMultiplier: 5.314961
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

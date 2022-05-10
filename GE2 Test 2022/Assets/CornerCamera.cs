@@ -242,6 +242,7 @@ public class CornerCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Start");
         elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
         toDistance = fromDistance;

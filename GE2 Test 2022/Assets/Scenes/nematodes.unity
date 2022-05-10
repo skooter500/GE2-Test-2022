@@ -578,13 +578,13 @@ MonoBehaviour:
   toDistance: 0
   to: {x: 0, y: 0, z: 0, w: 0}
   angle: 90
-  transitionTime: 1
+  transitionTime: 1.5
   elapsed: 0
   step: 25
   min: 0
   max: 200
   transition: 0
-  ease: 2
+  ease: 1
 --- !u!114 &1049925075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +910,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 07873dce-11ef-4153-ad57-a6bad1811e5a
     m_ActionName: MIDI Controls/New action
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5bfdbc37-dec6-4c28-8a9c-c0b8c7c929df
+    m_ActionName: MIDI Controls/Test
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
