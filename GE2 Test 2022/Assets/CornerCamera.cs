@@ -40,15 +40,21 @@ public class CornerCamera : MonoBehaviour
 
     float oldTransitionTime = 0;
 
+    bool stopped = true;
 
     public void StopStart(InputAction.CallbackContext context)
     {
+
+        if (elapsed != transitionTime)
+        {
+            return;
+        }
         if (context.phase != InputActionPhase.Performed)
         {
             return;
         }
         
-        if (oldTime != 0)
+        if (stopped)
         {
             Debug.Log("Starting");
             newTime = oldTime;
@@ -131,8 +137,6 @@ public class CornerCamera : MonoBehaviour
         Debug.Log("Color Start : " + f);
         float cs = 0.5f - f;
         float ce = 0.5f + f;
-        oldTime = 2.5f;
-        newTime = 0;
         ns.material.SetFloat("_ColorStart", cs);
         ns.material.SetFloat("_ColorEnd", ce);
     }
@@ -147,12 +151,27 @@ public class CornerCamera : MonoBehaviour
     }
 
 
-
     public void TimeChanged(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<float>());
-        ns.ts = context.ReadValue<float>();
+
+        /*if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
+        */
+        
+        Debug.Log("Time Changed: " + context.ReadValue<float>() + "stopped: " + stopped);
+        tTimeChanged = context.ReadValue<float>();
+        if (! stopped)
+        {
+            ns.ts = tTimeChanged;
+        }   
+        else
+        {
+            newTime = tTimeChanged;
+        }     
     }
+    float tTimeChanged = 0; 
 
     public void Forwards(InputAction.CallbackContext context)
     {
@@ -281,6 +300,8 @@ public class CornerCamera : MonoBehaviour
     void Start()
     {
         Debug.Log("In Start");
+        float v = 100.0f;
+        RenderSettings.ambientLight = new Color(v,v,v,1);
         elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
         toDistance = fromDistance;
@@ -288,12 +309,22 @@ public class CornerCamera : MonoBehaviour
         ns = FindObjectOfType<NematodeSchool>();
         ns.ts = 0;
         oldShaderTime = 1;
+        if (tTimeChanged == 0)
+        {
+            oldTime = 2.5f;
+        }
+        else
+        {
+            oldTime = tTimeChanged;
+        }
+        newTime = 0;
         ns.material.SetFloat("_TimeMultiplier", 0);
     }
 
     // Update is called once per frame
     void Update()
     {        
+        
         if (elapsed < transitionTime)
         {
             elapsed += Time.deltaTime;
@@ -325,7 +356,11 @@ public class CornerCamera : MonoBehaviour
                 {
                     ns.ts = Mathf.Lerp(oldTime, newTime, t);         
                     //float timeM = Mathf.Lerp(oldShaderTime, newShaderTime, t);                     
-                    //ns.material.SetFloat("_TimeMultiplier", timeM);         
+                    //ns.material.SetFloat("_TimeMultiplier", timeM);      
+                    if (elapsed == transitionTime)
+                    {
+                        stopped = ! stopped;
+                    }   
                     break;                    
                 }                
             }            
