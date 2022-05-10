@@ -115,16 +115,14 @@ public class CornerCamera : MonoBehaviour
     public void ColorStart(InputAction.CallbackContext context)
     {
         float f = context.ReadValue<float>();        
-        Debug.Log("ColorStart : " + f);
-        ns.material.SetFloat("_ColorStart", f);
+        Debug.Log("ColorRange : " + f);
+        float cs = 0.5f - f;
+        float ce = 0.5f + f;
+        ns.material.SetFloat("_ColorStart", cs);
+        ns.material.SetFloat("_ColorEnd", ce);
     }
 
-    public void ColorEnd(InputAction.CallbackContext context)
-    {
-        float f = context.ReadValue<float>();        
-        Debug.Log("ColorEnd: " + f);
-        ns.material.SetFloat("_ColorEnd", f);
-    }
+
 
     public void ColorShift(InputAction.CallbackContext context)
     {

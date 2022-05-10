@@ -6,8 +6,7 @@ Shader "Custom/Boid" {
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_PositionScale("PositionScale", Range(0, 100000)) = 250
 		_TimeMultiplier("Time Scale", Range(0, 100)) = 1
-		_Palette("Palette", Range(0, 1)) = 1
-		_Alpha("Alpha", Range(-100, 100)) = 1
+		_Alpha("Alpha", Range(0, 100)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 		_CI("CI", Range(0, 10000000)) = 0
 		_ColorStart("ColorStart", Range(0, 1)) = 0
