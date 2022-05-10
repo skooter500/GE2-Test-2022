@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 27
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 28
+  controlID: 20
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -401,9 +401,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 664f0000
-      m_LastClickedID: 20326
-      m_ExpandedIDs: 08fbffff664f0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: f2c7eeff30c8eeff7ec9eeff08fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -762,8 +762,8 @@ MonoBehaviour:
     m_SaveData: []
   m_ActionMapsTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 478ab82e
-    m_LastClickedID: 783845959
+    m_SelectedIDs: a9d3ea9b
+    m_LastClickedID: -1679109207
     m_ExpandedIDs: 00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -783,10 +783,10 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ActionsTreeState:
-    scrollPos: {x: 0, y: 161}
-    m_SelectedIDs: abfd6360
-    m_LastClickedID: 1617165739
-    m_ExpandedIDs: d591238da9d3ea9b91bda09ce38767a05dfa6ca6272115c323747dc58c402dd62a1e89e0c943eff575e08e04e3f6c11995768525c75dca29a4cbf92a31de8944dc782c4644f3145305150f59dbeba25d2a1f7063867ebf631886616abc373c706c1e40722221a77c
+    scrollPos: {x: 0, y: 917}
+    m_SelectedIDs: 4d6aabc4
+    m_LastClickedID: -995399091
+    m_ExpandedIDs: d591238da9d3ea9b91bda09ce38767a05dfa6ca6272115c323747dc58c402dd62a1e89e0c943eff575e08e04e3f6c11995768525c75dca29a4abea2aa4cbf92a31de8944dc782c4644f3145305150f59dbeba25d2a1f7063867ebf631886616abc373c706c1e40722221a77c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -966,8 +966,13 @@ MonoBehaviour:
       \"type\": \"Value\",\n                    \"id\": \"563ec407-07a8-4871-8700-5c9fcb35d298\",\n                   
       \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
       \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                }\n            ],\n            \"bindings\": [\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"fc2cdc72-1015-4eab-a990-f92b24b5cf9e\",\n                   
+      true\n                },\n                {\n                    \"name\":
+      \"Side Feeler Depth\",\n                    \"type\": \"Value\",\n                   
+      \"id\": \"363df351-03d2-47ea-81aa-18e9a6f125b2\",\n                    \"expectedControlType\":
+      \"MidiValue\",\n                    \"processors\": \"Scale(factor=15)\",\n                   
+      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
+      }\n            ],\n            \"bindings\": [\n                {\n                   
+      \"name\": \"\",\n                    \"id\": \"fc2cdc72-1015-4eab-a990-f92b24b5cf9e\",\n                   
       \"path\": \"<MidiDevice>/control007\",\n                    \"interactions\":
       \"\",\n                    \"processors\": \"Scale(factor=5)\",\n                   
       \"groups\": \"\",\n                    \"action\": \"Speed\",\n                   
@@ -1108,7 +1113,7 @@ MonoBehaviour:
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
       },\n                {\n                    \"name\": \"\",\n                   
       \"id\": \"dc3ee1b8-8106-4fe2-a3eb-2b70797a7d89\",\n                    \"path\":
-      \"<MidiDevice>/control010\",\n                    \"interactions\": \"\",\n                   
+      \"<MidiDevice>/control017\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"Scale(factor=200)\",\n                    \"groups\": \"\",\n                   
       \"action\": \"Radius\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
@@ -1135,8 +1140,8 @@ MonoBehaviour:
       \"action\": \"ShaderTime\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"5c31c722-f536-46b8-9786-cec026747206\",\n                   
-      \"path\": \"<MidiDevice>/control114\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=20)\",\n                   
+      \"path\": \"<MidiDevice>/control010\",\n                    \"interactions\":
+      \"\",\n                    \"processors\": \"Scale(factor=10)\",\n                   
       \"groups\": \"\",\n                    \"action\": \"Feeler Depth\",\n                   
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
       },\n                {\n                    \"name\": \"\",\n                   
@@ -1145,16 +1150,10 @@ MonoBehaviour:
       \"processors\": \"\",\n                    \"groups\": \"\",\n                   
       \"action\": \"Restart Scene\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"0b8eb624-42c4-4871-9171-0204dc32ad87\",\n                   
-      \"path\": \"<MidiDevice>/note084\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Restart Scene\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"97ef4f3f-2d42-414e-8327-c27cee913b29\",\n                    \"path\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"processors\":
-      \"\",\n                    \"groups\": \"\",\n                    \"action\":
-      \"Restart Scene\",\n                    \"isComposite\": false,\n                   
+      \"name\": \"\",\n                    \"id\": \"97ef4f3f-2d42-414e-8327-c27cee913b29\",\n                   
+      \"path\": \"\",\n                    \"interactions\": \"\",\n                   
+      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
+      \"action\": \"Restart Scene\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"29b5f70a-c4f1-45f8-8590-6e22db235fff\",\n                   
       \"path\": \"\",\n                    \"interactions\": \"\",\n                   
@@ -1187,325 +1186,13 @@ MonoBehaviour:
       \"<MidiDevice>/control016\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"\",\n                   
       \"action\": \"ColorShift\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                }\n            ]\n        },\n       
-      {\n            \"name\": \"MIDI Controls1\",\n            \"id\": \"1c73b7f8-7e6f-46f6-ac11-32df7c520fab\",\n           
-      \"actions\": [\n                {\n                    \"name\": \"Speed\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"ad75a856-0e77-429e-a2b7-ac46ce1975e0\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"Forward\",\n                    \"type\": \"Button\",\n                   
-      \"id\": \"091ecc9b-250f-4822-9794-e532cc33a792\",\n                    \"expectedControlType\":
-      \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Backward\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"610e8d91-8a77-4c48-b1ad-966294a5f176\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Yaw Clock\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"42cad891-dd09-45c4-8051-042656fbdf3d\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Yaw Counter\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"1aa3e9ed-5a06-427d-8cca-26d968732425\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Pitch Clock\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"337db602-1b5f-4e2a-a809-b343e52c8a81\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Pitch Counter\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"65bcf2bd-fbb3-4f9d-a4f0-609b5df186ee\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Roll Clock\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"a799c442-1008-4444-968c-7bea8e3dd2c7\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Roll Count\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"4576fd0d-e387-4936-afcb-70d51f6001f0\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Radius\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"efb486aa-65a7-4b10-801b-a2a1bdd253dc\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"Light\",\n                    \"type\": \"Value\",\n                    \"id\":
-      \"ae4d814a-128d-4797-a0ac-805cb2900897\",\n                    \"expectedControlType\":
-      \"MidiValue\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
-      },\n                {\n                    \"name\": \"AmbientLight\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"03d53e24-9ea9-484b-a063-8bd2e4090748\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"Quit\",\n                    \"type\": \"Button\",\n                    \"id\":
-      \"58a89597-8aec-48e3-a738-ddd4a2309b3a\",\n                    \"expectedControlType\":
-      \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"ColorRange\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"96825350-fce9-44b0-a976-d70b006b47f4\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"ShaderTime\",\n                    \"type\": \"Value\",\n                   
-      \"id\": \"b9268d8c-bf42-4adf-a203-4456219f5789\",\n                    \"expectedControlType\":
-      \"MidiValue\",\n                    \"processors\": \"ShiftScale(shift=-0.5,scale=50)\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
-      },\n                {\n                    \"name\": \"Side Feeler Depth\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"cfd98ba0-8972-483f-8fc5-15247ae6e660\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"Restart Scene\",\n                    \"type\": \"Button\",\n                   
-      \"id\": \"43a3cdc9-3afb-4f4a-ae26-551f0d804816\",\n                    \"expectedControlType\":
-      \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"StopStart\",\n                   
-      \"type\": \"Button\",\n                    \"id\": \"a7964d36-dafa-484c-8bb9-bbf1e1c50e65\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": false\n               
-      },\n                {\n                    \"name\": \"Test\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"337b5339-ee94-4fa3-88e1-639f8266ef38\",\n                   
-      \"expectedControlType\": \"Button\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
-      },\n                {\n                    \"name\": \"Alpha\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"15a82efd-0048-45ad-b8e6-a8aeaac3c884\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                },\n                {\n                    \"name\":
-      \"ColorStart\",\n                    \"type\": \"Value\",\n                   
-      \"id\": \"a564ea5b-460d-4f4e-b8ca-f458c2396d70\",\n                    \"expectedControlType\":
-      \"MidiValue\",\n                    \"processors\": \"\",\n                   
-      \"interactions\": \"\",\n                    \"initialStateCheck\": true\n               
-      },\n                {\n                    \"name\": \"ColorShift\",\n                   
-      \"type\": \"Value\",\n                    \"id\": \"5bf90b96-a519-4bf4-947d-6a8ac436389a\",\n                   
-      \"expectedControlType\": \"MidiValue\",\n                    \"processors\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"initialStateCheck\":
-      true\n                }\n            ],\n            \"bindings\": [\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"18b9b505-1e86-4285-aa6f-0169c9950abc\",\n                   
-      \"path\": \"<MidiDevice>/control007\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=5)\",\n                   
-      \"groups\": \"\",\n                    \"action\": \"Speed\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"f932ace6-09ee-4195-93f6-6749706b0c1b\",\n                    \"path\":
-      \"<MidiDevice>/note044\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Forward\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"3f27d1cc-8e9d-4edd-b824-ac6dc9560706\",\n                   
-      \"path\": \"<MidiDevice>/note061\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Forward\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"4d32ec07-10d9-4646-adb2-bb9a40a784df\",\n                   
-      \"path\": \"<MidiDevice>/note075\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Forward\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"b6bb8668-dc29-433f-a030-d74758efb195\",\n                   
-      \"path\": \"\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Forward\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"c4782387-06fe-484a-a84e-e48ef25844b8\",\n                   
-      \"path\": \"<MidiDevice>/note036\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Backward\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"0f442483-77d7-45f4-8977-0b0333647e53\",\n                   
-      \"path\": \"<MidiDevice>/note080\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Backward\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"2aa599cb-d9e4-4d5f-8d80-83c70f142339\",\n                   
-      \"path\": \"<MidiDevice>/note057\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Backward\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"be3d36fe-46df-4239-93c2-8d6d7b821d12\",\n                   
-      \"path\": \"<MidiDevice>/note045\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Yaw Clock\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"e1e5e88f-e51b-4433-a1db-7f3cc86286eb\",\n                    \"path\":
-      \"<MidiDevice>/note077\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Yaw Clock\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"2ec065fe-f94f-4185-baf4-44ba295f692f\",\n                   
-      \"path\": \"<MidiDevice>/note048\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Yaw Clock\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"457d84d8-13d2-4552-8928-899018d63be3\",\n                    \"path\":
-      \"<MidiDevice>/note037\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Yaw Counter\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"68cca355-07c9-4bf3-b47c-9c21381bed85\",\n                   
-      \"path\": \"<MidiDevice>/note069\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Yaw Counter\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"61070f1b-ee9e-422f-905b-6e66defc5a04\",\n                    \"path\":
-      \"<MidiDevice>/note064\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Yaw Counter\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"0da240c3-24ee-4f39-90d0-f45ab6fc5d50\",\n                   
-      \"path\": \"<MidiDevice>/note046\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Pitch Clock\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"3acaf4aa-849c-42ef-b587-f96d0791ad8a\",\n                    \"path\":
-      \"<MidiDevice>/note075\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Pitch Clock\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"e5dbebaf-ec6e-4e5c-9d7b-57f3605001e2\",\n                   
-      \"path\": \"\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Pitch Clock\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"7d8b1abd-edb3-479c-bd2e-8eecd666cb8c\",\n                   
-      \"path\": \"<MidiDevice>/note038\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Pitch Counter\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"41fff5e0-a58e-4ff3-bdf7-cde77d2641c4\",\n                    \"path\":
-      \"<MidiDevice>/note064\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Pitch Counter\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"c92b8464-71fd-4b4a-9dbb-fe2a395bb0a8\",\n                   
-      \"path\": \"<MidiDevice>/note060\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Pitch Counter\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"cdf5f6ea-9502-439b-b57e-c46eacfba0b5\",\n                    \"path\":
-      \"<MidiDevice>/note047\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Roll Clock\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"6b016314-6c87-47ab-98a5-872176464b02\",\n                   
-      \"path\": \"<MidiDevice>/note053\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Roll Clock\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"da300de2-8c7b-445c-aef4-d1f49fd1b29f\",\n                    \"path\":
-      \"<MidiDevice>/note083\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Roll Clock\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"2db94175-e7af-480d-b5fb-887d1441abb6\",\n                   
-      \"path\": \"<MidiDevice>/note039\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Roll Count\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"ebcc6376-87c4-4d1d-bb17-16679ba7d929\",\n                    \"path\":
-      \"<MidiDevice>/note067\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Roll Count\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"c3efae25-3315-41fa-bc7e-e69a51dbd98e\",\n                   
-      \"path\": \"<MidiDevice>/note065\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Roll Count\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"bec09ded-6e6d-432f-b3c8-a74012ce2beb\",\n                    \"path\":
-      \"<MidiDevice>/control010\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"Scale(factor=200)\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Radius\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"df3ddf5a-dca0-4433-838b-bd04374165fa\",\n                   
-      \"path\": \"<MidiDevice>/control074\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=200)\",\n                   
-      \"groups\": \"\",\n                    \"action\": \"AmbientLight\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"525dc6e1-7f6d-442b-a099-c76fd1bd4a65\",\n                    \"path\":
-      \"<Keyboard>/escape\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Quit\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"a233dc49-7ed4-4df5-b615-7acbd8332a78\",\n                   
-      \"path\": \"<MidiDevice>/control071\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=100)\",\n                   
-      \"groups\": \"\",\n                    \"action\": \"ColorRange\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"782da91e-683c-4cea-a2fc-00901a57933b\",\n                    \"path\":
-      \"<MidiDevice>/control019\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"ShaderTime\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"80972228-acd6-4e99-b9eb-015fec986cf1\",\n                   
+      \"name\": \"\",\n                    \"id\": \"c93a70a1-86c7-4b98-aee7-b04c857bb90a\",\n                   
       \"path\": \"<MidiDevice>/control114\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=20)\",\n                   
+      \"\",\n                    \"processors\": \"Scale(factor=10)\",\n                   
       \"groups\": \"\",\n                    \"action\": \"Side Feeler Depth\",\n                   
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"0529b684-2527-4ed5-a053-bb7dfe30594f\",\n                    \"path\":
-      \"<MidiDevice>/note043\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Restart Scene\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"21bbefef-585b-4058-a988-eb3107ad37c7\",\n                   
-      \"path\": \"<MidiDevice>/note084\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Restart Scene\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"bf90b1ff-d428-4c06-ac76-ccd4b5d62c98\",\n                    \"path\":
-      \"\",\n                    \"interactions\": \"\",\n                    \"processors\":
-      \"\",\n                    \"groups\": \"\",\n                    \"action\":
-      \"Restart Scene\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"7e4fdd2e-d3e0-4325-abb0-305503c26e35\",\n                   
-      \"path\": \"\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"Test\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"31fee70c-3e2d-4d60-a01b-dc33635bc7b6\",\n                   
-      \"path\": \"<MidiDevice>/control076\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"\",\n                    \"groups\":
-      \"\",\n                    \"action\": \"Alpha\",\n                    \"isComposite\":
-      false,\n                    \"isPartOfComposite\": false\n                },\n               
-      {\n                    \"name\": \"\",\n                    \"id\": \"caf56768-ecd5-444e-8b94-fb1df685432b\",\n                   
-      \"path\": \"<MidiDevice>/control018\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=100)\",\n                   
-      \"groups\": \"\",\n                    \"action\": \"Light\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"ea7c8cb3-9310-4731-9bc9-edd59557e9f4\",\n                    \"path\":
-      \"<MidiDevice>/note051\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"StopStart\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                },\n                {\n                   
-      \"name\": \"\",\n                    \"id\": \"328b7500-c958-490c-a099-bbb4b4cf631c\",\n                   
-      \"path\": \"<MidiDevice>/control077\",\n                    \"interactions\":
-      \"\",\n                    \"processors\": \"Scale(factor=0.5)\",\n                   
-      \"groups\": \"\",\n                    \"action\": \"ColorStart\",\n                   
-      \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
-      },\n                {\n                    \"name\": \"\",\n                   
-      \"id\": \"329f82de-13fb-49fd-98ff-82e50027cde9\",\n                    \"path\":
-      \"<MidiDevice>/control016\",\n                    \"interactions\": \"\",\n                   
-      \"processors\": \"\",\n                    \"groups\": \"\",\n                   
-      \"action\": \"ColorShift\",\n                    \"isComposite\": false,\n                   
-      \"isPartOfComposite\": false\n                }\n            ]\n        }\n   
-      ],\n    \"controlSchemes\": []\n}"
+      }\n            ]\n        }\n    ],\n    \"controlSchemes\": []\n}"
     m_IsDirty: 0
   m_Toolbar:
     m_IsDirty: 0
@@ -1625,9 +1312,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 4}
-    m_SelectedIDs: 10500000
-    m_LastClickedID: 20496
-    m_ExpandedIDs: 0000000048500000
+    m_SelectedIDs: 48500000
+    m_LastClickedID: 20552
+    m_ExpandedIDs: 000000004850000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1680,9 +1367,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 744f0000
+    m_LastClickedInstanceID: 20340
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1707,7 +1394,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 25.338127}
+    m_ScrollPosition: {x: 0, y: 47.5}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
