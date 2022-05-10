@@ -299,6 +299,7 @@ public class CornerCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Debug.Log("In Start");
         float v = 100.0f;
         RenderSettings.ambientLight = new Color(v,v,v,1);
@@ -309,6 +310,9 @@ public class CornerCamera : MonoBehaviour
         ns = FindObjectOfType<NematodeSchool>();
         ns.ts = 0;
         oldShaderTime = 1;
+        ns.material.SetFloat("_ColorStart",0.25f);
+        ns.material.SetFloat("_ColorEnd",0.25f);
+        ns.material.SetFloat("_ColorShift",0.5f);
         if (tTimeChanged == 0)
         {
             oldTime = 2.5f;
