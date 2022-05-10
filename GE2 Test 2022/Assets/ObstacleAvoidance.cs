@@ -11,8 +11,8 @@ public class ObstacleAvoidance : SteeringBehaviour
     public float sideFeelerDepth = 2;
     FeelerInfo[] feelers = new FeelerInfo[5];
 
-    public float frontFeelerUpdatesPerSecond = 15.0f;
-    public float sideFeelerUpdatesPerSecond = 15.0f;
+    public float frontFeelerUpdatesPerSecond = 10.0f;
+    public float sideFeelerUpdatesPerSecond = 10.0f;
 
     public float feelerRadius = 2.0f;
 

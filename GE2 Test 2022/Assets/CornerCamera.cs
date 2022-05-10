@@ -107,7 +107,7 @@ public class CornerCamera : MonoBehaviour
 
     public void FeelerLength(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>();        
+        float f = context.ReadValue<float>() + 0.5f;        
         Debug.Log("Feeler Length: " + f);
         ns.feelerDepth = f;
     }

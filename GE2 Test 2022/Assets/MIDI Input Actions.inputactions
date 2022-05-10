@@ -574,28 +574,6 @@
                 },
                 {
                     "name": "",
-                    "id": "0551cd9e-9ff3-4937-8e82-bb401885abac",
-                    "path": "<MidiDevice>/note083",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StopStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b907b575-946c-474a-af10-4a3aa6ba58d2",
-                    "path": "<MidiDevice>/note051",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StopStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "29b5f70a-c4f1-45f8-8590-6e22db235fff",
                     "path": "",
                     "interactions": "",
@@ -624,6 +602,17 @@
                     "processors": "Scale(factor=100)",
                     "groups": "",
                     "action": "Light",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5cc14eaa-f81d-43c8-84ab-48ed058e7548",
+                    "path": "<MidiDevice>/note051",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StopStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
