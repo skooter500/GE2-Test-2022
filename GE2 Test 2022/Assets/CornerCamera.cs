@@ -128,7 +128,7 @@ public class CornerCamera : MonoBehaviour
     public void ColorStart(InputAction.CallbackContext context)
     {
         float f = context.ReadValue<float>();        
-        Debug.Log("ColorRange : " + f);
+        Debug.Log("Color Start : " + f);
         float cs = 0.5f - f;
         float ce = 0.5f + f;
         oldTime = 2.5f;

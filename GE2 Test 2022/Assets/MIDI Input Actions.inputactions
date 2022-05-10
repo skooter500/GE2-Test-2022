@@ -645,23 +645,23 @@
                 },
                 {
                     "name": "",
-                    "id": "692f231c-223c-4927-b4dc-80cc437a96d1",
-                    "path": "<MidiDevice>/control016",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ColorShift",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c93a70a1-86c7-4b98-aee7-b04c857bb90a",
                     "path": "<MidiDevice>/control114",
                     "interactions": "",
                     "processors": "Scale(factor=10)",
                     "groups": "",
                     "action": "Side Feeler Depth",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "666ade93-8cc8-4938-b196-c7dee871e7ed",
+                    "path": "<MidiDevice>/control016",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

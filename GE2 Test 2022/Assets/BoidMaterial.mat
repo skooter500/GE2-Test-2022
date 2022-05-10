@@ -57,11 +57,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.5
+    - _Alpha: 0.4566929
     - _BumpScale: 1
     - _CI: 50
     - _ColorEnd: 0.5
-    - _ColorShift: 0.5
+    - _ColorShift: 0
     - _ColorStart: 0.5
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -76,7 +76,7 @@ Material:
     - _Offset: 42440
     - _Palette: 1
     - _Parallax: 0.02
-    - _PositionScale: 51.94488
+    - _PositionScale: 50
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
