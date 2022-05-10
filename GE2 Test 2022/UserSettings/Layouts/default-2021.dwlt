@@ -97,7 +97,7 @@ MonoBehaviour:
   m_MinSize: {x: 640, y: 601}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 193
+  controlID: 733
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -263,8 +263,8 @@ MonoBehaviour:
     y: 0
     width: 207
     height: 315
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -527,7 +527,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 3048ffff8048ffffce49ffff08fbffff
+      m_ExpandedIDs: a47cf9fff67cf9ff447ef9ff08fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -907,10 +907,10 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ActionsTreeState:
-    scrollPos: {x: 0, y: 161}
-    m_SelectedIDs: 4d083249
-    m_LastClickedID: 1228015693
-    m_ExpandedIDs: d591238da9d3ea9b91bda09ce38767a05dfa6ca623747dc58c402dd62a1e89e0c943eff575e08e04e3f6c11995768525c75dca29a4cbf92a31de8944dc782c4644f3145305150f59dbeba25d2a1f7063867ebf631886616abc373c706c1e40722221a77c
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: dd382a96
+    m_LastClickedID: -1775617827
+    m_ExpandedIDs: d591238da9d3ea9b91bda09ce38767a05dfa6ca623747dc58c402dd62a1e89e0c943eff575e08e04e3f6c119957685253ab53129c75dca29a4cbf92a31de8944dc782c4644f3145305150f59dbeba25d2a1f7063867ebf631886616abc373c706c1e40722221a77c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1543,7 +1543,7 @@ MonoBehaviour:
       \"action\": \"Roll Count\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"c3efae25-3315-41fa-bc7e-e69a51dbd98e\",\n                   
-      \"path\": \"<MidiDevice>/note084\",\n                    \"interactions\":
+      \"path\": \"<MidiDevice>/note065\",\n                    \"interactions\":
       \"\",\n                    \"processors\": \"\",\n                    \"groups\":
       \"\",\n                    \"action\": \"Roll Count\",\n                   
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
