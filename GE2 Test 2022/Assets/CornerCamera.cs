@@ -39,11 +39,7 @@ public class CornerCamera : MonoBehaviour
     float newShaderTime = 0; 
 
     float oldTransitionTime = 0;
-    public void ShaderTimeTransition()
-    {
-        elapsed = 0.0f;
-        transition = Transition.shaderTime;
-    }
+
 
     public void StopStart(InputAction.CallbackContext context)
     {
@@ -89,6 +85,13 @@ public class CornerCamera : MonoBehaviour
         float f = context.ReadValue<float>();    
         Debug.Log("CI: " + f);    
         ns.material.SetFloat("_CI", f);
+    }
+    public void Alpha(InputAction.CallbackContext context)
+    {
+        
+        float f = context.ReadValue<float>();    
+        Debug.Log("Alpha: " + f);    
+        ns.material.SetFloat("_Alpha", f);
     }
     public void AmbientLight(InputAction.CallbackContext context)
     {

@@ -914,6 +914,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5bfdbc37-dec6-4c28-8a9c-c0b8c7c929df
     m_ActionName: MIDI Controls/Test
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: Alpha
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bf2fe92b-332c-4c12-9377-48f148d55944
+    m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
