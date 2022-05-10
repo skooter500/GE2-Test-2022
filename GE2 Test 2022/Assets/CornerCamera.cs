@@ -81,14 +81,20 @@ public class CornerCamera : MonoBehaviour
     } 
     public void Light(InputAction.CallbackContext context)
     {
-        
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
         float f = context.ReadValue<float>();    
         Debug.Log("CI: " + f);    
         ns.material.SetFloat("_CI", f);
     }
     public void Alpha(InputAction.CallbackContext context)
     {
-        
+        if (context.phase != InputActionPhase.Performed)
+        {
+            return;
+        }
         float f = context.ReadValue<float>();    
         Debug.Log("Alpha: " + f);    
         ns.material.SetFloat("_Alpha", f);
