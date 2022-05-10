@@ -42,8 +42,6 @@ public class CornerCamera : MonoBehaviour
     public void ShaderTimeTransition()
     {
         elapsed = 0.0f;
-        oldTransitionTime = transitionTime;
-        transitionTime *= 3;
         transition = Transition.shaderTime;
     }
 
@@ -58,13 +56,12 @@ public class CornerCamera : MonoBehaviour
         {
             Debug.Log("Starting");
             newTime = oldTime;
-            oldTime = 0;
-            
+            oldTime = 0;            
             newShaderTime = oldShaderTime;            
             oldShaderTime = 0;
             elapsed = 0.0f;
             transition = Transition.time;
-            Invoke("ShaderTimeTransition", transitionTime);
+            //Invoke("ShaderTimeTransition", transitionTime);
         }
         else
         {
@@ -72,10 +69,13 @@ public class CornerCamera : MonoBehaviour
             newTime = 0;
             oldTime = ns.ts;            
             newShaderTime = 0;
-            oldShaderTime = ns.material.GetFloat("_TimeMultiplier");            
+            oldShaderTime = ns.material.GetFloat("_TimeMultiplier");       
+            ns.material.SetFloat("_TimeMultiplier", 0);
             elapsed = 0.0f;
             transition = Transition.time;
-            Invoke("ShaderTimeTransition", transitionTime);
+            oldTransitionTime = transitionTime;
+
+            //Invoke("ShaderTimeTransition", transitionTime);
         }
     }
 
@@ -284,21 +284,11 @@ public class CornerCamera : MonoBehaviour
                 }
                 case Transition.time:
                 {
-                    ns.ts = Mathf.Lerp(oldTime, newTime, t);                    
-                    break;
-                }
-                case Transition.shaderTime:
-                {
-                    float timeM = Mathf.Lerp(oldShaderTime, newShaderTime, t);                     
-                    {   
-                        ns.material.SetFloat("_TimeMultiplier", timeM);
-                    }
-                    if (elapsed == transitionTime)
-                    {
-                        transitionTime = oldTransitionTime;
-                    }
-                    break;
-                }
+                    ns.ts = Mathf.Lerp(oldTime, newTime, t);         
+                    //float timeM = Mathf.Lerp(oldShaderTime, newShaderTime, t);                     
+                    //ns.material.SetFloat("_TimeMultiplier", timeM);         
+                    break;                    
+                }                
             }            
         }        
     }
