@@ -112,6 +112,13 @@ public class CornerCamera : MonoBehaviour
         ns.feelerDepth = f;
     }
 
+    public void SideFeelerLength(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>() + 0.5f;        
+        Debug.Log("Side Feeler Length: " + f);
+        ns.sideFeelerDepth = f;
+    }
+
     public void ColorStart(InputAction.CallbackContext context)
     {
         float f = context.ReadValue<float>();        

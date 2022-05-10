@@ -9,8 +9,8 @@ public class ObstacleAvoidance : SteeringBehaviour
     public float scale = 4.0f;
     FeelerInfo[] feelers = new FeelerInfo[5];
 
-    public float frontFeelerUpdatesPerSecond = 10.0f;
-    public float sideFeelerUpdatesPerSecond = 10.0f;
+    public float frontFeelerUpdatesPerSecond = 7.0f;
+    public float sideFeelerUpdatesPerSecond = 7.0f;
 
     public float feelerRadius = 2.0f;
 
@@ -111,13 +111,13 @@ public class ObstacleAvoidance : SteeringBehaviour
         while (true)
         {
             // Left feeler
-            UpdateFeeler(1, Quaternion.AngleAxis(angle, Vector3.up), school.feelerDepth, FeelerInfo.FeeelerType.side);
+            UpdateFeeler(1, Quaternion.AngleAxis(angle, Vector3.up), school.sideFeelerDepth, FeelerInfo.FeeelerType.side);
             // Right feeler
-            UpdateFeeler(2, Quaternion.AngleAxis(-angle, Vector3.up), school.feelerDepth, FeelerInfo.FeeelerType.side);
+            UpdateFeeler(2, Quaternion.AngleAxis(-angle, Vector3.up), school.sideFeelerDepth, FeelerInfo.FeeelerType.side);
             // Up feeler
-            UpdateFeeler(3, Quaternion.AngleAxis(angle, Vector3.right), school.feelerDepth, FeelerInfo.FeeelerType.side);
+            UpdateFeeler(3, Quaternion.AngleAxis(angle, Vector3.right), school.sideFeelerDepth, FeelerInfo.FeeelerType.side);
             // Down feeler
-            UpdateFeeler(4, Quaternion.AngleAxis(-angle, Vector3.right), school.feelerDepth, FeelerInfo.FeeelerType.side);
+            UpdateFeeler(4, Quaternion.AngleAxis(-angle, Vector3.right), school.sideFeelerDepth, FeelerInfo.FeeelerType.side);
 
             yield return new WaitForSeconds(1.0f / sideFeelerUpdatesPerSecond);
         }

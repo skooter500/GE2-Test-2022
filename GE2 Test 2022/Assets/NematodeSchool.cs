@@ -22,6 +22,8 @@ public float shaderTs = 1.0f;
 
     public float feelerDepth = 8;
 
+    public float sideFeelerDepth = 8;
+
     public float minRange = 38;
     public float maxRange = 200;
 
