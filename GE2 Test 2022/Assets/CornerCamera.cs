@@ -123,17 +123,14 @@ public class CornerCamera : MonoBehaviour
     {
         float f = context.ReadValue<float>();        
         Debug.Log("ColorEnd: " + f);
-        ns.feelerDepth = f;
-        ns.material.SetFloat("_ColorStart", f);
+        ns.material.SetFloat("_ColorEnd", f);
     }
 
     public void ColorShift(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>() - 0.5f;        
+        float f = context.ReadValue<float>();        
         Debug.Log("Color Shift: " + f);
-        ns.feelerDepth = f;
-        ns.material.SetFloat("_ColorStart", ns.material.GetFloat("_ColorStart") + f);
-        ns.material.SetFloat("_ColorEnd", ns.material.GetFloat("_ColorEnd") + f);
+        ns.material.SetFloat("_ColorShift", f);
     }
 
 

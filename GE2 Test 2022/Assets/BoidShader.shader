@@ -12,6 +12,7 @@ Shader "Custom/Boid" {
 		_CI("CI", Range(0, 10000000)) = 0
 		_ColorStart("ColorStart", Range(0, 1)) = 0
 		_ColorEnd("ColorEnd", Range(0, 1)) = 1
+		_ColorShift("ColorShift", Range(-1, 1)) = 1
 		
 	}
 	SubShader {
@@ -41,6 +42,7 @@ Shader "Custom/Boid" {
 		float _TimeMultiplier;
 		float _ColorStart;
 		float _ColorEnd;
+		float _ColorShift;
 		
 		float _CI;
 
@@ -91,12 +93,34 @@ Shader "Custom/Boid" {
 			return (RGB);
 		}
 		
+
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
-			float hue = abs((d / _PositionScale) - f) + _ColorStart;
-			hue = pingpong(hue, _ColorStart + _ColorEnd);
+			float hue = abs((d / _PositionScale) - f);
+			float cs, ce;
+			
+			cs = (_ColorStart);
+			if (cs > 1.0)
+			{
+				cs = cs - 1.0;
+			}
+
+			ce = (_ColorEnd);
+			if (ce > 1.0)
+			{
+				ce = ce - 1.0;
+			}
+
+			if (cs > ce)
+			{
+				float temp = cs;
+				cs = ce;
+				ce = temp;
+			}
+			
+			hue = ((pingpong(hue, cs - ce) + cs) + _ColorShift) % 1.0;
 			float b = map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
