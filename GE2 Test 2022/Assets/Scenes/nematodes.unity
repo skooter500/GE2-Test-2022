@@ -503,6 +503,7 @@ MonoBehaviour:
   count: 100
   speed: 10
   feelerDepth: 8
+  sideFeelerDepth: 8
   minRange: 20
   maxRange: 200
   material: {fileID: 2100000, guid: a4eaadbdcf669cc45b81d00303f74558, type: 2}
@@ -950,22 +951,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: ColorEnd
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: 3dcb85b9-5991-4cf3-9489-f8aaf8a6d488
-    m_ActionName: MIDI Controls/ColorEnd
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1049925074}
-        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
         m_MethodName: ColorShift
         m_Mode: 0
         m_Arguments:
@@ -978,6 +963,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 563ec407-07a8-4871-8700-5c9fcb35d298
     m_ActionName: MIDI Controls/ColorShift
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: SideFeelerLength
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 363df351-03d2-47ea-81aa-18e9a6f125b2
+    m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
