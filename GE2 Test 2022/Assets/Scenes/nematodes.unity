@@ -930,6 +930,54 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: bf2fe92b-332c-4c12-9377-48f148d55944
     m_ActionName: MIDI Controls/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ColorStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 85f33456-3232-464e-93c2-aa213e87f817
+    m_ActionName: MIDI Controls/ColorStart
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ColorEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 3dcb85b9-5991-4cf3-9489-f8aaf8a6d488
+    m_ActionName: MIDI Controls/ColorEnd
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ColorShift
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 563ec407-07a8-4871-8700-5c9fcb35d298
+    m_ActionName: MIDI Controls/ColorShift
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls

@@ -202,6 +202,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ColorShift",
+                    "type": "Value",
+                    "id": "563ec407-07a8-4871-8700-5c9fcb35d298",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -653,6 +662,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ColorEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "692f231c-223c-4927-b4dc-80cc437a96d1",
+                    "path": "<MidiDevice>/control093",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorShift",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
