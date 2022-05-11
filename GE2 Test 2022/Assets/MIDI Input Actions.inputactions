@@ -648,7 +648,7 @@
                     "id": "666ade93-8cc8-4938-b196-c7dee871e7ed",
                     "path": "<MidiDevice>/control016",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale",
                     "groups": "",
                     "action": "ColorShift",
                     "isComposite": false,

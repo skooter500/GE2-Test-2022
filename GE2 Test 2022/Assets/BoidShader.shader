@@ -109,34 +109,25 @@ Shader "Custom/Boid" {
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
+						
 			float d = length(IN.worldPos);
+			
 			float f = _Time * _TimeMultiplier;
-			float hue = (d / _PositionScale) + f;
-			float cs, ce;
+
+			float cs = _ColorStart;
 			
-			cs = _ColorStart + _ColorShift;
-			if (cs > 1.0)
+			float ce = _ColorEnd;			
+			
+			float hue = pingpongMap(d + f, 0, _PositionScale, cs, ce) + _ColorShift;
+			if (hue > 1.0f)
 			{
-				cs = cs -1.0;
+				hue = hue - 1.0f;
 			}
-			if (cs < 0.0)
+			if (hue < 0)
 			{
-				cs = 1 + cs;
-			}
-			ce = _ColorEnd + _ColorShift;
-			if (ce > 1.0)
-			{
-				ce = ce -1.0;
-			}
-			if (ce < 0.0)
-			{
-				ce = 1 + ce;
+				hue = 1.0f - hue;
 			}
 			
-			
-			
-			hue = ((pingpong(hue, cs - ce) + cs) + _ColorShift) % 1.0;
-			hue = clamp(hue, 0.0, 1.0);
 			float b = 1; // map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
