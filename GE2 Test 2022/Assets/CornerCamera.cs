@@ -162,8 +162,9 @@ public class CornerCamera : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             float f = context.ReadValue<float>();        
-            Debug.Log("Color Shift: " + f);
+            Debug.Log("Color Shift: " + colorShift);
             colorShift = f;
+            /*
             if (colorShift < 0)
             {
                 colorShift = 1.0f + colorShift;
@@ -172,6 +173,8 @@ public class CornerCamera : MonoBehaviour
             {
                 colorShift = colorShift - 1.0f;
             }
+            */
+            Debug.Log("Color Shift: " + colorShift);
             ns.material.SetFloat("_ColorShift", colorShift);
         }
     }
@@ -311,7 +314,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() + 11;
+        float f = context.ReadValue<float>() + 1;
         Debug.Log("Color Range: " + f);
         ns.material.SetFloat("_PositionScale", f);
     }
