@@ -111,14 +111,13 @@ Shader "Custom/Boid" {
 			// Albedo comes from a texture tinted by color
 						
 			float d = length(IN.worldPos);
-			
-			float f = _Time * _TimeMultiplier;
 
 			float cs = _ColorStart;
 			
 			float ce = _ColorEnd;			
 			
-			float hue = pingpongMap(d + f, 0, _PositionScale, cs, ce) + _ColorShift;
+			float t = _Time * _TimeMultiplier;
+			float hue = pingpongMap(d + t, 0, _PositionScale, cs, ce) + _ColorShift;
 			if (hue > 1.0f)
 			{
 				hue = hue - 1.0f;
@@ -128,7 +127,7 @@ Shader "Custom/Boid" {
 				hue = 1.0f - hue;
 			}
 			
-			float b = 1; // map(d, 0, 200, 2, 1);
+			float b = map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			

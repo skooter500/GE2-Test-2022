@@ -204,11 +204,20 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Side Feeler Depth",
+                    "name": "Bloom",
                     "type": "Value",
-                    "id": "363df351-03d2-47ea-81aa-18e9a6f125b2",
+                    "id": "180a87ea-c524-467d-b589-f273a93044f8",
                     "expectedControlType": "MidiValue",
-                    "processors": "Scale(factor=15)",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Side Feeler",
+                    "type": "Value",
+                    "id": "f9328412-fd75-47fb-84a8-00ed36d9e862",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 }
@@ -634,17 +643,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c93a70a1-86c7-4b98-aee7-b04c857bb90a",
-                    "path": "<MidiDevice>/control114",
-                    "interactions": "",
-                    "processors": "Scale(factor=10)",
-                    "groups": "",
-                    "action": "Side Feeler Depth",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "666ade93-8cc8-4938-b196-c7dee871e7ed",
                     "path": "<MidiDevice>/control016",
                     "interactions": "",
@@ -662,6 +660,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ColorStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ef836ca-beee-40fc-a966-0da6d559376c",
+                    "path": "<MidiDevice>/control093",
+                    "interactions": "",
+                    "processors": "Scale(factor=20)",
+                    "groups": "",
+                    "action": "Bloom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "584f2a06-807c-4948-8dab-6c970b1aa6e5",
+                    "path": "<MidiDevice>/control114",
+                    "interactions": "",
+                    "processors": "Scale(factor=10)",
+                    "groups": "",
+                    "action": "Side Feeler",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

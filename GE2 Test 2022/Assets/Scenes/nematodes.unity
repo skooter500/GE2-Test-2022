@@ -336,7 +336,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 963194228}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2147483647
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 1
@@ -586,6 +586,7 @@ MonoBehaviour:
   max: 200
   transition: 0
   ease: 1
+  volume: {fileID: 963194231}
 --- !u!114 &1049925075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,6 +968,22 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: Bloom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 180a87ea-c524-467d-b589-f273a93044f8
+    m_ActionName: MIDI Controls/Bloom[/MidiDevice/control093]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
         m_MethodName: SideFeelerLength
         m_Mode: 0
         m_Arguments:
@@ -977,8 +994,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 363df351-03d2-47ea-81aa-18e9a6f125b2
-    m_ActionName: MIDI Controls/New action
+    m_ActionId: f9328412-fd75-47fb-84a8-00ed36d9e862
+    m_ActionName: MIDI Controls/Side Feeler[/MidiDevice/control114]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls

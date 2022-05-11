@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class CornerCamera : MonoBehaviour
@@ -121,16 +122,27 @@ public class CornerCamera : MonoBehaviour
 
     public void FeelerLength(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>() + 0.5f;        
+        float f = context.ReadValue<float>();        
         Debug.Log("Feeler Length: " + f);
         ns.feelerDepth = f;
     }
 
     public void SideFeelerLength(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>() + 0.5f;        
+        float f = context.ReadValue<float>();        
         Debug.Log("Side Feeler Length: " + f);
         ns.sideFeelerDepth = f;
+    }
+
+    private Bloom bloom;
+    public PostProcessVolume volume;
+
+    public void Bloom(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>();        
+        Debug.Log("Bloom: " + f); 
+        
+        bloom.intensity.Override(f);
     }
 
     public void ColorStart(InputAction.CallbackContext context)
@@ -150,15 +162,8 @@ public class CornerCamera : MonoBehaviour
         if (context.phase == InputActionPhase.Performed)
         {
             float f = context.ReadValue<float>();        
-            Debug.Log("Color Shift: " + colorShift);
-            if (f > 0.5f)
-            {   
-                colorShift += 0.01f;
-            }
-            else
-            {
-                colorShift -= 0.01f;
-            } 
+            Debug.Log("Color Shift: " + f);
+            colorShift = f;
             if (colorShift < 0)
             {
                 colorShift = 1.0f + colorShift;
@@ -343,6 +348,8 @@ public class CornerCamera : MonoBehaviour
         elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
         toDistance = fromDistance;
+
+        bloom = volume.profile.GetSetting<UnityEngine.Rendering.PostProcessing.Bloom>();
 
         oldTime = CornerCamera.timeScale;
         
