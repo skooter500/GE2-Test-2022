@@ -164,6 +164,7 @@ public class CornerCamera : MonoBehaviour
             float f = context.ReadValue<float>();        
             Debug.Log("Color Shift: " + colorShift);
             colorShift = f;
+            
             /*
             if (colorShift < 0)
             {
