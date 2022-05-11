@@ -78,37 +78,62 @@ Shader "Custom/Boid" {
 
 			return (RGB);
 		}
+
+		float pingpongMap(float a, float b, float c, float d, float e)
+		{
+		float range1 = c - b;
+		float range2 = e-d;
+		if (range1 == 0)
+		{
+			return 0;
+		}
+		
+		float howFar = a - b;
+		
+		float howMany = floor(howFar / range1);
+		float fraction = (howFar - (howMany * range1)) / range1;
+		//println(a + " howMany" + howMany + " fraction: " + fraction);
+		//println(range2 + " " + fraction);
+		if (howMany % 2 == 0)
+		{
+			return d + (fraction * range2);
+		}
+		else
+		{
+			return e - (fraction * range2);
+		}
+		
+		
+		}
 		
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			float d = length(IN.worldPos);
 			float f = _Time * _TimeMultiplier;
-			float hue = (d / _PositionScale) - f;
-			if(hue < 0)
-			{
-				hue = 1.0 + hue;
-			}
+			float hue = (d / _PositionScale) + f;
 			float cs, ce;
 			
-			cs = (_ColorStart);
+			cs = _ColorStart + _ColorShift;
 			if (cs > 1.0)
 			{
-				cs = cs - 1.0;
+				cs = cs -1.0;
 			}
-
-			ce = (_ColorEnd);
+			if (cs < 0.0)
+			{
+				cs = 1 + cs;
+			}
+			ce = _ColorEnd + _ColorShift;
 			if (ce > 1.0)
 			{
-				ce = ce - 1.0;
+				ce = ce -1.0;
 			}
-
-			if (cs > ce)
+			if (ce < 0.0)
 			{
-				float temp = cs;
-				cs = ce;
-				ce = temp;
+				ce = 1 + ce;
 			}
+			
+			
 			
 			hue = ((pingpong(hue, cs - ce) + cs) + _ColorShift) % 1.0;
 			hue = clamp(hue, 0.0, 1.0);
