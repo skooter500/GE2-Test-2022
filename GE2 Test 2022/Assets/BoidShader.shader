@@ -5,7 +5,7 @@ Shader "Custom/Boid" {
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_PositionScale("PositionScale", Range(0, 100000)) = 250
-		_TimeMultiplier("Time Scale", Range(0, 100)) = 1
+		_TimeMultiplier("Time Scale", Range(-1000, 1000)) = 1
 		_Alpha("Alpha", Range(0, 100)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 		_CI("CI", Range(0, 10000000)) = 0
@@ -116,16 +116,17 @@ Shader "Custom/Boid" {
 			
 			float ce = _ColorEnd;			
 			
-			float t = _Time * _TimeMultiplier;
-			float hue = pingpongMap(d + t, 0, _PositionScale, cs, ce) + _ColorShift;
+			//float t = _Time * _TimeMultiplier;
+			float hue = (pingpongMap(d + (_Time * _TimeMultiplier * 5.0), 0, _PositionScale, cs, ce) + _ColorShift);
 			if (hue > 1.0f)
 			{
 				hue = hue - 1.0f;
 			}
 			if (hue < 0)
 			{
-				hue = 1.0f - hue;
+				hue = 1.0f + hue;
 			}
+			
 			
 			float b = map(d, 0, 200, 2, 1);
 			
@@ -139,6 +140,7 @@ Shader "Custom/Boid" {
 			
 			//float ci = 1 + pow(_CI, 1.0 / d);
 			float ci = 1 + (_CI *  (1.0 / d));//pow(_CI, 1.0 / d);
+
 			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables

@@ -132,15 +132,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ShaderTime",
-                    "type": "Value",
-                    "id": "c52abaf4-2bfc-4d94-bff3-81e83b2212b6",
-                    "expectedControlType": "MidiValue",
-                    "processors": "ShiftScale(shift=-0.5,scale=50)",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Feeler Depth",
                     "type": "Value",
                     "id": "15211e8b-2867-40cd-a7b3-df82a8025477",
@@ -216,6 +207,15 @@
                     "name": "Side Feeler",
                     "type": "Value",
                     "id": "f9328412-fd75-47fb-84a8-00ed36d9e862",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ShaderSpeed",
+                    "type": "Value",
+                    "id": "b8ec0e20-a6fc-4200-af52-2659598a85db",
                     "expectedControlType": "MidiValue",
                     "processors": "",
                     "interactions": "",
@@ -555,17 +555,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9cb68f3e-43b4-413b-98a3-e47e614230e6",
-                    "path": "<MidiDevice>/control019",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ShaderTime",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5c31c722-f536-46b8-9786-cec026747206",
                     "path": "<MidiDevice>/control010",
                     "interactions": "",
@@ -682,6 +671,17 @@
                     "processors": "Scale(factor=10)",
                     "groups": "",
                     "action": "Side Feeler",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4a0ef635-8665-4517-be06-77cda4b1656c",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "Scale(factor=100)",
+                    "groups": "",
+                    "action": "ShaderSpeed",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

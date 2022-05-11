@@ -74,7 +74,7 @@ public class CornerCamera : MonoBehaviour
             oldTime = ns.ts;            
             newShaderTime = 0;
             oldShaderTime = ns.material.GetFloat("_TimeMultiplier");       
-            ns.material.SetFloat("_TimeMultiplier", 0);
+            //ns.material.SetFloat("_TimeMultiplier", 0);
             elapsed = 0.0f;
             transition = Transition.time;
             oldTransitionTime = transitionTime;
@@ -318,10 +318,10 @@ public class CornerCamera : MonoBehaviour
 
     public void ShaderTime(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>();
+        float f = context.ReadValue<float>() - 50;
         if (context.phase == InputActionPhase.Performed)
         {
-            Debug.Log("Shader Time: " + f);
+            Debug.Log("DEF Shader Time: " + f);
             ns.material.SetFloat("_TimeMultiplier", f);
         }
     }
@@ -355,13 +355,12 @@ public class CornerCamera : MonoBehaviour
         
         newTime = 0;
         colorShift = ns.material.GetFloat("_ColorShift");
-        ns.material.SetFloat("_TimeMultiplier", 0);
+        //ns.material.SetFloat("_TimeMultiplier", 0);
     }
 
     // Update is called once per frame
     void Update()
     {        
-        
         if (elapsed < transitionTime)
         {
             elapsed += Time.deltaTime;

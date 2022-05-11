@@ -37,7 +37,6 @@ public float shaderTs = 1.0f;
 
     void Start()
     {
-        material.SetFloat("_TimeMultiplier", shaderTs);
         posScale = material.GetFloat(ps);
         endValue = posScale;
         timeScale = ts;
@@ -92,10 +91,11 @@ public float shaderTs = 1.0f;
                 }
                 case Transition.speed:
                 {
-                    float y = Utilities.Map2(t, 0, transitionTime, sv1, ev1, Utilities.EASE.CUBIC, Utilities.EASE.EASE_IN_OUT);
-                    shaderTs = y;
-                    material.SetFloat("_TimeMultiplier", y);
+                    //float y = Utilities.Map2(t, 0, transitionTime, sv1, ev1, Utilities.EASE.CUBIC, Utilities.EASE.EASE_IN_OUT);
+                    //shaderTs = y;
+                    //material.SetFloat("_TimeMultiplier", y);
                     break;
+
                 }
             }            
         }
@@ -103,113 +103,6 @@ public float shaderTs = 1.0f;
         float p = 0.02f;
 
         timeScale = ts;      
-        /*  
-        if (Input.GetKeyDown(KeyCode.Joystick1Button0))
-        {
-            radius = rads[iR];
-            iR = (iR + 1) % rads.Length;
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button2))
-        {
-            ts -= Time.deltaTime * speed;
-            if (ts < 0)
-            {
-                ts = 0;
-            }
-
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button1))
-        {
-            
-            ts += (Time.deltaTime * speed);
-            if (ts > 5f)
-            {
-                ts = 5f;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3))
-        {
-            timeScale = 1.0f;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Joystick1Button5))
-        {
-            Debug.Log("here");
-            if (endValue > minRange)
-            {
-                transition = Transition.scale;
-                float posScale = material.GetFloat("_PositionScale");
-                startValue = posScale;
-                float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
-t = 0;
-                endValue = endValue - jump;
-                if (endValue < minRange)
-                {
-                    endValue = minRange;
-                }
-            }
-        }
-
-        float threshold = 0.5f;
-
-        Debug.Log(Input.GetAxis("DPadX"));
-
-        float x = Input.GetAxis("DPadX");
-
-        if (Mathf.Abs(x) < threshold)
-        {
-            lastClicked = false;
-        }
-
-        if (x < (-1.0f + threshold) && ! lastClicked)
-        {
-            sv1 = shaderTs;
-            ev1 = shaderTs - (Time.deltaTime * speed * 5);
-            if (ev1 < 0)
-            {
-                ev1 = 0;
-            }
-            lastClicked = true;
-            //transition = Transition.speed;
-            //t = 0.0f;
-            shaderTs = ev1;
-            material.SetFloat("_TimeMultiplier", shaderTs);
-        
-        }
-
-        if (x > (1.0f - threshold) && ! lastClicked)
-        {
-            sv1 = shaderTs;
-            ev1 = shaderTs + (Time.deltaTime * speed * 5);
-            if (ev1 > 100)
-            {
-                ev1 = 100;
-            }
-            shaderTs = ev1;
-            material.SetFloat("_TimeMultiplier", shaderTs);
-            lastClicked = true;
-
-        
-        }
-
-        if (Input.GetKeyDown(KeyCode.Joystick1Button4))
-        {
-
-            if (endValue < maxRange)
-            {                
-                float posScale = material.GetFloat("_PositionScale");
-                startValue = posScale;
-                float jump = Utilities.Map(posScale, minRange, maxRange, 1, 50);
-                t = 0;
-                endValue = endValue + jump;
-                
-                if (endValue > maxRange)
-                {
-                    endValue = maxRange;
-                }
-                transition = Transition.scale;
-            }
-        }
-        */
+   
     }    
 }
