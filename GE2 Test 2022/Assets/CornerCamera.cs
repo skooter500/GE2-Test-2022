@@ -318,7 +318,7 @@ public class CornerCamera : MonoBehaviour
 
     public void ShaderTime(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>() - 50;
+        float f = context.ReadValue<float>() - 200;
         if (context.phase == InputActionPhase.Performed)
         {
             Debug.Log("DEF Shader Time: " + f);

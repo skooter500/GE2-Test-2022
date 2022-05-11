@@ -852,22 +852,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1049925074}
         m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
-        m_MethodName: ShaderTime
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c52abaf4-2bfc-4d94-bff3-81e83b2212b6
-    m_ActionName: MIDI Controls/ShaderTime
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1049925074}
-        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
         m_MethodName: FeelerLength
         m_Mode: 0
         m_Arguments:
@@ -996,6 +980,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f9328412-fd75-47fb-84a8-00ed36d9e862
     m_ActionName: MIDI Controls/Side Feeler[/MidiDevice/control114]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ShaderTime
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b8ec0e20-a6fc-4200-af52-2659598a85db
+    m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
