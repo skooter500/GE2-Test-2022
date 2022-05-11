@@ -147,11 +147,31 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorShift(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>();        
-        Debug.Log("Color Shift: " + f);
-        ns.material.SetFloat("_ColorShift", f);
-
+        if (context.phase == InputActionPhase.Performed)
+        {
+            float f = context.ReadValue<float>();        
+            Debug.Log("Color Shift: " + colorShift);
+            if (f > 0.5f)
+            {   
+                colorShift += 0.01f;
+            }
+            else
+            {
+                colorShift -= 0.01f;
+            } 
+            if (colorShift < 0)
+            {
+                colorShift = 1.0f + colorShift;
+            }
+            if (colorShift > 1.0f)
+            {
+                colorShift = colorShift - 1.0f;
+            }
+            ns.material.SetFloat("_ColorShift", colorShift);
+        }
     }
+
+    float colorShift;
 
 
     public void TimeChanged(InputAction.CallbackContext context)
@@ -327,6 +347,7 @@ public class CornerCamera : MonoBehaviour
         oldTime = CornerCamera.timeScale;
         
         newTime = 0;
+        colorShift = ns.material.GetFloat("_ColorShift");
         ns.material.SetFloat("_TimeMultiplier", 0);
     }
 
