@@ -10,7 +10,7 @@ float posScale = 0;
     public float endValue;
 public float ts = 1.0f;
 public float shaderTs = 1.0f;
-    public static float timeScale = 1.0f;  
+    public static float timeScale = 2.5f;  
     public GameObject prefab;
 
     [Range(1, 5000)]

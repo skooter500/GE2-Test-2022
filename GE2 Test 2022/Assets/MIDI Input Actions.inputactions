@@ -187,7 +187,7 @@
                 },
                 {
                     "name": "ColorStart",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "85f33456-3232-464e-93c2-aa213e87f817",
                     "expectedControlType": "MidiValue",
                     "processors": "",
@@ -634,17 +634,6 @@
                 },
                 {
                     "name": "",
-                    "id": "e0c0c5fe-0e47-489c-92b8-183d5b015882",
-                    "path": "<MidiDevice>/control077",
-                    "interactions": "",
-                    "processors": "Scale(factor=0.5)",
-                    "groups": "",
-                    "action": "ColorStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c93a70a1-86c7-4b98-aee7-b04c857bb90a",
                     "path": "<MidiDevice>/control114",
                     "interactions": "",
@@ -662,6 +651,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ColorShift",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ef294c7-db19-486f-b671-9530d799cec1",
+                    "path": "<MidiDevice>/control077",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

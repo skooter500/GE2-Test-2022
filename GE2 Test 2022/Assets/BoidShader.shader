@@ -59,20 +59,7 @@ Shader "Custom/Boid" {
         float range2 = m2 - m1;
         return m1 + ((dist / range1) * range2);
     	}
-
-		float fract(float a) {
-			return a - floor(a);
-		}	
-
-		float pingpong(float a, float b) {
-			if (b == 0.0) {
-				return 0.0f;
-			} else {
-				return abs(fract((a - b) / (b * 2.0)) * b * 2.0 - b);
-		}
-} 
-
-
+	
 		float3 hsv_to_rgb(float3 HSV)
 		{
 			float3 RGB = HSV.z;
@@ -124,7 +111,8 @@ Shader "Custom/Boid" {
 			}
 			
 			hue = ((pingpong(hue, cs - ce) + cs) + _ColorShift) % 1.0;
-			float b = map(d, 0, 200, 2, 1);
+			hue = clamp(hue, 0.0, 1.0);
+			float b = 1; // map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			
