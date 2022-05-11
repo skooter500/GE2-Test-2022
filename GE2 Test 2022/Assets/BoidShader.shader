@@ -128,7 +128,7 @@ Shader "Custom/Boid" {
 			}
 			
 			
-			float b = 1; //map(d, 0, 200, 2, 1);
+			float b = map(d, 0, 200, 2, 1);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			
