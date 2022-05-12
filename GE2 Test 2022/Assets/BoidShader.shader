@@ -118,8 +118,9 @@ Shader "Custom/Boid" {
 			
 			//float t = _Time * _TimeMultiplier;
 			float hue = (pingpongMap(d + (_Time * _TimeMultiplier * 5.0), 0, _PositionScale, cs, ce));
-			hue += _ColorShift;
-			if (hue > 1.0f)
+			hue = (hue + _ColorShift) % 1.0;
+			
+			/*if (hue > 1.0f)
 			{
 				hue = hue - 1.0f ;
 			}
@@ -127,6 +128,7 @@ Shader "Custom/Boid" {
 			{
 				hue = 1.0f + hue;
 			}
+			*/
 			
 			
 			float b = map(d, 0, 200, 2, 1);
