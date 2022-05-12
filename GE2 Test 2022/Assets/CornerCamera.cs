@@ -159,6 +159,7 @@ public class CornerCamera : MonoBehaviour
         float ce = 0.5f + (f * 0.5f);
         ns.material.SetFloat("_ColorStart", cs);
         ns.material.SetFloat("_ColorEnd", ce);
+        ns.material.SetFloat("_ColorWidth", f);
     }
 
 
@@ -168,7 +169,6 @@ public class CornerCamera : MonoBehaviour
         if (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled)
         {
             float f = context.ReadValue<float>();        
-            Debug.Log("Color Shift: " + colorShift);
             colorShift = f;
 
             /*
@@ -192,12 +192,6 @@ public class CornerCamera : MonoBehaviour
 
     public void TimeChanged(InputAction.CallbackContext context)
     {
-
-        /*if (context.phase != InputActionPhase.Performed)
-        {
-            return;
-        }
-        */
         
         Debug.Log("Time Changed: " + context.ReadValue<float>() + "stopped: " + stopped);
         tTimeChanged = context.ReadValue<float>();
