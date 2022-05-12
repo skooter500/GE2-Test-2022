@@ -159,12 +159,12 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorShift(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        if (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled)
         {
             float f = context.ReadValue<float>();        
             Debug.Log("Color Shift: " + colorShift);
             colorShift = f;
-            
+
             /*
             if (colorShift < 0)
             {
@@ -178,6 +178,7 @@ public class CornerCamera : MonoBehaviour
             Debug.Log("Color Shift: " + colorShift);
             ns.material.SetFloat("_ColorShift", colorShift);
         }
+
     }
 
     float colorShift;
