@@ -105,6 +105,19 @@ Shader "Custom/Boid" {
 		
 		
 		}
+
+		float wrap(float f)
+		{
+		if (f > 0.0)
+		{
+			f = f % 1.0;
+		}
+		else
+		{
+			f = 1.0f - (-f % 1.0);
+		}
+		return f;
+		}
 		
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
@@ -121,12 +134,13 @@ Shader "Custom/Boid" {
 			//float t = _Time * _TimeMultiplier;
 			//float hue = (pingpongMap(d + (_Time * _TimeMultiplier * 5.0), 0, _PositionScale, cs, ce));
 			
-			float hue = ((d / _PositionScale) + (_Time * _TimeMultiplier) + _ColorShift) % 1.0;
+			float hue = ((d / _PositionScale) + (_Time * _TimeMultiplier) + _ColorShift);
+		
+			//hue = map(hue, 0.0, 1.0, _ColorStart, _ColorEnd);
 
-			if (hue < 0.0f)
-			{
-				hue = 1.0f + hue;
-			}
+			hue = wrap(hue);
+
+			
 
 			//float hue = 0.5f;
 

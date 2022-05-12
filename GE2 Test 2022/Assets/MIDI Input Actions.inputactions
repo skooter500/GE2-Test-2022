@@ -679,7 +679,7 @@
                     "id": "4a0ef635-8665-4517-be06-77cda4b1656c",
                     "path": "<MidiDevice>/control019",
                     "interactions": "",
-                    "processors": "Scale(factor=10)",
+                    "processors": "Scale(factor=20)",
                     "groups": "",
                     "action": "ShaderSpeed",
                     "isComposite": false,
