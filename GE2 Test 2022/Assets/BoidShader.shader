@@ -133,8 +133,11 @@ Shader "Custom/Boid" {
 			float d = length(IN.worldPos);
 
 			float w = _ColorWidth * 0.5; 
-			float cs = 0.5 - w;			
-			float ce = 0.5 + w;
+			float cs = _ColorShift - w ; // //0.5 - w;			
+			float ce = _ColorShift + w ; // 0.5 + w;
+
+			//cs = clamp(cs, 0, 1);
+			//ce = clamp(ce, 0, 1);
 
 			if (cs > ce)
 			{
@@ -153,7 +156,7 @@ Shader "Custom/Boid" {
 
 		
 			
-			float hue = pingpongMap(d - (t * 100), _PositionScale, 0.0 , cs, ce) + _ColorShift;
+			float hue = pingpongMap(d - (t * 100), _PositionScale, 0.0 , cs, ce);
 			//hue += _ColorShift;
 			//hue = wrap(hue);
 			//hue = _ColorShift;
