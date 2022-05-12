@@ -136,9 +136,9 @@ Shader "Custom/Boid" {
 			
 			float hue = ((d / _PositionScale) + (_Time * _TimeMultiplier));
 		
-			hue = pingpongMap(hue, 0.0, 1.0, _ColorStart, _ColorEnd);
+			hue = pingpongMap(hue, 0.0, 1.0, _ColorStart + _ColorShift, _ColorEnd + _ColorShift);
 
-			hue += _ColorShift;
+			//hue += _ColorShift;
 			hue = wrap(hue);
 
 			
