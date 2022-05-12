@@ -89,17 +89,13 @@ public class CornerCamera : MonoBehaviour
     } 
     public void Light(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed || context.phase != InputActionPhase.Canceled)
-        {
-            return;
-        }
         float f = context.ReadValue<float>();    
         Debug.Log("CI: " + f);    
         ns.material.SetFloat("_CI", f);
     }
     public void Alpha(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed || context.phase != InputActionPhase.Canceled)
+        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
         {
             return;
         }
@@ -109,6 +105,11 @@ public class CornerCamera : MonoBehaviour
     }
     public void AmbientLight(InputAction.CallbackContext context)
     {
+        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
+        {
+            return;
+        }
+        
         float f = context.ReadValue<float>();        
         Debug.Log("AI: " + f);
         RenderSettings.ambientLight = new Color(f,f,f,1);
@@ -122,6 +123,11 @@ public class CornerCamera : MonoBehaviour
 
     public void FeelerLength(InputAction.CallbackContext context)
     {
+        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
+        {
+            return;
+        }
+        
         float f = context.ReadValue<float>();        
         Debug.Log("Feeler Length: " + f);
         ns.feelerDepth = f;
