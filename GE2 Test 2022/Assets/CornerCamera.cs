@@ -89,7 +89,7 @@ public class CornerCamera : MonoBehaviour
     } 
     public void Light(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
+        if (context.phase != InputActionPhase.Performed || context.phase != InputActionPhase.Canceled)
         {
             return;
         }
@@ -99,7 +99,7 @@ public class CornerCamera : MonoBehaviour
     }
     public void Alpha(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
+        if (context.phase != InputActionPhase.Performed || context.phase != InputActionPhase.Canceled)
         {
             return;
         }
