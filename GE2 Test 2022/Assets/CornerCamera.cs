@@ -151,15 +151,28 @@ public class CornerCamera : MonoBehaviour
         bloom.intensity.Override(f);
     }
 
-    public void ColorStart(InputAction.CallbackContext context)
+    public void ColorWidth(InputAction.CallbackContext context)
     {
         float f = context.ReadValue<float>();        
         Debug.Log("Color Width : " + f);
-        float cs = 0.5f - (f * 0.5f);
-        float ce = 0.5f + (f * 0.5f);
-        ns.material.SetFloat("_ColorStart", cs);
-        ns.material.SetFloat("_ColorEnd", ce);
         ns.material.SetFloat("_ColorWidth", f);
+        
+    }
+
+
+    public void ColorStart(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>();        
+        Debug.Log("Color Start : " + f);
+        ns.material.SetFloat("_ColorStart", f);
+        
+    }
+    public void ColorEnd(InputAction.CallbackContext context)
+    {
+        float f = context.ReadValue<float>();        
+        Debug.Log("Color End : " + f);
+        ns.material.SetFloat("_ColorEnd", f);
+        
     }
 
 

@@ -996,6 +996,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b8ec0e20-a6fc-4200-af52-2659598a85db
     m_ActionName: MIDI Controls/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ColorEnd
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b4b2ed88-c179-42c6-a8f3-5dd55bb10a5d
+    m_ActionName: MIDI Controls/ColorEnd[/MidiDevice/control017]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: ColorWidth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d9116ac5-5270-406b-b4a9-fb6fb79ade50
+    m_ActionName: MIDI Controls/ColorWidth
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
