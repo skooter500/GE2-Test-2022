@@ -123,6 +123,11 @@ Shader "Custom/Boid" {
 			
 			float hue = ((d / _PositionScale) + (_Time * _TimeMultiplier) + _ColorShift) % 1.0;
 
+			if (hue < 0.0f)
+			{
+				hue = 1.0f + hue;
+			}
+
 			//float hue = 0.5f;
 
 			//float hue = (d + _Time + _ColorShift) % 1.0;
