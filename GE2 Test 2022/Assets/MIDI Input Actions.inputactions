@@ -702,6 +702,28 @@
                     "action": "ColorWidth",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "48886133-fe1a-408b-a7ea-c20b10c5921a",
+                    "path": "<MidiDevice>/control079",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorEnd",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "856938ee-077a-4534-9822-add3c39ae984",
+                    "path": "<MidiDevice>/control073",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ColorStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
