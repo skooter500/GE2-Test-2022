@@ -9,10 +9,10 @@ Shader "Custom/Boid" {
 		_Alpha("Alpha", Range(0, 100)) = 1
 		_Offset("Offset", Range(0, 100000)) = 0
 		_CI("CI", Range(0, 10000000)) = 0
-		_ColorStart("ColorStart", Range(0, 1)) = 0
-		_ColorEnd("ColorEnd", Range(0, 1)) = 1
-		_ColorWidth("ColorWidth", Range(0, 1)) = 1
-		_ColorShift("ColorShift", Range(-1, 1)) = 1
+		_ColorStart("ColorStart", Range(-10, 10)) = 0
+		_ColorEnd("ColorEnd", Range(-10, 10)) = 1
+		_ColorWidth("ColorWidth", Range(-10, 10)) = 1
+		_ColorShift("ColorShift", Range(-10, 10)) = 1
 		
 	}
 	SubShader {
@@ -107,6 +107,7 @@ Shader "Custom/Boid" {
 		}
 		else
 		{
+			//return d + (fraction * range2);
 			return e - (fraction * range2);
 		}
 		
@@ -133,30 +134,30 @@ Shader "Custom/Boid" {
 			float d = length(IN.worldPos);
 
 			float w = _ColorWidth * 0.5; 
-			float cs = 0.5 - w ; // //0.5 - w;			
-			float ce = 0.5  + w ; // 0.5 + w;
+			float cs = _ColorStart;			
+			float ce = _ColorEnd ; // 0.5 + w;
 
 			//cs = clamp(cs, 0, 1);
 			//ce = clamp(ce, 0, 1);
 
-			if (cs > ce)
+			/*if (cs > ce)
 			{
 				float temp = cs;
 				cs = ce;
 				ce = temp;
 			}
-
+			*/
 
 			
 			//float t = _Time * _TimeMultiplier;
 			//float hue = (pingpongMap(d + (_Time * _TimeMultiplier * 5.0), 0, _PositionScale, cs, ce));
 			
-			float t = _Time * _TimeMultiplier * 0.50;
+			float t = _Time * _TimeMultiplier * 5.0;
 		
 
 		
 			
-			float hue = pingpongMap(d + t, 0, _PositionScale , cs, ce) + _ColorShift;
+			float hue = pingpongMap(d + t, 0, _PositionScale , cs, ce);
 			//hue += _ColorShift;
 			//hue = wrap(hue);
 			//hue = _ColorShift;

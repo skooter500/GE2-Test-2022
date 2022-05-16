@@ -89,13 +89,28 @@ public class CornerCamera : MonoBehaviour
     } 
     public void Light(InputAction.CallbackContext context)
     {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
         float f = context.ReadValue<float>();    
-        Debug.Log("CI: " + f);    
+        Debug.Log("Center Light: " + f);    
         ns.material.SetFloat("_CI", f);
     }
+
+    private bool ShouldIgnore(InputAction.CallbackContext context)
+    {
+        bool b = Mathf.Abs(Time.time - (float) context.time) > 200;
+        if (b)
+        {
+            Debug.Log("Ignoring: " + context);
+        }
+        return b;
+    }
+
     public void Alpha(InputAction.CallbackContext context)
     {
-        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
+        if (ShouldIgnore(context))
         {
             return;
         }
@@ -105,13 +120,13 @@ public class CornerCamera : MonoBehaviour
     }
     public void AmbientLight(InputAction.CallbackContext context)
     {
-        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
+        if (ShouldIgnore(context))
         {
             return;
         }
         
         float f = context.ReadValue<float>();        
-        Debug.Log("AI: " + f);
+        Debug.Log("Ambient Light: " + f);
         RenderSettings.ambientLight = new Color(f,f,f,1);
     }
 
@@ -123,18 +138,22 @@ public class CornerCamera : MonoBehaviour
 
     public void FeelerLength(InputAction.CallbackContext context)
     {
-        if ( ! (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled))
+        if (ShouldIgnore(context))
         {
             return;
         }
         
         float f = context.ReadValue<float>();        
-        Debug.Log("Feeler Length: " + f);
+        Debug.Log("Front Feeler Length: " + f);
         ns.feelerDepth = f;
     }
 
     public void SideFeelerLength(InputAction.CallbackContext context)
     {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
         float f = context.ReadValue<float>();        
         Debug.Log("Side Feeler Length: " + f);
         ns.sideFeelerDepth = f;
@@ -145,6 +164,10 @@ public class CornerCamera : MonoBehaviour
 
     public void Bloom(InputAction.CallbackContext context)
     {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
         float f = context.ReadValue<float>();        
         Debug.Log("Bloom: " + f); 
         
@@ -153,6 +176,10 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorWidth(InputAction.CallbackContext context)
     {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
         float f = context.ReadValue<float>();        
         Debug.Log("Color Width : " + f);
         ns.material.SetFloat("_ColorWidth", f);
@@ -162,14 +189,24 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorStart(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>();        
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>() - 0.5f;        
+        f *= 2.0f;
         Debug.Log("Color Start : " + f);
         ns.material.SetFloat("_ColorStart", f);
         
     }
     public void ColorEnd(InputAction.CallbackContext context)
     {
-        float f = context.ReadValue<float>();        
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>() +- 0.5f;       
+        f *= 2.0f; 
         Debug.Log("Color End : " + f);
         ns.material.SetFloat("_ColorEnd", f);
         
@@ -179,32 +216,27 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorShift(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed || context.phase == InputActionPhase.Canceled)
+        if (ShouldIgnore(context))
         {
-            float f = context.ReadValue<float>();        
-            colorShift = f;
-
-            /*
-            if (colorShift < 0)
-            {
-                colorShift = 1.0f + colorShift;
-            }
-            if (colorShift > 1.0f)
-            {
-                colorShift = colorShift - 1.0f;
-            }
-            */
-            Debug.Log("Color Shift: " + colorShift);
-            ns.material.SetFloat("_ColorShift", colorShift);
+            return;
         }
+        float f = context.ReadValue<float>();        
+
+        
+        Debug.Log("Color Shift: " + f);
+        ns.material.SetFloat("_ColorShift", f);
 
     }
 
-    float colorShift;
 
 
     public void TimeChanged(InputAction.CallbackContext context)
     {
+
+        if (ShouldIgnore(context))
+        {
+            return;
+        }        
         
         Debug.Log("Time Changed: " + context.ReadValue<float>() + "stopped: " + stopped);
         tTimeChanged = context.ReadValue<float>();
@@ -314,7 +346,7 @@ public class CornerCamera : MonoBehaviour
 
     public void Radius(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
+        if (ShouldIgnore(context))
         {
             return;
         }
@@ -325,7 +357,7 @@ public class CornerCamera : MonoBehaviour
 
     public void ColorRange(InputAction.CallbackContext context)
     {
-        if (context.phase != InputActionPhase.Performed)
+        if (ShouldIgnore(context))
         {
             return;
         }
@@ -336,6 +368,10 @@ public class CornerCamera : MonoBehaviour
 
     public void ShaderTime(InputAction.CallbackContext context)
     {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
         float f = context.ReadValue<float>();
         Debug.Log("Shader Time: " + f);
         ns.material.SetFloat("_TimeMultiplier", f);
@@ -345,19 +381,15 @@ public class CornerCamera : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("Awake");
         ns = FindObjectOfType<NematodeSchool>();
         ns.ts = 0;
         oldShaderTime = 1;
-        oldTime = CornerCamera.timeScale;
-        
+        oldTime = CornerCamera.timeScale;                
     }
             
     // Start is called before the first frame update
     void Start()
     {
-        
-        Debug.Log("In Start");
         float v = 100.0f;
         RenderSettings.ambientLight = new Color(v,v,v,1);
         elapsed = transitionTime;
@@ -371,6 +403,13 @@ public class CornerCamera : MonoBehaviour
         newTime = 0;
         colorShift = ns.material.GetFloat("_ColorShift");
         //ns.material.SetFloat("_TimeMultiplier", 0);
+    }
+
+    
+    
+    void OnApplicationQuit()
+    {
+        Debug.Log("Quitting");
     }
 
     // Update is called once per frame
