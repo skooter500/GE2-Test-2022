@@ -57,13 +57,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0
+    - _Alpha: 0.25196853
     - _BumpScale: 1
-    - _CI: 100
-    - _ColorEnd: 0
-    - _ColorShift: 0
-    - _ColorStart: 0
-    - _ColorWidth: 0
+    - _CI: 39.37008
+    - _ColorEnd: 1
+    - _ColorShift: 0.8582677
+    - _ColorStart: -0.33858263
+    - _ColorWidth: 0.07874016
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -77,11 +77,11 @@ Material:
     - _Offset: 42440
     - _Palette: 1
     - _Parallax: 0.02
-    - _PositionScale: 15.96063
+    - _PositionScale: 45.88189
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeMultiplier: 0
+    - _TimeMultiplier: 50
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

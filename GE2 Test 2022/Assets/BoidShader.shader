@@ -107,8 +107,8 @@ Shader "Custom/Boid" {
 		}
 		else
 		{
-			//return d + (fraction * range2);
-			return e - (fraction * range2);
+			return d + (fraction * range2);
+			//return e - (fraction * range2);
 		}
 		
 		
@@ -157,8 +157,8 @@ Shader "Custom/Boid" {
 
 		
 			
-			float hue = pingpongMap(d + t, 0, _PositionScale , cs, ce);
-			//hue += _ColorShift;
+			float hue = pingpongMap(d - t, 0, _PositionScale , cs, ce);
+			hue += _ColorShift;
 			//hue = wrap(hue);
 			//hue = _ColorShift;
 			//hue += _ColorShift;

@@ -107,7 +107,7 @@ public class ObstacleAvoidance : SteeringBehaviour
     System.Collections.IEnumerator UpdateSideFeelers()
     {
         yield return new WaitForSeconds(Random.Range(0.0f, 0.5f));
-        float angle = 45;
+        float angle = 90;
         while (true)
         {
             // Left feeler

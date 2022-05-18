@@ -43,6 +43,9 @@ public class CornerCamera : MonoBehaviour
 
     bool stopped = true;
 
+    public Gradient gradient;
+
+
     public void StopStart(InputAction.CallbackContext context)
     {
 
@@ -98,14 +101,16 @@ public class CornerCamera : MonoBehaviour
         ns.material.SetFloat("_CI", f);
     }
 
+    private static bool shouldIgnore = false;
     private bool ShouldIgnore(InputAction.CallbackContext context)
     {
-        bool b = Mathf.Abs(Time.time - (float) context.time) > 200;
+        bool b = Mathf.Abs(Time.time - (float) context.time) > 1000;
         if (b)
         {
             Debug.Log("Ignoring: " + context);
+            shouldIgnore = true;
         }
-        return b;
+        return b || shouldIgnore;
     }
 
     public void Alpha(InputAction.CallbackContext context)
@@ -192,6 +197,10 @@ public class CornerCamera : MonoBehaviour
         if (ShouldIgnore(context))
         {
             return;
+        }
+        else
+        {
+            Debug.Log("Not Ignoring: " + context);
         }
         float f = context.ReadValue<float>() - 0.5f;        
         f *= 2.0f;
@@ -401,16 +410,11 @@ public class CornerCamera : MonoBehaviour
         oldTime = CornerCamera.timeScale;
         
         newTime = 0;
-        colorShift = ns.material.GetFloat("_ColorShift");
+
+        
         //ns.material.SetFloat("_TimeMultiplier", 0);
     }
 
-    
-    
-    void OnApplicationQuit()
-    {
-        Debug.Log("Quitting");
-    }
 
     // Update is called once per frame
     void Update()

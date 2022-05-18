@@ -41,6 +41,7 @@ public float shaderTs = 1.0f;
         endValue = posScale;
         timeScale = ts;
         t = transitionTime;
+
     }
     void Awake()
     {
