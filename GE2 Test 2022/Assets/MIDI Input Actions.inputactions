@@ -567,7 +567,7 @@
                     "id": "5c31c722-f536-46b8-9786-cec026747206",
                     "path": "<MidiDevice>/control010",
                     "interactions": "",
-                    "processors": "Scale(factor=10)",
+                    "processors": "Scale(factor=30)",
                     "groups": "",
                     "action": "Feeler Depth",
                     "isComposite": false,
