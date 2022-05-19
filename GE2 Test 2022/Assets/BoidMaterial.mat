@@ -57,13 +57,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.35433072
+    - _Alpha: 0
     - _BumpScale: 1
-    - _CI: 0
+    - _CI: 9.448819
     - _ColorEnd: 0
     - _ColorShift: 0
-    - _ColorStart: 0.1496063
-    - _ColorWidth: 0
+    - _ColorStart: 0
+    - _ColorWidth: 0.992126
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -71,17 +71,17 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
-    - _Metallic: 0.963
+    - _Metallic: 0.04
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 42440
     - _Palette: 1
     - _Parallax: 0.02
-    - _PositionScale: 22.598427
+    - _PositionScale: 39.133858
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TimeMultiplier: 32.283466
+    - _TimeMultiplier: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

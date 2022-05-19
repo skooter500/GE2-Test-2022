@@ -43,8 +43,6 @@ public class CornerCamera : MonoBehaviour
 
     bool stopped = true;
 
-    public Gradient gradient;
-
 
     public void StopStart(InputAction.CallbackContext context)
     {
@@ -166,6 +164,7 @@ public class CornerCamera : MonoBehaviour
     }
 
     private Bloom bloom;
+    private ColorGrading colorGrading;
     public PostProcessVolume volume;
 
     void OnApplicationQuit()
@@ -235,7 +234,8 @@ public class CornerCamera : MonoBehaviour
 
         
         Debug.Log("Color Shift: " + f);
-        ns.material.SetFloat("_ColorShift", f);
+        colorGrading.hueShift.Override(Utilities.Map(f, 0, 1, -180, 180));
+        //ns.material.SetFloat("_ColorShift", f);
 
     }
 
@@ -401,14 +401,14 @@ public class CornerCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float v = 100.0f;
-        RenderSettings.ambientLight = new Color(v,v,v,1);
+        //float v = 100.0f;
+        //RenderSettings.ambientLight = new Color(v,v,v,1);
         elapsed = transitionTime;
         fromDistance = -cam.transform.localPosition.z;
         toDistance = fromDistance;
 
         bloom = volume.profile.GetSetting<UnityEngine.Rendering.PostProcessing.Bloom>();
-
+        colorGrading = volume.profile.GetSetting<UnityEngine.Rendering.PostProcessing.ColorGrading>();
         oldTime = CornerCamera.timeScale;
         
         newTime = 0;
