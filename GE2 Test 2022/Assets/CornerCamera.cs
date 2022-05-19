@@ -88,6 +88,7 @@ public class CornerCamera : MonoBehaviour
 
     public void Quit(InputAction.CallbackContext context)
     {
+        shouldIgnore = true;
         Application.Quit();
     } 
     public void Light(InputAction.CallbackContext context)
@@ -104,13 +105,12 @@ public class CornerCamera : MonoBehaviour
     private static bool shouldIgnore = false;
     private bool ShouldIgnore(InputAction.CallbackContext context)
     {
-        bool b = Mathf.Abs(Time.time - (float) context.time) > 1000;
-        if (b)
+        //bool b = Mathf.Abs(Time.time - (float) context.time) > 600;
+        if (shouldIgnore)
         {
             Debug.Log("Ignoring: " + context);
-            shouldIgnore = true;
         }
-        return b || shouldIgnore;
+        return shouldIgnore;
     }
 
     public void Alpha(InputAction.CallbackContext context)
@@ -167,6 +167,12 @@ public class CornerCamera : MonoBehaviour
     private Bloom bloom;
     public PostProcessVolume volume;
 
+    void OnApplicationQuit()
+    {
+        Debug.Log("Quit");
+        shouldIgnore = true;
+    }
+
     public void Bloom(InputAction.CallbackContext context)
     {
         if (ShouldIgnore(context))
@@ -198,12 +204,8 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        else
-        {
-            Debug.Log("Not Ignoring: " + context);
-        }
-        float f = context.ReadValue<float>() - 0.5f;        
-        f *= 2.0f;
+        float f = context.ReadValue<float>();        
+;
         Debug.Log("Color Start : " + f);
         ns.material.SetFloat("_ColorStart", f);
         
@@ -214,8 +216,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() +- 0.5f;       
-        f *= 2.0f; 
+        float f = context.ReadValue<float>();       
         Debug.Log("Color End : " + f);
         ns.material.SetFloat("_ColorEnd", f);
         

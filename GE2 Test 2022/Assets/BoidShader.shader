@@ -22,9 +22,11 @@ Shader "Custom/Boid" {
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
 		#pragma surface surf Standard alpha:fade
-         
+		
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
+
+		#include "UnityCG.cginc"
 
 		sampler2D _MainTex;
 		
@@ -51,17 +53,17 @@ Shader "Custom/Boid" {
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
 		// #pragma instancing_options assumeuniformscaling
 		UNITY_INSTANCING_BUFFER_START(Props)
-			// put more per-instance properties here
+		// put more per-instance properties here
 		UNITY_INSTANCING_BUFFER_END(Props)
 
 		float map(float value, float r1, float r2, float m1, float m2)
-    	{
-        float dist = value - r1;
-        float range1 = r2 - r1;
-        float range2 = m2 - m1;
-        return m1 + ((dist / range1) * range2);
-    	}
-	
+		{
+			float dist = value - r1;
+			float range1 = r2 - r1;
+			float range2 = m2 - m1;
+			return m1 + ((dist / range1) * range2);
+		}
+		
 		float3 hsv_to_rgb(float3 HSV)
 		{
 			float3 RGB = HSV.z;
@@ -83,59 +85,67 @@ Shader "Custom/Boid" {
 
 		float pingpongMap(float a, float b, float c, float d, float e)
 		{
-		float range1 = c - b;
-		float range2 = e-d;
-		if (range1 == 0)
-		{
-			return d;
-		}
-		
-		if (range2 == 0)
-		{
-			return d;
-		}
-		
-		float howFar = a - b;
-		
-		float howMany = floor(howFar / range1);
-		float fraction = (howFar - (howMany * range1)) / range1;
-		//println(a + " howMany" + howMany + " fraction: " + fraction);
-		//println(range2 + " " + fraction);
-		if (howMany % 2 == 0)
-		{
-			return d + (fraction * range2);
-		}
-		else
-		{
-			return d + (fraction * range2);
-			//return e - (fraction * range2);
-		}
-		
-		
+			float range1 = c - b;
+			float range2 = e-d;
+			if (range1 == 0)
+			{
+				return d;
+			}
+			
+			if (range2 == 0)
+			{
+				return d;
+			}
+			
+			float howFar = a - b;
+			
+			float howMany = floor(howFar / range1);
+			float fraction = (howFar - (howMany * range1)) / range1;
+			//println(a + " howMany" + howMany + " fraction: " + fraction);
+			//println(range2 + " " + fraction);
+			if (howMany % 2 == 0)
+			{
+				return d + (fraction * range2);
+			}
+			else
+			{
+				//return d + (fraction * range2);
+				return e - (fraction * range2);
+			}
+			
 		}
 
-		float wrap(float f)
+		float3 shift_col(float3 RGB, float3 shift)
 		{
-		if (f >= 0.0)
-		{
-			f = f % 1.0;
+			float3 RESULT = float3(RGB);
+			float VSU = shift.z*shift.y*cos(shift.x*3.14159265/180);
+			float VSW = shift.z*shift.y*sin(shift.x*3.14159265/180);
+			
+			RESULT.x = (.299*shift.z+.701*VSU+.168*VSW)*RGB.x
+			+ (.587*shift.z-.587*VSU+.330*VSW)*RGB.y
+			+ (.114*shift.z-.114*VSU-.497*VSW)*RGB.z;
+			
+			RESULT.y = (.299*shift.z-.299*VSU-.328*VSW)*RGB.x
+			+ (.587*shift.z+.413*VSU+.035*VSW)*RGB.y
+			+ (.114*shift.z-.114*VSU+.292*VSW)*RGB.z;
+			
+			RESULT.z = (.299*shift.z-.3*VSU+1.25*VSW)*RGB.x
+			+ (.587*shift.z-.588*VSU-1.05*VSW)*RGB.y
+			+ (.114*shift.z+.886*VSU-.203*VSW)*RGB.z;
+			
+			return (RESULT);
 		}
-		else
-		{
-			f = 1.0f - (-f % 1.0);
-		}
-		return f;
-		}
-		
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
-						
+			
 			float d = length(IN.worldPos);
 
 			float w = _ColorWidth * 0.5; 
-			float cs = _ColorStart;			
-			float ce = _ColorEnd ; // 0.5 + w;
+			float cs = 0.5f - w;			
+			float ce = 0.5f + w ; // 0.5 + w;
+			_ColorStart = cs;
+			_ColorEnd = ce;
 
 			//cs = clamp(cs, 0, 1);
 			//ce = clamp(ce, 0, 1);
@@ -153,33 +163,27 @@ Shader "Custom/Boid" {
 			//float hue = (pingpongMap(d + (_Time * _TimeMultiplier * 5.0), 0, _PositionScale, cs, ce));
 			
 			float t = _Time * _TimeMultiplier * 5.0;
-		
+			
 
-		
+			
 			
 			float hue = pingpongMap(d - t, 0, _PositionScale , cs, ce);
-			hue += _ColorShift;
 			//hue = wrap(hue);
 			//hue = _ColorShift;
-			//hue += _ColorShift;
+			//hue += ;
 			
-		
-			hue = wrap(hue);
+			hue = hue + (_ColorShift / 360.0);
+			hue = hue -  floor(hue);
 			
-			float b = map(d, 0, 200, 2, 1);
+			float b = map(d, 0, 200, 1, 0);
 			
 			float camD = length(_WorldSpaceCameraPos);
 			
-			/*float marr[] = {1,1,5,50,2000,200000, 50000000, 700000000};
-			float i = camD / 40.0;
-			float range = marr[i + 1]  - marr[i];  			
-			float m = (marr[i]) + ((i - (int) i) * range);
-			*/
-			
-			//float ci = 1 + pow(_CI, 1.0 / d);
 			float ci = 1 + (_CI *  (1.0 / d));//pow(_CI, 1.0 / d);
 
 			fixed3 c = hsv_to_rgb(float3(hue, 1, b * ci));
+			//float3 shift = float3(_ColorShift, 1, 1);
+			//c = shift_col(c, shift);
 			o.Albedo = c.rgb;
 			// Metallic and smoothness come from slider variables
 			o.Metallic = _Metallic;
@@ -190,69 +194,3 @@ Shader "Custom/Boid" {
 	}
 	FallBack "Diffuse"
 }
-
-/*
-Shader "Custom/CreatureColours" {
-	Properties {
-		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
-		_PositionScale("PositionScale", Range(0, 1000)) = 250
-		_Fade("Fade", Range(0, 1)) = 1
-	}
-	SubShader {
-		Tags {"Queue" = "Transparent" "RenderType"="Transparent" }
-		LOD 200
-
-		ZWrite On
-		Cull Back
-        Blend SrcAlpha OneMinusSrcAlpha
-        ColorMask RGB
-		
-		CGPROGRAM
-		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard alpha:fade
-
-		// Use shader model 3.0 target, to get nicer looking lighting
-		#pragma target 3.0
-
-		sampler2D _MainTex;
-
-		struct Input {
-			float2 uv_MainTex;
-			float3 worldPos;
-		};
-
-		half _Glossiness;
-		half _Metallic;
-		half _Fade;
-
-		float _PositionScale;
-
-		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_CBUFFER_START(Props)
-			// put more per-instance properties here
-		UNITY_INSTANCING_CBUFFER_END
-
-		void surf (Input IN, inout SurfaceOutputStandard o) {
-			// Albedo comes from a texture tinted by color
-			float u,v;			
-			u = abs(IN.worldPos.x / _PositionScale);
-			//u -= (int)u;
-            v = abs(IN.worldPos.z / _PositionScale);
-			//v -= (int)v;
-			fixed4 c = tex2D (_MainTex, float2(u,v));
-			o.Albedo = c.rgb;
-
-			// Metallic and smoothness come from slider variables
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
-			o.Alpha = _Fade;
-		}
-		ENDCG
-	}
-	FallBack "Diffuse"
-}
-*/
