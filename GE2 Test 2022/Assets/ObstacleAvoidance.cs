@@ -60,6 +60,7 @@ public class ObstacleAvoidance : SteeringBehaviour
                     Gizmos.DrawLine(feeler.point, feeler.point + (feeler.normal * 5));
                     Gizmos.color = Color.red;
                     Gizmos.DrawLine(feeler.point, feeler.point + force);
+                    Debug.Log(feeler.collided);
                 }
             }
         }
@@ -90,6 +91,7 @@ public class ObstacleAvoidance : SteeringBehaviour
         RaycastHit info;
         bool collided = Physics.SphereCast(transform.position, feelerRadius, direction, out info, depth, mask.value);
         Vector3 feelerEnd = collided ? info.point : (transform.position + direction * depth);
+        
         feelers[feelerNum] = new FeelerInfo(feelerEnd, info.normal
             , collided, feelerType);
     }
@@ -107,7 +109,7 @@ public class ObstacleAvoidance : SteeringBehaviour
     System.Collections.IEnumerator UpdateSideFeelers()
     {
         yield return new WaitForSeconds(Random.Range(0.0f, 0.5f));
-        float angle = 90;
+        float angle = 45;
         while (true)
         {
             // Left feeler
@@ -131,20 +133,21 @@ public class ObstacleAvoidance : SteeringBehaviour
         Vector3 fromTarget = fromTarget = transform.position - info.point;
         float dist = Vector3.Distance(transform.position, info.point);
 
+        float fd = (info.feelerType == FeelerInfo.FeeelerType.front) ? school.feelerDepth : school.sideFeelerDepth;
         switch (forceType)
         {
             case ForceType.normal:
-                force = info.normal * (school.feelerDepth * scale / dist);
+                force += info.normal * (fd * scale / dist);
                 break;
             case ForceType.incident:
                 fromTarget.Normalize();
-                force -= Vector3.Reflect(fromTarget, info.normal) * (school.feelerDepth / dist);
+                force -= Vector3.Reflect(fromTarget, info.normal) * (fd / dist);
                 break;
             case ForceType.up:
-                force += Vector3.up * (school.feelerDepth * scale / dist);
+                force += Vector3.up * (fd * scale / dist);
                 break;
             case ForceType.braking:
-                force += fromTarget * (school.feelerDepth / dist);
+                force += fromTarget * (fd / dist);
                 break;
         }
         return force;

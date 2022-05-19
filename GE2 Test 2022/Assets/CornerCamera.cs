@@ -371,7 +371,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() + 1;
+        float f = context.ReadValue<float>() + 10;
         Debug.Log("Range: " + f);
         ns.material.SetFloat("_PositionScale", f);
     }
