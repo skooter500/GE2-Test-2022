@@ -96,7 +96,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Light",
+                    "name": "Fog",
                     "type": "Value",
                     "id": "b8ffc3fc-d8b4-45bc-aa80-97bb64e56b25",
                     "expectedControlType": "MidiValue",
@@ -534,7 +534,7 @@
                     "id": "b80681d0-f58c-4e38-97a9-1f49fa828f2f",
                     "path": "<MidiDevice>/control074",
                     "interactions": "",
-                    "processors": "Scale(factor=10)",
+                    "processors": "Scale(factor=20)",
                     "groups": "",
                     "action": "AmbientLight",
                     "isComposite": false,
@@ -622,9 +622,9 @@
                     "id": "03c2fafe-f540-4398-b0b0-7bd175a38a19",
                     "path": "<MidiDevice>/control018",
                     "interactions": "",
-                    "processors": "Scale(factor=200)",
+                    "processors": "",
                     "groups": "",
-                    "action": "Light",
+                    "action": "Fog",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

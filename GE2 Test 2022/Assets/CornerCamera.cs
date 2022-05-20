@@ -43,6 +43,13 @@ public class CornerCamera : MonoBehaviour
 
     bool stopped = true;
 
+    public Light directionalLight;
+
+    void OnDestroy()
+    {
+        Debug.Log("On Destroy Called");
+    }
+
 
     public void StopStart(InputAction.CallbackContext context)
     {
@@ -100,6 +107,13 @@ public class CornerCamera : MonoBehaviour
         ns.material.SetFloat("_CI", f);
     }
 
+
+
+    void OnApplicationFocus(bool f)
+    {
+        shouldIgnore = ! f;
+    }
+
     private static bool shouldIgnore = false;
     private bool ShouldIgnore(InputAction.CallbackContext context)
     {
@@ -113,6 +127,7 @@ public class CornerCamera : MonoBehaviour
 
     public void Alpha(InputAction.CallbackContext context)
     {
+        Debug.Log(context);
         if (ShouldIgnore(context))
         {
             return;
@@ -129,8 +144,8 @@ public class CornerCamera : MonoBehaviour
         }
         
         float f = context.ReadValue<float>();        
-        Debug.Log("Ambient Light: " + f);
-        RenderSettings.ambientLight = new Color(f,f,f,1);
+        Debug.Log("Directional Light: " + f);
+        directionalLight.intensity = f;
     }
 
     public void RestartScene(InputAction.CallbackContext context)
