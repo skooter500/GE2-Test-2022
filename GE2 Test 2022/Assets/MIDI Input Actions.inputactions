@@ -548,7 +548,7 @@
                 {
                     "name": "",
                     "id": "dc3ee1b8-8106-4fe2-a3eb-2b70797a7d89",
-                    "path": "<MidiDevice>/control114",
+                    "path": "<MidiDevice>/control010",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -559,7 +559,7 @@
                 {
                     "name": "",
                     "id": "b80681d0-f58c-4e38-97a9-1f49fa828f2f",
-                    "path": "<MidiDevice>/control074",
+                    "path": "<MidiDevice>/control018",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -581,7 +581,7 @@
                 {
                     "name": "",
                     "id": "0cb5d775-6de8-4ed2-becc-17502944efcd",
-                    "path": "<MidiDevice>/control093",
+                    "path": "<MidiDevice>/control077",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -592,7 +592,7 @@
                 {
                     "name": "",
                     "id": "5c31c722-f536-46b8-9786-cec026747206",
-                    "path": "<MidiDevice>/control010",
+                    "path": "<MidiDevice>/control114",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -636,7 +636,7 @@
                 {
                     "name": "",
                     "id": "11376ea6-8ac4-4279-b23d-3f873ea6c017",
-                    "path": "<MidiDevice>/control019",
+                    "path": "<MidiDevice>/control071",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -647,7 +647,7 @@
                 {
                     "name": "",
                     "id": "03c2fafe-f540-4398-b0b0-7bd175a38a19",
-                    "path": "<MidiDevice>/control018",
+                    "path": "<MidiDevice>/control074",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -669,7 +669,7 @@
                 {
                     "name": "",
                     "id": "666ade93-8cc8-4938-b196-c7dee871e7ed",
-                    "path": "<MidiDevice>/control076",
+                    "path": "<MidiDevice>/control093",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -680,7 +680,7 @@
                 {
                     "name": "",
                     "id": "3ef836ca-beee-40fc-a966-0da6d559376c",
-                    "path": "<MidiDevice>/control071",
+                    "path": "<MidiDevice>/control019",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -701,19 +701,8 @@
                 },
                 {
                     "name": "",
-                    "id": "c3ddbdae-86d8-46fa-b5d8-cdc4e92652f5",
-                    "path": "<MidiDevice>/control077",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FogEnd",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "56a18fc0-4b76-4170-8e93-f10a37fb5511",
-                    "path": "<MidiDevice>/control091",
+                    "path": "<MidiDevice>/control079",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -724,7 +713,7 @@
                 {
                     "name": "",
                     "id": "7881b2e3-04f4-4a40-a7b1-5b25dbb474b5",
-                    "path": "<MidiDevice>/control073",
+                    "path": "<MidiDevice>/control017",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -734,19 +723,8 @@
                 },
                 {
                     "name": "",
-                    "id": "961af575-6f15-4d29-80f8-c52b072e62ab",
-                    "path": "<MidiDevice>/control079",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Metalic",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "55120f78-e8c5-460f-ab11-13076af5775a",
-                    "path": "<MidiDevice>/control075",
+                    "path": "<MidiDevice>/control091",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -757,11 +735,22 @@
                 {
                     "name": "",
                     "id": "142a0cb1-7a30-4f50-bbdd-987af897df1b",
-                    "path": "<MidiDevice>/control072",
+                    "path": "<MidiDevice>/control073",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Tint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c204759b-877b-473f-9992-2c35fbcfc0d7",
+                    "path": "<MidiDevice>/control076",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FogEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
