@@ -222,9 +222,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "FogStart",
+                    "name": "Smootyness",
                     "type": "Value",
-                    "id": "fcd1478e-17a4-4b95-91ca-1781f7e8ce0b",
+                    "id": "03633395-216b-428b-9276-6c09fb143b02",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Metalic",
+                    "type": "Value",
+                    "id": "616eb8eb-1a01-428b-8076-2d0189630bda",
                     "expectedControlType": "MidiValue",
                     "processors": "",
                     "interactions": "",
@@ -685,23 +694,34 @@
                 },
                 {
                     "name": "",
-                    "id": "7c0482da-ec0a-4e29-828c-004cf60b0445",
-                    "path": "<MidiDevice>/control077",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "FogStart",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "56a18fc0-4b76-4170-8e93-f10a37fb5511",
                     "path": "<MidiDevice>/control091",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ShaderSpeed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7881b2e3-04f4-4a40-a7b1-5b25dbb474b5",
+                    "path": "<MidiDevice>/control073",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smootyness",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "961af575-6f15-4d29-80f8-c52b072e62ab",
+                    "path": "<MidiDevice>/control079",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Metalic",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

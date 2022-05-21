@@ -107,7 +107,29 @@ public class CornerCamera : MonoBehaviour
         ns.material.SetFloat("_CI", f);
     }
 
-    public void FogStart(InputAction.CallbackContext context)
+    public void Smoothness(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>();    
+        Debug.Log("Smoothness: " + f);    
+        ns.material.SetFloat("_Smoothness", f);
+    }
+
+    public void Metalic(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>();    
+        Debug.Log("Metalic: " + f);    
+        ns.material.SetFloat("_Metalic", f);
+    }
+
+    /*public void FogStart(InputAction.CallbackContext context)
     {
         if (ShouldIgnore(context))
         {
@@ -118,6 +140,7 @@ public class CornerCamera : MonoBehaviour
         RenderSettings.fogStartDistance = f;
         //ns.material.SetFloat("_CI", f);
     }
+    */
 
     public void FogEnd(InputAction.CallbackContext context)
     {
@@ -401,7 +424,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() * 200;
+        float f = 1.0f + context.ReadValue<float>() * 200;
         Debug.Log("Range: " + f);
         ns.material.SetFloat("_PositionScale", f);
     }

@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 13214
+  controlID: 15555
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -76,9 +76,9 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ActionsTreeState:
-    scrollPos: {x: 0, y: 720}
-    m_SelectedIDs: 0fac750c
-    m_LastClickedID: 209038351
+    scrollPos: {x: 0, y: 830}
+    m_SelectedIDs: a4e9293b
+    m_LastClickedID: 992602532
     m_ExpandedIDs: d591238da9d3ea9b91bda09ce38767a0b60b5fa65dfa6ca6272115c323747dc5d2fbc1d58c402dd62a1e89e05ca4cceac943eff50d98700075e08e04e3f6c11937b25e2195768525c75dca29a4abea2aa4cbf92ad50821314c729d3d31de8944dc782c4644f3145305150f59dbeba25d8dd1da5f2a1f7063867ebf631886616abc373c706c1e40722a704f782221a77c026e237e
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 7}
+      m_ClientGUIView: {fileID: 0}
     m_SearchString: 
   m_ControlPickerViewState:
     m_AdvancedDropdownState:
@@ -499,12 +499,12 @@ MonoBehaviour:
       \"isComposite\": false,\n                    \"isPartOfComposite\": false\n               
       },\n                {\n                    \"name\": \"\",\n                   
       \"id\": \"c3ddbdae-86d8-46fa-b5d8-cdc4e92652f5\",\n                    \"path\":
-      \"<MidiDevice>/control077\",\n                    \"interactions\": \"\",\n                   
+      \"<MidiDevice>/control017\",\n                    \"interactions\": \"\",\n                   
       \"processors\": \"\",\n                    \"groups\": \"\",\n                   
       \"action\": \"FogEnd\",\n                    \"isComposite\": false,\n                   
       \"isPartOfComposite\": false\n                },\n                {\n                   
       \"name\": \"\",\n                    \"id\": \"7c0482da-ec0a-4e29-828c-004cf60b0445\",\n                   
-      \"path\": \"<MidiDevice>/control017\",\n                    \"interactions\":
+      \"path\": \"<MidiDevice>/control077\",\n                    \"interactions\":
       \"\",\n                    \"processors\": \"\",\n                    \"groups\":
       \"\",\n                    \"action\": \"FogStart\",\n                    \"isComposite\":
       false,\n                    \"isPartOfComposite\": false\n                },\n               
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 13215
+  controlID: 15556
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 13216
+  controlID: 15557
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -636,9 +636,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: f8faffff
+      m_SelectedIDs: d0500000
+      m_LastClickedID: 20688
+      m_ExpandedIDs: f8faffffe4500000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 13282
+  controlID: 15781
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1303,9 +1303,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: d0500000
+    m_LastClickedInstanceID: 20688
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 13319
+  controlID: 15704
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
