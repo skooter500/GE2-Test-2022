@@ -1029,6 +1029,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 616eb8eb-1a01-428b-8076-2d0189630bda
     m_ActionName: MIDI Controls/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: Temp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3db9e6a6-0a92-4290-99e9-2afbdec90b29
+    m_ActionName: MIDI Controls/Temp[/MidiDevice/control075]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925074}
+        m_TargetAssemblyTypeName: CornerCamera, Assembly-CSharp
+        m_MethodName: Tint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d77f76f5-c2eb-4979-9f18-33cbb0c41d44
+    m_ActionName: MIDI Controls/Tint[/MidiDevice/control075,/MidiDevice/control072]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
