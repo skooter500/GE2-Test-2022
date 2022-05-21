@@ -757,17 +757,6 @@
                 {
                     "name": "",
                     "id": "142a0cb1-7a30-4f50-bbdd-987af897df1b",
-                    "path": "<MidiDevice>/control075",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Tint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "006398d6-4f2a-4d1f-9b45-8eb3680efffe",
                     "path": "<MidiDevice>/control072",
                     "interactions": "",
                     "processors": "",
