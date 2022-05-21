@@ -435,7 +435,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>();
+        float f = context.ReadValue<float>() * 100;
         Debug.Log("Radius: " + f);
         ns.radius = f;
     }
@@ -457,7 +457,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>();
+        float f = context.ReadValue<float>() * 50;
         Debug.Log("Shader Time: " + f);
         ns.material.SetFloat("_TimeMultiplier", f);
     }
