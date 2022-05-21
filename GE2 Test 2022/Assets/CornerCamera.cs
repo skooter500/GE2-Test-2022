@@ -102,9 +102,33 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>();    
+        float f = context.ReadValue<float>() * 200;    
         Debug.Log("Center Light: " + f);    
         ns.material.SetFloat("_CI", f);
+    }
+
+    public void FogStart(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>() * 200;    
+        Debug.Log("Fog STart: " + f);    
+        RenderSettings.fogStartDistance = f;
+        //ns.material.SetFloat("_CI", f);
+    }
+
+    public void FogEnd(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = context.ReadValue<float>() * 200;    
+        Debug.Log("Fog End: " + f);    
+        RenderSettings.fogEndDistance = f;
+        //ns.material.SetFloat("_CI", f);
     }
 
 
@@ -125,6 +149,7 @@ public class CornerCamera : MonoBehaviour
         return shouldIgnore;
     }
 
+
     public void Alpha(InputAction.CallbackContext context)
     {
         Debug.Log(context);
@@ -143,7 +168,7 @@ public class CornerCamera : MonoBehaviour
             return;
         }
         
-        float f = context.ReadValue<float>();        
+        float f = context.ReadValue<float>() * 50;        
         Debug.Log("Directional Light: " + f);
         directionalLight.intensity = f;
     }
@@ -161,21 +186,10 @@ public class CornerCamera : MonoBehaviour
             return;
         }
         
-        float f = context.ReadValue<float>();        
+        float f = context.ReadValue<float>() * 50;        
         Debug.Log("Front Feeler Length: " + f);
         ns.feelerDepth = f;
         ns.sideFeelerDepth  = f;
-    }
-
-    public void SideFeelerLength(InputAction.CallbackContext context)
-    {
-        if (ShouldIgnore(context))
-        {
-            return;
-        }
-        float f = context.ReadValue<float>();        
-        //Debug.Log("Side Feeler Length: " + f);
-        //ns.sideFeelerDepth = f;
     }
 
     private Bloom bloom;
@@ -387,7 +401,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() + 10;
+        float f = context.ReadValue<float>() * 200;
         Debug.Log("Range: " + f);
         ns.material.SetFloat("_PositionScale", f);
     }
