@@ -115,7 +115,29 @@ public class CornerCamera : MonoBehaviour
         }
         float f = context.ReadValue<float>();    
         Debug.Log("Smoothness: " + f);    
-        ns.material.SetFloat("_Smoothness", f);
+        ns.material.SetFloat("_Glossiness", f);
+    }
+    
+    public void Temp(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = (context.ReadValue<float>() - 0.5f) * 200;    
+        Debug.Log("Temp: " + f);    
+        colorGrading.temperature.Override(f);
+    }
+    
+    public void Tint(InputAction.CallbackContext context)
+    {
+        if (ShouldIgnore(context))
+        {
+            return;
+        }
+        float f = (context.ReadValue<float>() - 0.5f) * 200;    
+        Debug.Log("Tint: " + f);    
+        colorGrading.tint.Override(f);    
     }
 
     public void Metalic(InputAction.CallbackContext context)
@@ -126,7 +148,7 @@ public class CornerCamera : MonoBehaviour
         }
         float f = context.ReadValue<float>();    
         Debug.Log("Metalic: " + f);    
-        ns.material.SetFloat("_Metalic", f);
+        ns.material.SetFloat("_Metallic", f);
     }
 
     /*public void FogStart(InputAction.CallbackContext context)

@@ -238,6 +238,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Temp",
+                    "type": "Value",
+                    "id": "3db9e6a6-0a92-4290-99e9-2afbdec90b29",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Tint",
+                    "type": "Value",
+                    "id": "d77f76f5-c2eb-4979-9f18-33cbb0c41d44",
+                    "expectedControlType": "MidiValue",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -722,6 +740,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Metalic",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "55120f78-e8c5-460f-ab11-13076af5775a",
+                    "path": "<MidiDevice>/control075",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Temp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "142a0cb1-7a30-4f50-bbdd-987af897df1b",
+                    "path": "<MidiDevice>/control075",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "006398d6-4f2a-4d1f-9b45-8eb3680efffe",
+                    "path": "<MidiDevice>/control072",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
