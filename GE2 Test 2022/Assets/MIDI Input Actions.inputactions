@@ -691,7 +691,7 @@
                 {
                     "name": "",
                     "id": "eb94fee4-9c86-4922-9bfc-b09369e6445f",
-                    "path": "<MidiDevice>/control016",
+                    "path": "<MidiDevice>/control017",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -713,7 +713,7 @@
                 {
                     "name": "",
                     "id": "7881b2e3-04f4-4a40-a7b1-5b25dbb474b5",
-                    "path": "<MidiDevice>/control017",
+                    "path": "<MidiDevice>/control016",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
