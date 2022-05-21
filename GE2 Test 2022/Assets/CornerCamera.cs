@@ -457,7 +457,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>() * 50;
+        float f = context.ReadValue<float>() * 100;
         Debug.Log("Shader Time: " + f);
         ns.material.SetFloat("_TimeMultiplier", f);
     }
