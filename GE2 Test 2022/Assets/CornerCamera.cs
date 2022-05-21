@@ -253,7 +253,7 @@ public class CornerCamera : MonoBehaviour
         {
             return;
         }
-        float f = context.ReadValue<float>();        
+        float f = context.ReadValue<float>() * 20;        
         Debug.Log("Bloom: " + f); 
         
         bloom.intensity.Override(f);
