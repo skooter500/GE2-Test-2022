@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 1049925075}
   - component: {fileID: 1049925074}
   - component: {fileID: 1049925076}
+  - component: {fileID: 1049925077}
   m_Layer: 0
   m_Name: root
   m_TagString: Untagged
@@ -579,7 +580,7 @@ MonoBehaviour:
   toDistance: 0
   to: {x: 0, y: 0, z: 0, w: 0}
   angle: 90
-  transitionTime: 1.5
+  transitionTime: 2
   elapsed: 0
   step: 25
   min: 0
@@ -1061,8 +1062,36 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d77f76f5-c2eb-4979-9f18-33cbb0c41d44
     m_ActionName: MIDI Controls/Tint[/MidiDevice/control075,/MidiDevice/control072]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1049925077}
+        m_TargetAssemblyTypeName: ConsoleToGUI, Assembly-CSharp
+        m_MethodName: ToggleConsole
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb5b105f-16bd-452e-9288-bdd4f6865971
+    m_ActionName: MIDI Controls/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: MIDI Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 963194227}
+--- !u!114 &1049925077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049925072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a037d5e5707075439e233e81de6d414, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

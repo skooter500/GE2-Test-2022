@@ -28,6 +28,8 @@ public class CornerCamera : MonoBehaviour
 
     public Transition transition = Transition.rotation; 
 
+    Queue<Transition> transitions = new Queue<Transition>();
+
     NematodeSchool ns;
 
     public Utilities.EASE ease;
@@ -440,6 +442,8 @@ public class CornerCamera : MonoBehaviour
         ns.radius = f;
     }
 
+    float desiredRange = 0;
+
     public void ColorRange(InputAction.CallbackContext context)
     {
         if (ShouldIgnore(context))
@@ -447,9 +451,11 @@ public class CornerCamera : MonoBehaviour
             return;
         }
         float f = 1.0f + context.ReadValue<float>() * 200;
-        Debug.Log("Range: " + f);
-        ns.material.SetFloat("_PositionScale", f);
+        Debug.Log("Desired Range: " + f);
+        desiredRange = f;        
     }
+
+    float desiredShaderTime =0;
 
     public void ShaderTime(InputAction.CallbackContext context)
     {
@@ -458,8 +464,8 @@ public class CornerCamera : MonoBehaviour
             return;
         }
         float f = context.ReadValue<float>() * 100;
-        Debug.Log("Shader Time: " + f);
-        ns.material.SetFloat("_TimeMultiplier", f);
+        Debug.Log("Desired Time: " + f);
+        desiredShaderTime = f;
     }
 
     private static float timeScale = 2.5f;
@@ -495,6 +501,12 @@ public class CornerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
+
+
+                    
+        ns.material.SetFloat("_TimeMultiplier", Mathf.Lerp(ns.material.GetFloat("_TimeMultiplier"), desiredShaderTime, Time.deltaTime * .3f));
+        ns.material.SetFloat("_PositionScale", Mathf.Lerp(ns.material.GetFloat("_PositionScale"), desiredShaderTime, Time.deltaTime * .1f));
+
         if (elapsed < transitionTime)
         {
             elapsed += Time.deltaTime;
